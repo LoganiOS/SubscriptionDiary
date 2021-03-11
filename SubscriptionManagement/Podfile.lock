@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (5.4.1)
+  - JTAppleCalendar (8.0.3)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.2)
+
+DEPENDENCIES:
+  - JTAppleCalendar
+  - Moya/RxSwift
+  - RxCocoa
+  - RxSwift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - JTAppleCalendar
+    - Moya
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
+
+PODFILE CHECKSUM: 4f76f9ebaaec657a4f3cfc0cf1be31fa2f07050e
+
+COCOAPODS: 1.10.1

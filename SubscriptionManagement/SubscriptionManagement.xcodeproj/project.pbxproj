@@ -1,0 +1,1244 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0213B47D25D7002200765D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA1255567F600D01B79 /* Assets.xcassets */; };
+		021E2F8225750B9300DC35B5 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
+		0237D36E257BC1F700E5A62A /* AddServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D36D257BC1F700E5A62A /* AddServiceTableViewController.swift */; };
+		023A1E3E2588CAF800C2007E /* DateSettingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */; };
+		0243E2E125F2C7E700DD1BA7 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */; };
+		024DF8FC258A541700EBEAF4 /* UIColor+rgb(init).swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */; };
+		024DF907258A6EED00EBEAF4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF906258A6EED00EBEAF4 /* Date.swift */; };
+		02628BD325FA613B00D122EA /* Service+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02628BD225FA613B00D122EA /* Service+getImage.swift */; };
+		02628BD825FA614300D122EA /* Service+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02628BD225FA613B00D122EA /* Service+getImage.swift */; };
+		026A3D932588FEDA0008FEBE /* PaymentDateStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026A3D922588FEDA0008FEBE /* PaymentDateStatusViewController.swift */; };
+		026A3D9C2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026A3D9B2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift */; };
+		026FB4AF257E456600F17900 /* NSMutableAttributedString+titleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */; };
+		0273C25B2577A453008CBAA2 /* SavedService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */; };
+		0273C2602577A555008CBAA2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273C25F2577A555008CBAA2 /* CoreDataManager.swift */; };
+		02744F1F25F955C50018B64C /* String+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98E625F951BF004C1327 /* String+getImage.swift */; };
+		02744F4325F97A280018B64C /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */; };
+		02766A9125DD4EDB00AC947D /* IconChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02766A9025DD4EDB00AC947D /* IconChangeViewController.swift */; };
+		02766A9825DD4F3500AC947D /* IconChangeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02766A9725DD4F3500AC947D /* IconChangeCollectionViewCell.swift */; };
+		02879702257638F200C524A0 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02879701257638F200C524A0 /* Notification.Name.swift */; };
+		0288C179256C0F47003D1425 /* ServiceListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0288C178256C0F47003D1425 /* ServiceListTableViewCell.swift */; };
+		0291AF1E256ABDD5005080CF /* ServiceListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0291AF1D256ABDD5005080CF /* ServiceListTableViewController.swift */; };
+		0291AF24256AC44B005080CF /* SavedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0291AF23256AC44B005080CF /* SavedService.swift */; };
+		029214C82587E5430039B170 /* RenewalDateSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029214C72587E5430039B170 /* RenewalDateSettingViewController.swift */; };
+		029C863725DC13F600EB1C6F /* SavedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0291AF23256AC44B005080CF /* SavedService.swift */; };
+		029F014E25E5820E00C61313 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F014D25E5820E00C61313 /* UISegmentedControl.swift */; };
+		02A0089A256FFE1F0067E81A /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A00899256FFE1F0067E81A /* BorderView.swift */; };
+		02A3363E256FF97200891554 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3363D256FF97200891554 /* UIView+shadow.swift */; };
+		02A860D025715E34002F8613 /* CornerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860CF25715E34002F8613 /* CornerRadiusView.swift */; };
+		02A860D625715EC4002F8613 /* CornerRadiusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860D525715EC4002F8613 /* CornerRadiusImageView.swift */; };
+		02A860DE25715EF8002F8613 /* BorderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860DD25715EF8002F8613 /* BorderImageView.swift */; };
+		02B897CD258BEBDF00C6E94F /* DDayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B897CC258BEBDF00C6E94F /* DDayTableViewCell.swift */; };
+		02C063FC25603508007E2EDA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C063FB25603508007E2EDA /* TabBarViewController.swift */; };
+		02C064072560395A007E2EDA /* SubscriptionStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C064062560395A007E2EDA /* SubscriptionStatusViewController.swift */; };
+		02C253EA2581E0E100CF5755 /* StartDateSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C253E92581E0E100CF5755 /* StartDateSettingViewController.swift */; };
+		02C799C225D443E400967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
+		02C799CE25D4452B00967972 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799CD25D4452B00967972 /* WidgetKit.framework */; };
+		02C799CF25D4452B00967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
+		02C799D225D4452B00967972 /* SubscriptionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C799D125D4452B00967972 /* SubscriptionWidget.swift */; };
+		02C799D425D4452C00967972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C799D325D4452C00967972 /* Assets.xcassets */; };
+		02C799D825D4452C00967972 /* SubscriptionWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		02C799EC25D445E600967972 /* SavedService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */; };
+		02C799ED25D445E900967972 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DE79E225C9778700FFC303 /* CustomColor.swift */; };
+		02C79A1125D4469A00967972 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273C25F2577A555008CBAA2 /* CoreDataManager.swift */; };
+		02C79A1625D4474600967972 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF906258A6EED00EBEAF4 /* Date.swift */; };
+		02C79A1B25D4474A00967972 /* UIColor+rgb(init).swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */; };
+		02C79A2025D4474D00967972 /* NSMutableAttributedString+titleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */; };
+		02C79A2525D4475100967972 /* String+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9A258F86CC00141672 /* String+Attribute.swift */; };
+		02C79A2A25D4475300967972 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
+		02C79A2F25D4475500967972 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02879701257638F200C524A0 /* Notification.Name.swift */; };
+		02C79A3425D4475A00967972 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3363D256FF97200891554 /* UIView+shadow.swift */; };
+		02C79A3925D4475C00967972 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1E687258140BD008FF809 /* UIViewController+alert.swift */; };
+		02C79A5325D450B700967972 /* SubscriptionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79A4D25D44E1000967972 /* SubscriptionEntry.swift */; };
+		02C79A5E25D4514100967972 /* SubscriptionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79A5825D450C800967972 /* SubscriptionProvider.swift */; };
+		02C94D8125892E5900A42F04 /* UserSavedServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C94D8025892E5900A42F04 /* UserSavedServiceCollectionViewCell.swift */; };
+		02CB6D99255567F300D01B79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB6D98255567F300D01B79 /* AppDelegate.swift */; };
+		02CB6D9B255567F300D01B79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB6D9A255567F300D01B79 /* SceneDelegate.swift */; };
+		02CB6DA0255567F300D01B79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6D9E255567F300D01B79 /* Main.storyboard */; };
+		02CB6DA2255567F600D01B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA1255567F600D01B79 /* Assets.xcassets */; };
+		02CB6DA5255567F600D01B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA3255567F600D01B79 /* LaunchScreen.storyboard */; };
+		02CB6DB0255567F600D01B79 /* SubscriptionManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */; };
+		02CB6DBB255567F600D01B79 /* SubscriptionManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB6DBA255567F600D01B79 /* SubscriptionManagementUITests.swift */; };
+		02D1E688258140BD008FF809 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1E687258140BD008FF809 /* UIViewController+alert.swift */; };
+		02D3C16F25EC140900F8F13A /* ServiceApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */; };
+		02D3C17025EC140900F8F13A /* ServiceApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */; };
+		02D3C17A25EC1C4A00F8F13A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C17925EC1C4A00F8F13A /* Service.swift */; };
+		02D3C17B25EC1C4A00F8F13A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C17925EC1C4A00F8F13A /* Service.swift */; };
+		02D6183825D96B5B0032C6FC /* SavedServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D6183725D96B5B0032C6FC /* SavedServiceView.swift */; };
+		02D6185925D96C200032C6FC /* SubscriptionWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D6183D25D96B840032C6FC /* SubscriptionWidgetEntryView.swift */; };
+		02DBEF9B258F86CC00141672 /* String+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9A258F86CC00141672 /* String+Attribute.swift */; };
+		02DBEFA0258FB25400141672 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9F258FB25400141672 /* CalendarTableViewCell.swift */; };
+		02DC98DC25F914A1004C1327 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98DB25F914A1004C1327 /* FileManager.swift */; };
+		02DC98E125F914F3004C1327 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98DB25F914A1004C1327 /* FileManager.swift */; };
+		02DC98E725F951BF004C1327 /* String+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98E625F951BF004C1327 /* String+getImage.swift */; };
+		02DC98ED25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */; };
+		02DC98EE25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */; };
+		02DE79E325C9778700FFC303 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DE79E225C9778700FFC303 /* CustomColor.swift */; };
+		02E19E1425A480B6003492CF /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E1325A480B6003492CF /* SettingTableViewCell.swift */; };
+		02E19E1C25A4814C003492CF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E1B25A4814C003492CF /* SettingViewController.swift */; };
+		02E19E2425A483F4003492CF /* ColorSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E2325A483F4003492CF /* ColorSettingViewController.swift */; };
+		02E19E2925A48830003492CF /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E2825A48830003492CF /* ColorCollectionViewCell.swift */; };
+		02EDB2D525716B060008ED4B /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDB2D425716B060008ED4B /* ShadowView.swift */; };
+		02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDB2EB25716E130008ED4B /* SubscriptionStatusTableViewCell.swift */; };
+		02FA087F258BB1B000C24F96 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA087E258BB1B000C24F96 /* DateCell.swift */; };
+		02FAC5EF25FA9492001634E4 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAC5EE25FA9492001634E4 /* ServiceProvider.swift */; };
+		02FAC5F425FA949D001634E4 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAC5EE25FA9492001634E4 /* ServiceProvider.swift */; };
+		359B60E5ABB51BC282988F94 /* libPods-SubscriptionWidgetExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B728EB1CB0D1A144C0C90D82 /* libPods-SubscriptionWidgetExtension.a */; };
+		8888B8FB80AFAE7D1B71F2BA /* libPods-SubscriptionManagement.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 218FFCDFF4464321AE656119 /* libPods-SubscriptionManagement.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02C799D625D4452C00967972 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02CB6D8D255567F300D01B79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C799CB25D4452B00967972;
+			remoteInfo = SubscriptionWidgetExtension;
+		};
+		02CB6DAC255567F600D01B79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02CB6D8D255567F300D01B79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02CB6D94255567F300D01B79;
+			remoteInfo = SubscriptionManagement;
+		};
+		02CB6DB7255567F600D01B79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02CB6D8D255567F300D01B79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02CB6D94255567F300D01B79;
+			remoteInfo = SubscriptionManagement;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		02C799DC25D4452C00967972 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				02C799D825D4452C00967972 /* SubscriptionWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+numberFormattedString.swift"; sourceTree = "<group>"; };
+		0237D36D257BC1F700E5A62A /* AddServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewController.swift; sourceTree = "<group>"; };
+		023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSettingViewControllerDelegate.swift; sourceTree = "<group>"; };
+		0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
+		024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb(init).swift"; sourceTree = "<group>"; };
+		024DF906258A6EED00EBEAF4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		02628BD225FA613B00D122EA /* Service+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+getImage.swift"; sourceTree = "<group>"; };
+		026A3D922588FEDA0008FEBE /* PaymentDateStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDateStatusViewController.swift; sourceTree = "<group>"; };
+		026A3D9B2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+titleStyle.swift"; sourceTree = "<group>"; };
+		0273C25A2577A453008CBAA2 /* UserSavedService.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSavedService.xcdatamodel; sourceTree = "<group>"; };
+		0273C25F2577A555008CBAA2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		02766A9025DD4EDB00AC947D /* IconChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangeViewController.swift; sourceTree = "<group>"; };
+		02766A9725DD4F3500AC947D /* IconChangeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangeCollectionViewCell.swift; sourceTree = "<group>"; };
+		02879701257638F200C524A0 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
+		0288C178256C0F47003D1425 /* ServiceListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewCell.swift; sourceTree = "<group>"; };
+		0291AF1D256ABDD5005080CF /* ServiceListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewController.swift; sourceTree = "<group>"; };
+		0291AF23256AC44B005080CF /* SavedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedService.swift; sourceTree = "<group>"; };
+		029214C72587E5430039B170 /* RenewalDateSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewalDateSettingViewController.swift; sourceTree = "<group>"; };
+		029F014D25E5820E00C61313 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
+		02A00899256FFE1F0067E81A /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
+		02A3363D256FF97200891554 /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
+		02A860CF25715E34002F8613 /* CornerRadiusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusView.swift; sourceTree = "<group>"; };
+		02A860D525715EC4002F8613 /* CornerRadiusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusImageView.swift; sourceTree = "<group>"; };
+		02A860DD25715EF8002F8613 /* BorderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImageView.swift; sourceTree = "<group>"; };
+		02B897CC258BEBDF00C6E94F /* DDayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDayTableViewCell.swift; sourceTree = "<group>"; };
+		02C063FB25603508007E2EDA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		02C064062560395A007E2EDA /* SubscriptionStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewController.swift; sourceTree = "<group>"; };
+		02C253E92581E0E100CF5755 /* StartDateSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDateSettingViewController.swift; sourceTree = "<group>"; };
+		02C799C125D443E400967972 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		02C799C325D4440E00967972 /* SubscriptionManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriptionManagement.entitlements; sourceTree = "<group>"; };
+		02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriptionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		02C799CD25D4452B00967972 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		02C799D125D4452B00967972 /* SubscriptionWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionWidget.swift; sourceTree = "<group>"; };
+		02C799D325D4452C00967972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02C799D525D4452C00967972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02C799E125D4458500967972 /* SubscriptionWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriptionWidgetExtension.entitlements; sourceTree = "<group>"; };
+		02C79A4D25D44E1000967972 /* SubscriptionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionEntry.swift; sourceTree = "<group>"; };
+		02C79A5825D450C800967972 /* SubscriptionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProvider.swift; sourceTree = "<group>"; };
+		02C94D8025892E5900A42F04 /* UserSavedServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSavedServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		02CB6D95255567F300D01B79 /* SubscriptionManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubscriptionManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02CB6D98255567F300D01B79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		02CB6D9A255567F300D01B79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		02CB6D9F255567F300D01B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		02CB6DA1255567F600D01B79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02CB6DA4255567F600D01B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		02CB6DA6255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02CB6DAB255567F600D01B79 /* SubscriptionManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManagementTests.swift; sourceTree = "<group>"; };
+		02CB6DB1255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02CB6DB6255567F600D01B79 /* SubscriptionManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02CB6DBA255567F600D01B79 /* SubscriptionManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManagementUITests.swift; sourceTree = "<group>"; };
+		02CB6DBC255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02D1E687258140BD008FF809 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
+		02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceApiManager.swift; sourceTree = "<group>"; };
+		02D3C17925EC1C4A00F8F13A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		02D6183725D96B5B0032C6FC /* SavedServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServiceView.swift; sourceTree = "<group>"; };
+		02D6183D25D96B840032C6FC /* SubscriptionWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionWidgetEntryView.swift; sourceTree = "<group>"; };
+		02DBEF9A258F86CC00141672 /* String+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attribute.swift"; sourceTree = "<group>"; };
+		02DBEF9F258FB25400141672 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		02DC98DB25F914A1004C1327 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		02DC98E625F951BF004C1327 /* String+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+getImage.swift"; sourceTree = "<group>"; };
+		02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Widget.swift"; sourceTree = "<group>"; };
+		02DE79E225C9778700FFC303 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		02E19E1325A480B6003492CF /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		02E19E1B25A4814C003492CF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		02E19E2325A483F4003492CF /* ColorSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingViewController.swift; sourceTree = "<group>"; };
+		02E19E2825A48830003492CF /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		02EDB2D425716B060008ED4B /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		02EDB2EB25716E130008ED4B /* SubscriptionStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusTableViewCell.swift; sourceTree = "<group>"; };
+		02FA087E258BB1B000C24F96 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		02FAC5EE25FA9492001634E4 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		218FFCDFF4464321AE656119 /* libPods-SubscriptionManagement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SubscriptionManagement.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C897719906A024F730AD682 /* Pods-SubscriptionManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionManagement.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionManagement/Pods-SubscriptionManagement.release.xcconfig"; sourceTree = "<group>"; };
+		9EA146DEFA2393CDA16F0557 /* Pods-SubscriptionWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-SubscriptionWidgetExtension/Pods-SubscriptionWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		B728EB1CB0D1A144C0C90D82 /* libPods-SubscriptionWidgetExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SubscriptionWidgetExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9FB18CD94D58C971E3BBCD2 /* Pods-SubscriptionWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-SubscriptionWidgetExtension/Pods-SubscriptionWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		FC869D6059447E92E5F44A04 /* Pods-SubscriptionManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubscriptionManagement.debug.xcconfig"; path = "Target Support Files/Pods-SubscriptionManagement/Pods-SubscriptionManagement.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02C799C925D4452B00967972 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C799CF25D4452B00967972 /* SwiftUI.framework in Frameworks */,
+				02C799CE25D4452B00967972 /* WidgetKit.framework in Frameworks */,
+				359B60E5ABB51BC282988F94 /* libPods-SubscriptionWidgetExtension.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6D92255567F300D01B79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C799C225D443E400967972 /* SwiftUI.framework in Frameworks */,
+				8888B8FB80AFAE7D1B71F2BA /* libPods-SubscriptionManagement.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6DA8255567F600D01B79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6DB3255567F600D01B79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		023A1E3C2588CADD00C2007E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		026A3D902588FE460008FEBE /* SubscriptionStatus */ = {
+			isa = PBXGroup;
+			children = (
+				02766A9625DD4F1D00AC947D /* CollectionViewCells */,
+				0288C177256C0F2D003D1425 /* TableViewCells */,
+				02C064062560395A007E2EDA /* SubscriptionStatusViewController.swift */,
+				0291AF1D256ABDD5005080CF /* ServiceListTableViewController.swift */,
+				0237D36D257BC1F700E5A62A /* AddServiceTableViewController.swift */,
+				02766A9025DD4EDB00AC947D /* IconChangeViewController.swift */,
+				02C253E92581E0E100CF5755 /* StartDateSettingViewController.swift */,
+				029214C72587E5430039B170 /* RenewalDateSettingViewController.swift */,
+			);
+			path = SubscriptionStatus;
+			sourceTree = "<group>";
+		};
+		026A3D912588FE6C0008FEBE /* PaymentDateStatus */ = {
+			isa = PBXGroup;
+			children = (
+				026A3D9A2588FF5E0008FEBE /* TableViewCells */,
+				02C94D7F25892E0400A42F04 /* CollectionViewCells */,
+				026A3D922588FEDA0008FEBE /* PaymentDateStatusViewController.swift */,
+			);
+			path = PaymentDateStatus;
+			sourceTree = "<group>";
+		};
+		026A3D9A2588FF5E0008FEBE /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				02B897CC258BEBDF00C6E94F /* DDayTableViewCell.swift */,
+				02DBEF9F258FB25400141672 /* CalendarTableViewCell.swift */,
+				026A3D9B2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		02766A9625DD4F1D00AC947D /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				02766A9725DD4F3500AC947D /* IconChangeCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		0288C177256C0F2D003D1425 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				02EDB2EB25716E130008ED4B /* SubscriptionStatusTableViewCell.swift */,
+				0288C178256C0F47003D1425 /* ServiceListTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		028EC93F256FE71A006D3657 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02A3363D256FF97200891554 /* UIView+shadow.swift */,
+				02D1E687258140BD008FF809 /* UIViewController+alert.swift */,
+				02879701257638F200C524A0 /* Notification.Name.swift */,
+				021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */,
+				02DBEF9A258F86CC00141672 /* String+Attribute.swift */,
+				02DC98E625F951BF004C1327 /* String+getImage.swift */,
+				026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */,
+				024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */,
+				024DF906258A6EED00EBEAF4 /* Date.swift */,
+				029F014D25E5820E00C61313 /* UISegmentedControl.swift */,
+				0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */,
+				02DC98DB25F914A1004C1327 /* FileManager.swift */,
+				02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */,
+				02628BD225FA613B00D122EA /* Service+getImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0291AF22256AC431005080CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0291AF23256AC44B005080CF /* SavedService.swift */,
+				02D3C17925EC1C4A00F8F13A /* Service.swift */,
+				02DE79E225C9778700FFC303 /* CustomColor.swift */,
+				0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		02A00895256FFDC00067E81A /* DesignableViews */ = {
+			isa = PBXGroup;
+			children = (
+				02A860D425715EB0002F8613 /* UIImageView */,
+				02B4E16325715CD200B7771C /* UIView */,
+			);
+			path = DesignableViews;
+			sourceTree = "<group>";
+		};
+		02A860D425715EB0002F8613 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				02A860DD25715EF8002F8613 /* BorderImageView.swift */,
+				02A860D525715EC4002F8613 /* CornerRadiusImageView.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		02B4E16325715CD200B7771C /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				02EDB2D425716B060008ED4B /* ShadowView.swift */,
+				02A00899256FFE1F0067E81A /* BorderView.swift */,
+				02A860CF25715E34002F8613 /* CornerRadiusView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		02C799D025D4452B00967972 /* SubscriptionWidget */ = {
+			isa = PBXGroup;
+			children = (
+				02C799D125D4452B00967972 /* SubscriptionWidget.swift */,
+				02C79A4825D44C4200967972 /* Model */,
+				02C79A4725D44C3300967972 /* Provider */,
+				02C79A4625D44C2F00967972 /* View */,
+				02C799D325D4452C00967972 /* Assets.xcassets */,
+				02C799D525D4452C00967972 /* Info.plist */,
+			);
+			path = SubscriptionWidget;
+			sourceTree = "<group>";
+		};
+		02C79A4625D44C2F00967972 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				02D6183725D96B5B0032C6FC /* SavedServiceView.swift */,
+				02D6183D25D96B840032C6FC /* SubscriptionWidgetEntryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02C79A4725D44C3300967972 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				02C79A5825D450C800967972 /* SubscriptionProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		02C79A4825D44C4200967972 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02C79A4D25D44E1000967972 /* SubscriptionEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		02C94D7F25892E0400A42F04 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				02C94D8025892E5900A42F04 /* UserSavedServiceCollectionViewCell.swift */,
+				02FA087E258BB1B000C24F96 /* DateCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		02CB6D8C255567F300D01B79 = {
+			isa = PBXGroup;
+			children = (
+				02C799E125D4458500967972 /* SubscriptionWidgetExtension.entitlements */,
+				02CB6D97255567F300D01B79 /* SubscriptionManagement */,
+				02CB6DAE255567F600D01B79 /* SubscriptionManagementTests */,
+				02CB6DB9255567F600D01B79 /* SubscriptionManagementUITests */,
+				02C799D025D4452B00967972 /* SubscriptionWidget */,
+				02CB6D96255567F300D01B79 /* Products */,
+				28282087579B2EA87CEF715B /* Frameworks */,
+				4C738F8DBFEE54F1E258457D /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		02CB6D96255567F300D01B79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02CB6D95255567F300D01B79 /* SubscriptionManagement.app */,
+				02CB6DAB255567F600D01B79 /* SubscriptionManagementTests.xctest */,
+				02CB6DB6255567F600D01B79 /* SubscriptionManagementUITests.xctest */,
+				02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02CB6D97255567F300D01B79 /* SubscriptionManagement */ = {
+			isa = PBXGroup;
+			children = (
+				02C799C325D4440E00967972 /* SubscriptionManagement.entitlements */,
+				02CB6D98255567F300D01B79 /* AppDelegate.swift */,
+				02CB6D9A255567F300D01B79 /* SceneDelegate.swift */,
+				02CB6D9E255567F300D01B79 /* Main.storyboard */,
+				02CB6DA3255567F600D01B79 /* LaunchScreen.storyboard */,
+				02CB6DA1255567F600D01B79 /* Assets.xcassets */,
+				02CB6DA6255567F600D01B79 /* Info.plist */,
+				02C063FB25603508007E2EDA /* TabBarViewController.swift */,
+				026A3D902588FE460008FEBE /* SubscriptionStatus */,
+				026A3D912588FE6C0008FEBE /* PaymentDateStatus */,
+				02E19E1225A4809E003492CF /* Setting */,
+				02D3C16D25EC13ED00F8F13A /* Api */,
+				0291AF22256AC431005080CF /* Models */,
+				02A00895256FFDC00067E81A /* DesignableViews */,
+				028EC93F256FE71A006D3657 /* Extensions */,
+				023A1E3C2588CADD00C2007E /* Protocol */,
+			);
+			path = SubscriptionManagement;
+			sourceTree = "<group>";
+		};
+		02CB6DAE255567F600D01B79 /* SubscriptionManagementTests */ = {
+			isa = PBXGroup;
+			children = (
+				02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */,
+				02CB6DB1255567F600D01B79 /* Info.plist */,
+			);
+			path = SubscriptionManagementTests;
+			sourceTree = "<group>";
+		};
+		02CB6DB9255567F600D01B79 /* SubscriptionManagementUITests */ = {
+			isa = PBXGroup;
+			children = (
+				02CB6DBA255567F600D01B79 /* SubscriptionManagementUITests.swift */,
+				02CB6DBC255567F600D01B79 /* Info.plist */,
+			);
+			path = SubscriptionManagementUITests;
+			sourceTree = "<group>";
+		};
+		02D3C16D25EC13ED00F8F13A /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */,
+				0273C25F2577A555008CBAA2 /* CoreDataManager.swift */,
+				02FAC5EE25FA9492001634E4 /* ServiceProvider.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		02E19E1225A4809E003492CF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				02E19E1B25A4814C003492CF /* SettingViewController.swift */,
+				02E19E1325A480B6003492CF /* SettingTableViewCell.swift */,
+				02E19E2325A483F4003492CF /* ColorSettingViewController.swift */,
+				02E19E2825A48830003492CF /* ColorCollectionViewCell.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		28282087579B2EA87CEF715B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02C799C125D443E400967972 /* SwiftUI.framework */,
+				02C799CD25D4452B00967972 /* WidgetKit.framework */,
+				218FFCDFF4464321AE656119 /* libPods-SubscriptionManagement.a */,
+				B728EB1CB0D1A144C0C90D82 /* libPods-SubscriptionWidgetExtension.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C738F8DBFEE54F1E258457D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC869D6059447E92E5F44A04 /* Pods-SubscriptionManagement.debug.xcconfig */,
+				4C897719906A024F730AD682 /* Pods-SubscriptionManagement.release.xcconfig */,
+				B9FB18CD94D58C971E3BBCD2 /* Pods-SubscriptionWidgetExtension.debug.xcconfig */,
+				9EA146DEFA2393CDA16F0557 /* Pods-SubscriptionWidgetExtension.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		02C799CB25D4452B00967972 /* SubscriptionWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02C799D925D4452C00967972 /* Build configuration list for PBXNativeTarget "SubscriptionWidgetExtension" */;
+			buildPhases = (
+				E9A24422210A6A9B86B1A4F2 /* [CP] Check Pods Manifest.lock */,
+				02C799C825D4452B00967972 /* Sources */,
+				02C799C925D4452B00967972 /* Frameworks */,
+				02C799CA25D4452B00967972 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SubscriptionWidgetExtension;
+			productName = SubscriptionWidgetExtension;
+			productReference = 02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		02CB6D94255567F300D01B79 /* SubscriptionManagement */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02CB6DBF255567F600D01B79 /* Build configuration list for PBXNativeTarget "SubscriptionManagement" */;
+			buildPhases = (
+				2A5E57D3D61AD1DD3772A216 /* [CP] Check Pods Manifest.lock */,
+				02CB6D91255567F300D01B79 /* Sources */,
+				02CB6D92255567F300D01B79 /* Frameworks */,
+				02CB6D93255567F300D01B79 /* Resources */,
+				02C799DC25D4452C00967972 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02C799D725D4452C00967972 /* PBXTargetDependency */,
+			);
+			name = SubscriptionManagement;
+			productName = SubscriptionManagement;
+			productReference = 02CB6D95255567F300D01B79 /* SubscriptionManagement.app */;
+			productType = "com.apple.product-type.application";
+		};
+		02CB6DAA255567F600D01B79 /* SubscriptionManagementTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02CB6DC2255567F600D01B79 /* Build configuration list for PBXNativeTarget "SubscriptionManagementTests" */;
+			buildPhases = (
+				02CB6DA7255567F600D01B79 /* Sources */,
+				02CB6DA8255567F600D01B79 /* Frameworks */,
+				02CB6DA9255567F600D01B79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02CB6DAD255567F600D01B79 /* PBXTargetDependency */,
+			);
+			name = SubscriptionManagementTests;
+			productName = SubscriptionManagementTests;
+			productReference = 02CB6DAB255567F600D01B79 /* SubscriptionManagementTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		02CB6DB5255567F600D01B79 /* SubscriptionManagementUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02CB6DC5255567F600D01B79 /* Build configuration list for PBXNativeTarget "SubscriptionManagementUITests" */;
+			buildPhases = (
+				02CB6DB2255567F600D01B79 /* Sources */,
+				02CB6DB3255567F600D01B79 /* Frameworks */,
+				02CB6DB4255567F600D01B79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02CB6DB8255567F600D01B79 /* PBXTargetDependency */,
+			);
+			name = SubscriptionManagementUITests;
+			productName = SubscriptionManagementUITests;
+			productReference = 02CB6DB6255567F600D01B79 /* SubscriptionManagementUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02CB6D8D255567F300D01B79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					02C799CB25D4452B00967972 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					02CB6D94255567F300D01B79 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					02CB6DAA255567F600D01B79 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 02CB6D94255567F300D01B79;
+					};
+					02CB6DB5255567F600D01B79 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 02CB6D94255567F300D01B79;
+					};
+				};
+			};
+			buildConfigurationList = 02CB6D90255567F300D01B79 /* Build configuration list for PBXProject "SubscriptionManagement" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 02CB6D8C255567F300D01B79;
+			productRefGroup = 02CB6D96255567F300D01B79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02CB6D94255567F300D01B79 /* SubscriptionManagement */,
+				02CB6DAA255567F600D01B79 /* SubscriptionManagementTests */,
+				02CB6DB5255567F600D01B79 /* SubscriptionManagementUITests */,
+				02C799CB25D4452B00967972 /* SubscriptionWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02C799CA25D4452B00967972 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0213B47D25D7002200765D6C /* Assets.xcassets in Resources */,
+				02C799D425D4452C00967972 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6D93255567F300D01B79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02CB6DA5255567F600D01B79 /* LaunchScreen.storyboard in Resources */,
+				02CB6DA2255567F600D01B79 /* Assets.xcassets in Resources */,
+				02CB6DA0255567F300D01B79 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6DA9255567F600D01B79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6DB4255567F600D01B79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A5E57D3D61AD1DD3772A216 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SubscriptionManagement-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9A24422210A6A9B86B1A4F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SubscriptionWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02C799C825D4452B00967972 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02D6183825D96B5B0032C6FC /* SavedServiceView.swift in Sources */,
+				02744F1F25F955C50018B64C /* String+getImage.swift in Sources */,
+				02C79A3425D4475A00967972 /* UIView+shadow.swift in Sources */,
+				02D3C17025EC140900F8F13A /* ServiceApiManager.swift in Sources */,
+				02C79A3925D4475C00967972 /* UIViewController+alert.swift in Sources */,
+				02C79A5325D450B700967972 /* SubscriptionEntry.swift in Sources */,
+				02C79A5E25D4514100967972 /* SubscriptionProvider.swift in Sources */,
+				02C79A1B25D4474A00967972 /* UIColor+rgb(init).swift in Sources */,
+				02628BD825FA614300D122EA /* Service+getImage.swift in Sources */,
+				02C79A2525D4475100967972 /* String+Attribute.swift in Sources */,
+				02C79A1625D4474600967972 /* Date.swift in Sources */,
+				02C799EC25D445E600967972 /* SavedService.xcdatamodeld in Sources */,
+				02744F4325F97A280018B64C /* UNUserNotificationCenter.swift in Sources */,
+				029C863725DC13F600EB1C6F /* SavedService.swift in Sources */,
+				02C79A1125D4469A00967972 /* CoreDataManager.swift in Sources */,
+				02FAC5F425FA949D001634E4 /* ServiceProvider.swift in Sources */,
+				02DC98EE25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */,
+				02C79A2025D4474D00967972 /* NSMutableAttributedString+titleStyle.swift in Sources */,
+				02D6185925D96C200032C6FC /* SubscriptionWidgetEntryView.swift in Sources */,
+				02C799D225D4452B00967972 /* SubscriptionWidget.swift in Sources */,
+				02DC98E125F914F3004C1327 /* FileManager.swift in Sources */,
+				02C79A2F25D4475500967972 /* Notification.Name.swift in Sources */,
+				02C799ED25D445E900967972 /* CustomColor.swift in Sources */,
+				02C79A2A25D4475300967972 /* String+numberFormattedString.swift in Sources */,
+				02D3C17B25EC1C4A00F8F13A /* Service.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6D91255567F300D01B79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02766A9825DD4F3500AC947D /* IconChangeCollectionViewCell.swift in Sources */,
+				023A1E3E2588CAF800C2007E /* DateSettingViewControllerDelegate.swift in Sources */,
+				02C94D8125892E5900A42F04 /* UserSavedServiceCollectionViewCell.swift in Sources */,
+				024DF907258A6EED00EBEAF4 /* Date.swift in Sources */,
+				02EDB2D525716B060008ED4B /* ShadowView.swift in Sources */,
+				02A3363E256FF97200891554 /* UIView+shadow.swift in Sources */,
+				024DF8FC258A541700EBEAF4 /* UIColor+rgb(init).swift in Sources */,
+				02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */,
+				0291AF1E256ABDD5005080CF /* ServiceListTableViewController.swift in Sources */,
+				02FAC5EF25FA9492001634E4 /* ServiceProvider.swift in Sources */,
+				02D1E688258140BD008FF809 /* UIViewController+alert.swift in Sources */,
+				0273C2602577A555008CBAA2 /* CoreDataManager.swift in Sources */,
+				026A3D9C2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift in Sources */,
+				026FB4AF257E456600F17900 /* NSMutableAttributedString+titleStyle.swift in Sources */,
+				02E19E2925A48830003492CF /* ColorCollectionViewCell.swift in Sources */,
+				02A860D625715EC4002F8613 /* CornerRadiusImageView.swift in Sources */,
+				02DC98DC25F914A1004C1327 /* FileManager.swift in Sources */,
+				02DC98ED25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */,
+				0243E2E125F2C7E700DD1BA7 /* UNUserNotificationCenter.swift in Sources */,
+				0273C25B2577A453008CBAA2 /* SavedService.xcdatamodeld in Sources */,
+				02A860D025715E34002F8613 /* CornerRadiusView.swift in Sources */,
+				02E19E2425A483F4003492CF /* ColorSettingViewController.swift in Sources */,
+				029214C82587E5430039B170 /* RenewalDateSettingViewController.swift in Sources */,
+				02C063FC25603508007E2EDA /* TabBarViewController.swift in Sources */,
+				02D3C17A25EC1C4A00F8F13A /* Service.swift in Sources */,
+				02CB6D99255567F300D01B79 /* AppDelegate.swift in Sources */,
+				029F014E25E5820E00C61313 /* UISegmentedControl.swift in Sources */,
+				02E19E1425A480B6003492CF /* SettingTableViewCell.swift in Sources */,
+				02CB6D9B255567F300D01B79 /* SceneDelegate.swift in Sources */,
+				0237D36E257BC1F700E5A62A /* AddServiceTableViewController.swift in Sources */,
+				02DBEF9B258F86CC00141672 /* String+Attribute.swift in Sources */,
+				02DC98E725F951BF004C1327 /* String+getImage.swift in Sources */,
+				02D3C16F25EC140900F8F13A /* ServiceApiManager.swift in Sources */,
+				02628BD325FA613B00D122EA /* Service+getImage.swift in Sources */,
+				0291AF24256AC44B005080CF /* SavedService.swift in Sources */,
+				02E19E1C25A4814C003492CF /* SettingViewController.swift in Sources */,
+				02A860DE25715EF8002F8613 /* BorderImageView.swift in Sources */,
+				02FA087F258BB1B000C24F96 /* DateCell.swift in Sources */,
+				026A3D932588FEDA0008FEBE /* PaymentDateStatusViewController.swift in Sources */,
+				02DE79E325C9778700FFC303 /* CustomColor.swift in Sources */,
+				0288C179256C0F47003D1425 /* ServiceListTableViewCell.swift in Sources */,
+				02C064072560395A007E2EDA /* SubscriptionStatusViewController.swift in Sources */,
+				021E2F8225750B9300DC35B5 /* String+numberFormattedString.swift in Sources */,
+				02B897CD258BEBDF00C6E94F /* DDayTableViewCell.swift in Sources */,
+				02879702257638F200C524A0 /* Notification.Name.swift in Sources */,
+				02DBEFA0258FB25400141672 /* CalendarTableViewCell.swift in Sources */,
+				02C253EA2581E0E100CF5755 /* StartDateSettingViewController.swift in Sources */,
+				02A0089A256FFE1F0067E81A /* BorderView.swift in Sources */,
+				02766A9125DD4EDB00AC947D /* IconChangeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6DA7255567F600D01B79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02CB6DB0255567F600D01B79 /* SubscriptionManagementTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02CB6DB2255567F600D01B79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02CB6DBB255567F600D01B79 /* SubscriptionManagementUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02C799D725D4452C00967972 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C799CB25D4452B00967972 /* SubscriptionWidgetExtension */;
+			targetProxy = 02C799D625D4452C00967972 /* PBXContainerItemProxy */;
+		};
+		02CB6DAD255567F600D01B79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02CB6D94255567F300D01B79 /* SubscriptionManagement */;
+			targetProxy = 02CB6DAC255567F600D01B79 /* PBXContainerItemProxy */;
+		};
+		02CB6DB8255567F600D01B79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02CB6D94255567F300D01B79 /* SubscriptionManagement */;
+			targetProxy = 02CB6DB7255567F600D01B79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		02CB6D9E255567F300D01B79 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02CB6D9F255567F300D01B79 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		02CB6DA3255567F600D01B79 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02CB6DA4255567F600D01B79 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		02C799DA25D4452C00967972 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9FB18CD94D58C971E3BBCD2 /* Pods-SubscriptionWidgetExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SubscriptionWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagement.SubscriptionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		02C799DB25D4452C00967972 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EA146DEFA2393CDA16F0557 /* Pods-SubscriptionWidgetExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = SubscriptionWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagement.SubscriptionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		02CB6DBD255567F600D01B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		02CB6DBE255567F600D01B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		02CB6DC0255567F600D01B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC869D6059447E92E5F44A04 /* Pods-SubscriptionManagement.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SubscriptionManagement/SubscriptionManagement.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionManagement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		02CB6DC1255567F600D01B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C897719906A024F730AD682 /* Pods-SubscriptionManagement.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SubscriptionManagement/SubscriptionManagement.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionManagement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		02CB6DC3255567F600D01B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionManagementTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagementTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubscriptionManagement.app/SubscriptionManagement";
+			};
+			name = Debug;
+		};
+		02CB6DC4255567F600D01B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionManagementTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagementTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubscriptionManagement.app/SubscriptionManagement";
+			};
+			name = Release;
+		};
+		02CB6DC6255567F600D01B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionManagementUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagementUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SubscriptionManagement;
+			};
+			name = Debug;
+		};
+		02CB6DC7255567F600D01B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D24QAJZ476;
+				INFOPLIST_FILE = SubscriptionManagementUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagementUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SubscriptionManagement;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02C799D925D4452C00967972 /* Build configuration list for PBXNativeTarget "SubscriptionWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02C799DA25D4452C00967972 /* Debug */,
+				02C799DB25D4452C00967972 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02CB6D90255567F300D01B79 /* Build configuration list for PBXProject "SubscriptionManagement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02CB6DBD255567F600D01B79 /* Debug */,
+				02CB6DBE255567F600D01B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02CB6DBF255567F600D01B79 /* Build configuration list for PBXNativeTarget "SubscriptionManagement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02CB6DC0255567F600D01B79 /* Debug */,
+				02CB6DC1255567F600D01B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02CB6DC2255567F600D01B79 /* Build configuration list for PBXNativeTarget "SubscriptionManagementTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02CB6DC3255567F600D01B79 /* Debug */,
+				02CB6DC4255567F600D01B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02CB6DC5255567F600D01B79 /* Build configuration list for PBXNativeTarget "SubscriptionManagementUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02CB6DC6255567F600D01B79 /* Debug */,
+				02CB6DC7255567F600D01B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0273C25A2577A453008CBAA2 /* UserSavedService.xcdatamodel */,
+			);
+			currentVersion = 0273C25A2577A453008CBAA2 /* UserSavedService.xcdatamodel */;
+			path = SavedService.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 02CB6D8D255567F300D01B79 /* Project object */;
+}

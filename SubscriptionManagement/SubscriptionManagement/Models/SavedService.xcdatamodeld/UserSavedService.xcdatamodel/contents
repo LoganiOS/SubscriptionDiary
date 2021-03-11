@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20E5172i" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SavedService" representedClassName="SavedServiceEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="amountOfPayment" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="createdDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="englishName" optional="YES" attributeType="String"/>
+        <attribute name="imageURLString" optional="YES" attributeType="String"/>
+        <attribute name="koreanName" optional="YES" attributeType="String"/>
+        <attribute name="nextPaymentDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notificationIsOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="subscriptionRenewalDate" optional="YES" attributeType="String"/>
+        <attribute name="subscriptionStartDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="SavedService" positionX="-63" positionY="-18" width="128" height="179"/>
+    </elements>
+</model>
