@@ -33,10 +33,9 @@ class ServiceListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundView = spinner
-        spinner.startAnimating()
-        
         if services.isEmpty {
+            tableView.backgroundView = spinner
+            spinner.startAnimating()
             ServiceApiManager.shared.requestServices {
                 self.spinner.stopAnimating()
                 self.tableView.reloadData()

@@ -16,11 +16,11 @@ class IconChangeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.spinner.center = self.iconChangeCollectionView.center
-        self.spinner.startAnimating()
-        self.view.addSubview(spinner)
-        
-        if self.services.isEmpty {
+
+        if services.isEmpty {
+            spinner.center = self.iconChangeCollectionView.center
+            spinner.startAnimating()
+            view.addSubview(spinner)
             ServiceApiManager.shared.requestServices { [self] in
                 spinner.stopAnimating()
                 iconChangeCollectionView.reloadData()
