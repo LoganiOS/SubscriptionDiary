@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
