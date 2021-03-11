@@ -11,7 +11,6 @@ import JTAppleCalendar
 class PaymentDateStatusViewController: UIViewController {
     @IBOutlet weak var favoriteCategoryTableView: UITableView!
     @IBOutlet weak var underlineView: UIView!
-    
     @IBOutlet weak var monthLabel: UILabel! {
         didSet {
             monthLabel.text = "\(Date().month)월"
@@ -23,9 +22,7 @@ class PaymentDateStatusViewController: UIViewController {
     }
     
     var savedServicesSortedBySelectedDate = [SavedServiceEntity]()
-    
     var selectedDate: Date? = Date()
-    
     var thisMonthServiceCategoriesTotalPayment: Int {
         return CoreDataManager.shared.thisMonthServiceCategories.values.reduce(0, +)
     }
@@ -79,7 +76,6 @@ class PaymentDateStatusViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         favoriteCategoryTableView.contentInset.top = 60
     }
     

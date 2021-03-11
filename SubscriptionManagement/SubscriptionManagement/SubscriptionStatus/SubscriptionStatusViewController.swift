@@ -132,7 +132,7 @@ class SubscriptionStatusViewController: UIViewController {
             self.subscriptionStatusTableView.reloadData()
             self.presentDefaultLabel()
             
-            guard name != .serviceDidDelete else { return }
+            guard name == .serviceDidAdd || name == .serviceDidUpdate else { return }
             for service in CoreDataManager.shared.list {
                 if service.notificationIsOn {
                     UNUserNotificationCenter.current().addLocalNotification(service: service)
