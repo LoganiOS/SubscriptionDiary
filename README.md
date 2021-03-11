@@ -1,3 +1,3 @@
-# ✏️ SubscriptionDiary
+# SubscriptionDiary
 
-구독 기입장
+✏️ 구독 기입장
