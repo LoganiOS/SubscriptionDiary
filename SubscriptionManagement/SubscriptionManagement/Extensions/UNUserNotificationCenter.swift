@@ -18,7 +18,7 @@ extension UNUserNotificationCenter {
         let content = UNMutableNotificationContent()
         content.title = "결제일 D-1"
         content.body = "내일은 '\(name)'서비스의 결제 예상일입니다."
-    //    content.badge = NSNumber(value: badge)
+        
         var unit = 0
         for date in startDate.calculatingPaymentDays(renewalDate) {
             if unit == 4 { return }
@@ -26,12 +26,8 @@ extension UNUserNotificationCenter {
             let matchedDate = DateComponents(year: date.year, month: date.month, day: date.day, hour: 14)
             let trigger = UNCalendarNotificationTrigger(dateMatching: matchedDate, repeats: false)
             let request = UNNotificationRequest(identifier: content.categoryIdentifier, content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request) { (error) in
-                if let error = error {
-                    print(error)
-                    return
-                }
-            }
+            
+            UNUserNotificationCenter.current().add(request) { _ in }
             unit += 1
         }
     }
