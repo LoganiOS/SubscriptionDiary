@@ -1,6 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '10.6'
 
+use_frameworks!
+
 def share_pods
  	 pod 'JTAppleCalendar'
   	 pod 'Moya/RxSwift'
