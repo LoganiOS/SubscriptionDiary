@@ -19,12 +19,13 @@ extension Service {
             let cachesDirectory = cachesDirectories[0]
             
             guard let fileName = self.imageURL.components(separatedBy: "/").last else { return }
-            let imageURL = cachesDirectory.appendingPathComponent(fileName)
+            var imageURL = cachesDirectory.appendingPathComponent(fileName)
             let path = imageURL.path
             if manager.fileExists(atPath: path) {
                 if let imageData = try? Data(contentsOf: imageURL) {
                     data = imageData
                     imageURLString = fileName
+                    imageURL.excludeFromBackup()
                 }
             } else {
                 if let imageLink = URL(string: self.imageURL) {

@@ -17,11 +17,12 @@ extension String {
             let cachesDirectories = manager.urls(for: .cachesDirectory, in: .userDomainMask)
             let cachesDirectory = cachesDirectories[0]
             
-            let imageURL = cachesDirectory.appendingPathComponent(self)
+            var imageURL = cachesDirectory.appendingPathComponent(self)
             let path = imageURL.path
             if manager.fileExists(atPath: path) {
                 if let imageData = try? Data(contentsOf: imageURL) {
                     data = imageData
+                    imageURL.excludeFromBackup()
                 }
             } else {
                 if let imageLink = URL(string: self) {
@@ -52,6 +53,7 @@ extension String {
                 }
             }
         }
+        
         return Data()
     }
 }
