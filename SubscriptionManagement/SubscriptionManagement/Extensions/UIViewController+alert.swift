@@ -25,15 +25,29 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showSortActionSheet(sortByName: ((UIAlertAction) -> Void)? = nil, sortByPrice: ((UIAlertAction) -> Void)? = nil, sortByDate: ((UIAlertAction) -> Void)? = nil) {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "이름순", style: .default, handler: sortByName))
-        actionSheet.addAction(UIAlertAction(title: "결제금액순", style: .default, handler: sortByPrice))
-        actionSheet.addAction(UIAlertAction(title: "결제일순", style: .default, handler: sortByDate))
-        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+    func showSortActionSheet(_ sender: UIButton, sortByName: ((UIAlertAction) -> Void)? = nil, sortByPrice: ((UIAlertAction) -> Void)? = nil, sortByDate: ((UIAlertAction) -> Void)? = nil) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "이름순", style: .default, handler: sortByName))
+        alert.addAction(UIAlertAction(title: "결제금액순", style: .default, handler: sortByPrice))
+        alert.addAction(UIAlertAction(title: "결제일순", style: .default, handler: sortByDate))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         
-        self.present(actionSheet, animated: true, completion: nil)
-        actionSheet.view.subviews
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if let popoverController = alert.popoverPresentationController {
+                let bounds = sender.bounds
+                let rect = CGRect(x: bounds.maxX - 20, y: bounds.maxY,
+                                  width: bounds.width, height: bounds.height)
+                
+                popoverController.sourceView = self.view
+                popoverController.sourceRect = rect
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        } else {
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        alert.view.subviews
             .flatMap { $0.constraints }
             .filter { ($0.constant < 0) }
             .first?.isActive = false
