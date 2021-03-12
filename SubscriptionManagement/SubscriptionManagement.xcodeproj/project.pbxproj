@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0213B47D25D7002200765D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA1255567F600D01B79 /* Assets.xcassets */; };
 		021E2F8225750B9300DC35B5 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
 		0237D36E257BC1F700E5A62A /* AddServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D36D257BC1F700E5A62A /* AddServiceTableViewController.swift */; };
 		023A1E3E2588CAF800C2007E /* DateSettingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */; };
+		023EE81425FBDBD200EA0921 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */; };
 		0243E2E125F2C7E700DD1BA7 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */; };
 		024DF8FC258A541700EBEAF4 /* UIColor+rgb(init).swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */; };
 		024DF907258A6EED00EBEAF4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF906258A6EED00EBEAF4 /* Date.swift */; };
@@ -86,6 +86,8 @@
 		02E19E1C25A4814C003492CF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E1B25A4814C003492CF /* SettingViewController.swift */; };
 		02E19E2425A483F4003492CF /* ColorSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E2325A483F4003492CF /* ColorSettingViewController.swift */; };
 		02E19E2925A48830003492CF /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E2825A48830003492CF /* ColorCollectionViewCell.swift */; };
+		02EA0A2E25FBD70100089499 /* URL+excludeFromBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */; };
+		02EA0A3725FBD77000089499 /* URL+excludeFromBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */; };
 		02EDB2D525716B060008ED4B /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDB2D425716B060008ED4B /* ShadowView.swift */; };
 		02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDB2EB25716E130008ED4B /* SubscriptionStatusTableViewCell.swift */; };
 		02FA087F258BB1B000C24F96 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA087E258BB1B000C24F96 /* DateCell.swift */; };
@@ -202,6 +204,7 @@
 		02E19E1B25A4814C003492CF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		02E19E2325A483F4003492CF /* ColorSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingViewController.swift; sourceTree = "<group>"; };
 		02E19E2825A48830003492CF /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+excludeFromBackup.swift"; sourceTree = "<group>"; };
 		02EDB2D425716B060008ED4B /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		02EDB2EB25716E130008ED4B /* SubscriptionStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusTableViewCell.swift; sourceTree = "<group>"; };
 		02FA087E258BB1B000C24F96 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
@@ -321,13 +324,14 @@
 				021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */,
 				02DBEF9A258F86CC00141672 /* String+Attribute.swift */,
 				02DC98E625F951BF004C1327 /* String+getImage.swift */,
+				02628BD225FA613B00D122EA /* Service+getImage.swift */,
 				026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */,
 				024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */,
 				024DF906258A6EED00EBEAF4 /* Date.swift */,
 				029F014D25E5820E00C61313 /* UISegmentedControl.swift */,
 				02DC98DB25F914A1004C1327 /* FileManager.swift */,
 				02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */,
-				02628BD225FA613B00D122EA /* Service+getImage.swift */,
+				02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -655,7 +659,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0213B47D25D7002200765D6C /* Assets.xcassets in Resources */,
 				02C799D425D4452C00967972 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,7 +755,9 @@
 				02C799EC25D445E600967972 /* SavedService.xcdatamodeld in Sources */,
 				029C863725DC13F600EB1C6F /* SavedService.swift in Sources */,
 				02C79A1125D4469A00967972 /* CoreDataManager.swift in Sources */,
+				023EE81425FBDBD200EA0921 /* UNUserNotificationCenter.swift in Sources */,
 				02FAC5F425FA949D001634E4 /* ServiceProvider.swift in Sources */,
+				02EA0A3725FBD77000089499 /* URL+excludeFromBackup.swift in Sources */,
 				02DC98EE25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */,
 				02C79A2025D4474D00967972 /* NSMutableAttributedString+titleStyle.swift in Sources */,
 				02D6185925D96C200032C6FC /* SubscriptionWidgetEntryView.swift in Sources */,
@@ -794,6 +799,7 @@
 				029214C82587E5430039B170 /* RenewalDateSettingViewController.swift in Sources */,
 				02C063FC25603508007E2EDA /* TabBarViewController.swift in Sources */,
 				02D3C17A25EC1C4A00F8F13A /* Service.swift in Sources */,
+				02EA0A2E25FBD70100089499 /* URL+excludeFromBackup.swift in Sources */,
 				02CB6D99255567F300D01B79 /* AppDelegate.swift in Sources */,
 				029F014E25E5820E00C61313 /* UISegmentedControl.swift in Sources */,
 				02E19E1425A480B6003492CF /* SettingTableViewCell.swift in Sources */,
