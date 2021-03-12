@@ -53,7 +53,7 @@ class SubscriptionStatusViewController: UIViewController {
     
     
     @IBAction func sortServices(_ sender: UIButton) {
-        showSortActionSheet {
+        showSortActionSheet(sender) {
             sender.setTitle(($0.title ?? "")+" ▼", for: .normal)
             CoreDataManager.shared.list
                 .sort { $0.koreanName ?? "" < $1.koreanName ?? ""
@@ -83,7 +83,7 @@ class SubscriptionStatusViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
         changeTintColor()
-        
+    
         guard !(CoreDataManager.shared.list.isEmpty) else { return }
         for i in 0..<CoreDataManager.shared.list.count {
             CoreDataManager.shared.list[i].nextPaymentDate = CoreDataManager.shared.list[i].subscriptionStartDate?
@@ -163,6 +163,7 @@ class SubscriptionStatusViewController: UIViewController {
     }
 }
 
+
 extension SubscriptionStatusViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CoreDataManager.shared.list.isEmpty ? 0 : CoreDataManager.shared.list.count
@@ -180,8 +181,13 @@ extension SubscriptionStatusViewController: UITableViewDataSource {
         let coreManager = CoreDataManager.shared.list[indexPath.row]
         cell.serviceNameLabel.text = coreManager.koreanName
         cell.paymentLabel.text = coreManager.amountOfPayment
-        coreManager.imageURLString?.getImage { cell.logoImageView.image = UIImage(data: $0) }
-
+        
+        if let imageURLString = coreManager.imageURLString, imageURLString.count < 1 {
+            cell.logoImageView.image = UIImage(named: "DefaultImage")
+        } else if let _ = coreManager.imageURLString  {
+            coreManager.imageURLString?.getImage { cell.logoImageView.image = UIImage(data: $0) }
+        }
+        
         return cell
     }
 }

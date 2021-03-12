@@ -88,7 +88,6 @@ class AddServiceTableViewController: UITableViewController {
                                           pushOn: subscriptionNotificationStatusSwitch.isOn)
             NotificationCenter.default.post(name: .serviceDidUpdate, object: nil)
             navigationController?.popViewController(animated: true)
-            
         } else {
             if inputServiceName.isEmpty {
                 inputServiceName = "이름없는 서비스"
@@ -196,6 +195,11 @@ class AddServiceTableViewController: UITableViewController {
             paymentTextField.text = savedService.amountOfPayment
             subscriptionNotificationStatusSwitch.isOn = savedService.notificationIsOn
             serviceEnglishNameText = savedService.englishName ?? ""
+            if let imageURLString = savedService.imageURLString, imageURLString.count < 1 {
+                DispatchQueue.main.async {
+                    self.serviceImageView.image = UIImage(named: "DefaultImage")
+                }
+            }
         } else {
             serviceNameTextField.text = serviceNameText
             subscriptionNotificationStatusSwitch.isOn = false

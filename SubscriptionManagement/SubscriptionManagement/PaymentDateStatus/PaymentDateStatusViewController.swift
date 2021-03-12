@@ -196,7 +196,13 @@ extension PaymentDateStatusViewController: UICollectionViewDataSource, UICollect
 
         let selectedDate = selectedDates[indexPath.item]
         cell.serviceNameLabel.text = selectedDate.koreanName
-        selectedDate.imageURLString?.getImage { cell.serviceImageView.image = UIImage(data: $0) }
+        
+        if let imageURLString = selectedDate.imageURLString, imageURLString.count < 1 {
+            cell.serviceImageView.image = UIImage(named: "DefaultImage")
+        } else if let _ = selectedDate.imageURLString  {
+            selectedDate.imageURLString?.getImage { cell.serviceImageView.image = UIImage(data: $0) }
+        }
+        
         let calendar = Calendar.current
         let now = Date()
         let fromDate = calendar.startOfDay(for: now)
