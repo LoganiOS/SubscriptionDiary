@@ -8,6 +8,8 @@
 import Foundation
 
 extension URL {
+    
+    /// Exclude cache data from backup
     mutating func excludeFromBackup() {
         do {
             let exist = try checkResourceIsReachable()

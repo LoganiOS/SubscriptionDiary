@@ -23,10 +23,14 @@ class SubscriptionStatusViewController: UIViewController {
         return defaultLabel
     }()
     
+    
+    /// 서비스 리스트
     lazy var sortedServices: [SavedServiceEntity] = {
         return CoreDataManager.shared.list
     }()
     
+    
+    /// 서비스의 총 결제금액을 totalAmountOfPaymentLabel에 표시
     var total: Int = 0 {
         didSet {
             total = CoreDataManager.shared.total
@@ -141,7 +145,9 @@ class SubscriptionStatusViewController: UIViewController {
         }
     }
     
-    func presentDefaultLabel() {
+    
+    /// 추가된 서비스가 없는 경우 Default Label을 표시한다.
+    private func presentDefaultLabel() {
         UIView.animate(withDuration: 0.5, delay: .zero) {
             if CoreDataManager.shared.list.count == 0 {
                 self.defaultSubscriptionStatusLabel.alpha = 0.3
