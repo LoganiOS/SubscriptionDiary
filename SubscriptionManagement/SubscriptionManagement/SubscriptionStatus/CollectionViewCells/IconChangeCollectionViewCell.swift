@@ -8,5 +8,7 @@
 import UIKit
 
 class IconChangeCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var iconImageView: BorderImageView!
+    
 }
