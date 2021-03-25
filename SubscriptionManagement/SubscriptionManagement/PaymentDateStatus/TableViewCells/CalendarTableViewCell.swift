@@ -9,9 +9,11 @@ import UIKit
 import JTAppleCalendar
 
 class CalendarTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var calendarHeaderView: UIView!
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var sundayLabel: UILabel!
+    
     @IBOutlet weak var calendarView: JTACMonthView! {
         didSet {
             calendarView.backgroundColor = .clear
@@ -22,10 +24,8 @@ class CalendarTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         calendarView.allowsMultipleSelection = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    
 }

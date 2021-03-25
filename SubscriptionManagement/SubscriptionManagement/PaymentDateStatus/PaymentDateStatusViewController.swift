@@ -52,6 +52,11 @@ class PaymentDateStatusViewController: UIViewController {
         return calendarTableViewCell.calendarView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        favoriteCategoryTableView.contentInset.top = 60
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -71,12 +76,7 @@ class PaymentDateStatusViewController: UIViewController {
         
         callCalendarView()?.reloadData()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        favoriteCategoryTableView.contentInset.top = 60
-    }
-    
+        
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -93,13 +93,15 @@ class PaymentDateStatusViewController: UIViewController {
         
         didEndScroll = false
     }
-    
 }
+
 
 
 // MARK:- UITableViewDataSource, UITableViewDelegate
 extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return 3 }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
@@ -149,11 +151,8 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
         return UITableViewCell()
         #endif
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
+
+    // FIX 이거 별도로 빼기 (테이블뷰 델리게이트가 아님)
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if self.favoriteCategoryTableView.contentOffset.y > 40 && didEndScroll == false {
             didEndScroll = true
@@ -207,9 +206,7 @@ extension PaymentDateStatusViewController: UICollectionViewDataSource, UICollect
         
         cell.dDayCountLabel.text = "D-\(day)"
         
-        return cell
-        
-        
+        return cell  
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

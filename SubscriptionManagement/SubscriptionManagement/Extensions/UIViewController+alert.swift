@@ -26,12 +26,12 @@ extension UIViewController {
     }
     
     
-    /// 버튼을 누를 경우 정렬방법을 위한 action sheet를 표시한다.
-    /// - Parameters:
+    /// 버튼을 누를 경우 정렬방법을 위한 action sheet를 표시합니다.
+    /// - Parameters: 
     ///   - sender: 이벤트를 발생 시킬 sender (UIButton)
-    ///   - sortByName: 이름순으로 정렬할 경우 실행하고 싶은 코드를 클로저로 전달한다.
-    ///   - sortByPrice: 결제금액순으로 정렬할 경우 실행하고 싶은 코드를 클로저로 전달한다.
-    ///   - sortByDate: 결제일순으로 정렬할 경우 실행하고 싶은 코드를 클로저로 전달한다.
+    ///   - sortByName: 이름순으로 정렬할 경우 실행하고 싶은 코드를 클로저로 전달합니다.
+    ///   - sortByPrice: 결제금액순으로 정렬할 경우 실행하고 싶은 코드를 클로저로 전달합니다.
+    ///   - sortByDate: 결제일순으로 정렬할 경우 실행하고 싶은 코드를 클로저로 전달합니다.
     func showSortActionSheet(_ sender: UIButton, sortByName: ((UIAlertAction) -> Void)? = nil, sortByPrice: ((UIAlertAction) -> Void)? = nil, sortByDate: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "이름순", style: .default, handler: sortByName))

@@ -9,11 +9,6 @@ import UIKit
 
 class FavoriteCategoryTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel! {
-        didSet {
-            titleLabel.text = "\(Date().month)월 이용현황"
-        }
-    }
     @IBOutlet weak var graphStackView: UIStackView!
     @IBOutlet weak var graphBackgroundStackView: UIStackView!
     @IBOutlet weak var insightStackView: UIStackView!
@@ -22,6 +17,12 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var thirdConstraint: NSLayoutConstraint!
     @IBOutlet weak var fourthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = "\(Date().month)월 이용현황"
+        }
+    }
+
     var all: CGFloat { CGFloat(CoreDataManager.shared.thisMonthServiceCategories.values.reduce(0, +)) }
     var OTT: CGFloat { CGFloat(CoreDataManager.shared.thisMonthServiceCategories["OTT"] ?? 0) }
     var music: CGFloat { CGFloat(CoreDataManager.shared.thisMonthServiceCategories["음악"] ?? 0) }
@@ -31,8 +32,11 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
     func changeTintColor() {
         let selectedIndex = UserDefaults.standard.integer(forKey: "selectedIndex")
         let theme = CustomColor.shared.themes[selectedIndex]
-        let colors = [UIColor(rgb: theme.main), UIColor(rgb: theme.sub1),
-                      UIColor(rgb: theme.sub2), UIColor(named: "Translucent Label Color")]
+        
+        let colors = [UIColor(rgb: theme.main),
+                      UIColor(rgb: theme.sub1),
+                      UIColor(rgb: theme.sub2),
+                      UIColor(named: "Translucent Label Color")]
         
         let categoriesSortedByExpenses = CoreDataManager.shared.categoryExpenses
         
@@ -54,10 +58,12 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
                 switch label.tag {
                 case 101:
                     guard keyIndex < categoriesSortedByExpenses.count else { label.text = "-"; return }
+                    
                     label.text = categoriesSortedByExpenses.map({ $0.key})[keyIndex]
                     keyIndex += 1
                 default:
                     guard valueIndex < categoriesSortedByExpenses.count else { label.text = "-"; return }
+                    
                     label.text = String(categoriesSortedByExpenses.map({ $0.value})[valueIndex]).numberFormattedString(.currency)
                     valueIndex += 1
                 }
@@ -90,6 +96,7 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
         var graphIndex = 0
         graphStackView.arrangedSubviews.forEach { (view) in
             guard graphIndex < 4 else { return }
+            
             view.backgroundColor = colors[graphIndex]
             let comparisonValue = values[graphIndex].isNaN ? 0 : values[graphIndex] * 300
             
@@ -107,15 +114,6 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
             }
             graphIndex += 1
         }
-        
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 }

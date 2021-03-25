@@ -13,10 +13,9 @@ class ColorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var checkImageView: UIImageView! 
     @IBOutlet weak var themeLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         checkImageView.isHidden = true
-        
     }
+    
 }

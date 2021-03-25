@@ -12,7 +12,7 @@
 		023A1E3E2588CAF800C2007E /* DateSettingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */; };
 		023EE81425FBDBD200EA0921 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */; };
 		0243E2E125F2C7E700DD1BA7 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */; };
-		024DF8FC258A541700EBEAF4 /* UIColor+rgb(init).swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */; };
+		024DF8FC258A541700EBEAF4 /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+init.swift */; };
 		024DF907258A6EED00EBEAF4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF906258A6EED00EBEAF4 /* Date.swift */; };
 		02628BD325FA613B00D122EA /* Service+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02628BD225FA613B00D122EA /* Service+getImage.swift */; };
 		02628BD825FA614300D122EA /* Service+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02628BD225FA613B00D122EA /* Service+getImage.swift */; };
@@ -50,7 +50,7 @@
 		02C799ED25D445E900967972 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DE79E225C9778700FFC303 /* CustomColor.swift */; };
 		02C79A1125D4469A00967972 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273C25F2577A555008CBAA2 /* CoreDataManager.swift */; };
 		02C79A1625D4474600967972 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF906258A6EED00EBEAF4 /* Date.swift */; };
-		02C79A1B25D4474A00967972 /* UIColor+rgb(init).swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */; };
+		02C79A1B25D4474A00967972 /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+init.swift */; };
 		02C79A2025D4474D00967972 /* NSMutableAttributedString+titleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */; };
 		02C79A2525D4475100967972 /* String+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9A258F86CC00141672 /* String+Attribute.swift */; };
 		02C79A2A25D4475300967972 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
@@ -140,7 +140,7 @@
 		0237D36D257BC1F700E5A62A /* AddServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewController.swift; sourceTree = "<group>"; };
 		023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSettingViewControllerDelegate.swift; sourceTree = "<group>"; };
 		0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
-		024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rgb(init).swift"; sourceTree = "<group>"; };
+		024DF8FB258A541700EBEAF4 /* UIColor+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+init.swift"; sourceTree = "<group>"; };
 		024DF906258A6EED00EBEAF4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		02628BD225FA613B00D122EA /* Service+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+getImage.swift"; sourceTree = "<group>"; };
 		026A3D922588FEDA0008FEBE /* PaymentDateStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDateStatusViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 				02DC98E625F951BF004C1327 /* String+getImage.swift */,
 				02628BD225FA613B00D122EA /* Service+getImage.swift */,
 				026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */,
-				024DF8FB258A541700EBEAF4 /* UIColor+rgb(init).swift */,
+				024DF8FB258A541700EBEAF4 /* UIColor+init.swift */,
 				024DF906258A6EED00EBEAF4 /* Date.swift */,
 				029F014D25E5820E00C61313 /* UISegmentedControl.swift */,
 				02DC98DB25F914A1004C1327 /* FileManager.swift */,
@@ -453,11 +453,11 @@
 				02C799C325D4440E00967972 /* SubscriptionManagement.entitlements */,
 				02CB6D98255567F300D01B79 /* AppDelegate.swift */,
 				02CB6D9A255567F300D01B79 /* SceneDelegate.swift */,
+				02C063FB25603508007E2EDA /* TabBarViewController.swift */,
 				02CB6D9E255567F300D01B79 /* Main.storyboard */,
 				02CB6DA3255567F600D01B79 /* LaunchScreen.storyboard */,
 				02CB6DA1255567F600D01B79 /* Assets.xcassets */,
 				02CB6DA6255567F600D01B79 /* Info.plist */,
-				02C063FB25603508007E2EDA /* TabBarViewController.swift */,
 				026A3D902588FE460008FEBE /* SubscriptionStatus */,
 				026A3D912588FE6C0008FEBE /* PaymentDateStatus */,
 				02E19E1225A4809E003492CF /* Setting */,
@@ -748,7 +748,7 @@
 				02C79A3925D4475C00967972 /* UIViewController+alert.swift in Sources */,
 				02C79A5325D450B700967972 /* SubscriptionEntry.swift in Sources */,
 				02C79A5E25D4514100967972 /* SubscriptionProvider.swift in Sources */,
-				02C79A1B25D4474A00967972 /* UIColor+rgb(init).swift in Sources */,
+				02C79A1B25D4474A00967972 /* UIColor+init.swift in Sources */,
 				02628BD825FA614300D122EA /* Service+getImage.swift in Sources */,
 				02C79A2525D4475100967972 /* String+Attribute.swift in Sources */,
 				02C79A1625D4474600967972 /* Date.swift in Sources */,
@@ -780,7 +780,7 @@
 				024DF907258A6EED00EBEAF4 /* Date.swift in Sources */,
 				02EDB2D525716B060008ED4B /* ShadowView.swift in Sources */,
 				02A3363E256FF97200891554 /* UIView+shadow.swift in Sources */,
-				024DF8FC258A541700EBEAF4 /* UIColor+rgb(init).swift in Sources */,
+				024DF8FC258A541700EBEAF4 /* UIColor+init.swift in Sources */,
 				02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */,
 				0291AF1E256ABDD5005080CF /* ServiceListTableViewController.swift in Sources */,
 				02FAC5EF25FA9492001634E4 /* ServiceProvider.swift in Sources */,

@@ -35,8 +35,6 @@ extension CoreDataManager {
         
         if #available(iOS 14.0, *) {
             WidgetCenter.shared.reloadTimelines(ofKind: "SubscriptionWidget")
-        } else {
-            // Fallback on earlier versions
         }
     }
     

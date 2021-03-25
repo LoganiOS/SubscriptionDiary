@@ -1,15 +1,25 @@
-
+//
+//  SubscriptionStatusViewController.swift
+//  SubscriptionManagement
+//
+//  Created by LoganBerry on 2021/02/17.
+//
 
 import UIKit
 import WidgetKit
 
 class SubscriptionStatusViewController: UIViewController {
+    
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var customBarContainerView: UIView!
     @IBOutlet weak var servicePlusButton: UIButton!
     @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var subscriptionStatusTableView: UITableView!
     @IBOutlet weak var totalAmountOfPaymentLabel: UILabel!
+    
+    /// 사용자가 추가한 서비스 리스트를 배열로 리턴합니다.
+    lazy var sortedServices: [SavedServiceEntity] = { return CoreDataManager.shared.list }()
+    
     var defaultSubscriptionStatusLabel: UILabel = {
         let defaultLabel = UILabel()
         defaultLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -20,17 +30,11 @@ class SubscriptionStatusViewController: UIViewController {
         defaultLabel.text = "구독중인\n서비스를 추가해주세요."
         defaultLabel.font = .preferredFont(forTextStyle: .body)
         defaultLabel.adjustsFontForContentSizeCategory = true
+        
         return defaultLabel
     }()
     
-    
-    /// 서비스 리스트
-    lazy var sortedServices: [SavedServiceEntity] = {
-        return CoreDataManager.shared.list
-    }()
-    
-    
-    /// 서비스의 총 결제금액을 totalAmountOfPaymentLabel에 표시
+    /// 사용자가 추가한 서비스의 총 결제금액을 totalAmountOfPaymentLabel에 표시합니다.
     var total: Int = 0 {
         didSet {
             total = CoreDataManager.shared.total
@@ -39,70 +43,71 @@ class SubscriptionStatusViewController: UIViewController {
             animation.duration = 0.3
             animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             animation.type = CATransitionType.push
+            
             totalAmountOfPaymentLabel.layer.add(animation, forKey: CATransitionType.push.rawValue)
             totalAmountOfPaymentLabel.text = String(total).numberFormattedString(.decimal) + "원"
         }
     }
     
+    /// 추가된 서비스가 없는 경우 Default Label을 표시한다.
+    private func presentDefaultLabel() {
+        UIView.animate(withDuration: 0.5, delay: .zero) {
+            let serviceIsEmpty = CoreDataManager.shared.list.isEmpty
+            self.defaultSubscriptionStatusLabel.alpha = serviceIsEmpty ? 0.3 : 0.0
+            self.defaultSubscriptionStatusLabel.isHidden = serviceIsEmpty ? false : true
+        }
+    }
+    
+    /// 사용자가 선택한 색상으로 뷰의 틴트컬러를 변경합니다.
     func changeTintColor() {
         let index = UserDefaults.standard.integer(forKey: "selectedIndex")
         let theme = CustomColor.shared.themes[index]
+        
         UIApplication.shared.windows.first?.tintColor = UIColor(rgb: theme.main)
         sortButton.tintColor = UIColor(rgb: theme.main)
         servicePlusButton.tintColor = UIColor(rgb: theme.main)
         self.tabBarController?.tabBar.tintColor = UIColor(rgb: theme.main)
-        
         underlineView.backgroundColor = UIColor(rgb: theme.sub2)
     }
     
-    
+    /// 사용자가 선택한 방법으로 추가된 서비스를 정렬합니다.
     @IBAction func sortServices(_ sender: UIButton) {
         showSortActionSheet(sender) {
             sender.setTitle(($0.title ?? "")+" ▼", for: .normal)
-            CoreDataManager.shared.list
-                .sort { $0.koreanName ?? "" < $1.koreanName ?? ""
-            }
+            CoreDataManager.shared.list.sort { $0.koreanName ?? "" < $1.koreanName ?? "" }
             self.subscriptionStatusTableView.reloadData()                  
         }
         
         sortByPrice: {
             sender.setTitle(($0.title ?? "")+" ▼", for: .normal)
-            CoreDataManager.shared.list
-                .sort { Int($0.amountOfPayment?.numberFormattedString(.none) ?? "") ?? 0 > Int($1.amountOfPayment?.numberFormattedString(.none) ?? "") ?? 0 }
+            CoreDataManager.shared.list.sort {
+                Int($0.amountOfPayment?.numberFormattedString(.none) ?? "") ?? 0 > Int($1.amountOfPayment?.numberFormattedString(.none) ?? "") ?? 0
+            }
             self.subscriptionStatusTableView.reloadData()
         }
         
         sortByDate: {
             sender.setTitle(($0.title ?? "")+" ▼", for: .normal)
-            CoreDataManager.shared.list
-                .sort { $0.nextPaymentDate ?? Date() < $1.nextPaymentDate ?? Date()
-            }
+            CoreDataManager.shared.list.sort { $0.nextPaymentDate ?? Date() < $1.nextPaymentDate ?? Date() }
             self.subscriptionStatusTableView.reloadData()
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         changeTintColor()
     
         guard !(CoreDataManager.shared.list.isEmpty) else { return }
+        
         for i in 0..<CoreDataManager.shared.list.count {
             CoreDataManager.shared.list[i].nextPaymentDate = CoreDataManager.shared.list[i].subscriptionStartDate?
                 .calculatingPaymentDays(
                     CoreDataManager.shared.list[i].subscriptionRenewalDate ?? "1개월").first
         }
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        sortButton.setTitle("정렬방법 ▼", for: .normal)
-        CoreDataManager.shared.list.sort { $0.createdDate ?? Date() < $1.createdDate ?? Date() }
-        self.subscriptionStatusTableView.reloadData()
-    }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -127,7 +132,14 @@ class SubscriptionStatusViewController: UIViewController {
         addObserver(name: .serviceDidAdd)
         addObserver(name: .serviceDidDelete)
         addObserver(name: .serviceDidUpdate)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        sortButton.setTitle("정렬방법 ▼", for: .normal)
+        CoreDataManager.shared.list.sort { $0.createdDate ?? Date() < $1.createdDate ?? Date() }
+        self.subscriptionStatusTableView.reloadData()
     }
     
     func addObserver(name: NSNotification.Name, queue: OperationQueue = .main) {
@@ -137,6 +149,7 @@ class SubscriptionStatusViewController: UIViewController {
             self.presentDefaultLabel()
             
             guard name == .serviceDidAdd || name == .serviceDidUpdate else { return }
+            
             for service in CoreDataManager.shared.list {
                 if service.notificationIsOn {
                     UNUserNotificationCenter.current().addLocalNotification(service: service)
@@ -144,33 +157,24 @@ class SubscriptionStatusViewController: UIViewController {
             }
         }
     }
-    
-    
-    /// 추가된 서비스가 없는 경우 Default Label을 표시한다.
-    private func presentDefaultLabel() {
-        UIView.animate(withDuration: 0.5, delay: .zero) {
-            if CoreDataManager.shared.list.count == 0 {
-                self.defaultSubscriptionStatusLabel.alpha = 0.3
-                self.defaultSubscriptionStatusLabel.isHidden = false
-            } else {
-                self.defaultSubscriptionStatusLabel.alpha = 0.0
-                self.defaultSubscriptionStatusLabel.isHidden = true
-            }
-        }
-    }
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tempServiceTVC = segue.destination as? AddServiceTableViewController else { return }
+        
         if let cell = sender as? SubscriptionStatusTableViewCell, let indexPath = subscriptionStatusTableView.indexPath(for: cell) {
             tempServiceTVC.savedService = CoreDataManager.shared.list[indexPath.row]
             CoreDataManager.shared.list[indexPath.row].imageURLString?.getImage { tempServiceTVC.selectedImage = UIImage(data: $0) }
             tempServiceTVC.selectedImageURLString = CoreDataManager.shared.list[indexPath.row].imageURLString
         }
     }
+    
 }
 
 
+
+// MARK:- TableView DataSource
 extension SubscriptionStatusViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CoreDataManager.shared.list.isEmpty ? 0 : CoreDataManager.shared.list.count
     }
@@ -196,13 +200,21 @@ extension SubscriptionStatusViewController: UITableViewDataSource {
         
         return cell
     }
+    
 }
 
+
+
+// MARK:- TableView Deletage
 extension SubscriptionStatusViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { true }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard let serviceName = CoreDataManager.shared.list[indexPath.row].koreanName else { return UISwipeActionsConfiguration() }
+        
         let indexPathRow = indexPath.row
         let action = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
             self.showDeleteCaution(serviceName: serviceName) { _ in
@@ -215,8 +227,12 @@ extension SubscriptionStatusViewController: UITableViewDelegate {
             completion(false)
         }
         
-        if #available(iOS 13.0, *) { action.backgroundColor = UIColor(named: "Custom Background Color") }
-        else { action.backgroundColor = .red }
+        if #available(iOS 13.0, *) {
+            action.backgroundColor = UIColor(named: "Custom Background Color")
+        } else {
+            action.backgroundColor = .red
+        }
+
         action.image = UIImage(named: "DeleteIcon")
         
         let configuration = UISwipeActionsConfiguration(actions: [action])
@@ -224,6 +240,5 @@ extension SubscriptionStatusViewController: UITableViewDelegate {
         
         return configuration
     }
+    
 }
-
-

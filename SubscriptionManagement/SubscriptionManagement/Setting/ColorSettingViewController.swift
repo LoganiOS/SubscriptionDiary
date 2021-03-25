@@ -13,13 +13,6 @@ class ColorSettingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
 }
@@ -31,7 +24,7 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as? ColorCollectionViewCell else { return UICollectionViewCell() }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
         let customColor = CustomColor.shared.themes[indexPath.item]
         
         cell.backgroundImageView.backgroundColor = UIColor(rgb: customColor.main)
@@ -42,9 +35,7 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
         }
         
         return cell
-        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         index = indexPath.item
@@ -58,19 +49,19 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
         collectionView.reloadData()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-    }
-    
-    
+
 }
 
+
+
+//
 extension ColorSettingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize() }
         
-        return CGSize(width: (collectionView.frame.width + (flowLayout.sectionInset.left/2))/3 - flowLayout.sectionInset.right,
+        // FIX
+        return CGSize(width: (collectionView.frame.width + (flowLayout.sectionInset.left / 2)) / 3 - flowLayout.sectionInset.right,
                       height: 300 - flowLayout.sectionInset.top)
     }
 }

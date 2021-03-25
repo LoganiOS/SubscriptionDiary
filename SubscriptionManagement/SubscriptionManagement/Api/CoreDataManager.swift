@@ -1,4 +1,9 @@
 
+
+
+
+
+
 import Foundation
 import CoreData
 import UIKit
@@ -22,7 +27,10 @@ class CoreDataManager {
     }
     
     var total: Int {
-        CoreDataManager.shared.list.compactMap { $0.amountOfPayment?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() }.compactMap { Int($0) }.reduce(0, { $0 + $1 })
+        CoreDataManager.shared.list
+            .compactMap { $0.amountOfPayment?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() }
+            .compactMap { Int($0) }
+            .reduce(0, +)
     }
     
     /// 이번달의 결제 예정 서비스의 카테고리
@@ -30,9 +38,11 @@ class CoreDataManager {
         let categories = thisMonthServices.compactMap { $0.category }
         var categoriesTotalValue = [String: Int]()
         for category in categories {
-            let totalValue = thisMonthServices.filter { $0.category == category }
+            let totalValue = thisMonthServices
+                .filter { $0.category == category }
                 .compactMap { $0.amountOfPayment?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() }
-                .compactMap { Int($0) }.reduce(0, { $0 + $1 })
+                .compactMap { Int($0) }
+                .reduce(0, +)
             
             categoriesTotalValue[category] = totalValue
         }

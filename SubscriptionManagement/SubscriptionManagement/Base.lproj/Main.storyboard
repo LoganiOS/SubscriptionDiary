@@ -1262,7 +1262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifB-35-4AN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500.00000000000006" y="2540.625"/>
+            <point key="canvasLocation" x="500" y="2468"/>
         </scene>
         <!--Start Date Setting View Controller-->
         <scene sceneID="aZb-Qo-7eY">
@@ -2266,7 +2266,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ue-ye-28V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359.4202898550725" y="2540.625"/>
+            <point key="canvasLocation" x="-359" y="2468"/>
         </scene>
     </scenes>
     <designables>

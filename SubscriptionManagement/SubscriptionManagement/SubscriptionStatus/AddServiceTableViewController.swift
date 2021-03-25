@@ -1,3 +1,9 @@
+//
+//  AddServiceTableViewController.swift
+//  SubscriptionManagement
+//
+//  Created by LoganBerry on 2021/02/17.
+//
 
 import UIKit
 import UserNotifications
@@ -6,8 +12,6 @@ class AddServiceTableViewController: UITableViewController {
     
     @IBOutlet weak var serviceImageView: BorderImageView!
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var serviceNameTextField: UITextField! { didSet { serviceNameTextField.returnKeyType = .done } }
-    @IBOutlet weak var paymentTextField: UITextField! { didSet { paymentTextField.returnKeyType = .done } }
     @IBOutlet weak var startDateSettingButton: UIButton!
     @IBOutlet weak var renewalDateSettingButton: UIButton!
     @IBOutlet weak var subscriptionNotificationStatusSwitch: UISwitch!
@@ -15,7 +19,22 @@ class AddServiceTableViewController: UITableViewController {
     @IBOutlet weak var saveButtonContainerView: ShadowView!
     @IBOutlet weak var saveButton: UIButton!
     
+    @IBOutlet weak var serviceNameTextField: UITextField! {
+        didSet {
+            serviceNameTextField.returnKeyType = .done
+        }
+    }
+    
+    @IBOutlet weak var paymentTextField: UITextField! {
+        didSet {
+            paymentTextField.returnKeyType = .done
+        }
+    }
+    
+    /// 사용자가 선택한 컬러테마의 인덱스값을 불러옵니다.
     var index: Int { UserDefaults.standard.integer(forKey: "selectedIndex") }
+    
+    /// index값을 통해 사용자가 선택한 컬러테마를 불러옵니다.
     var theme: CustomColor.Theme { CustomColor.shared.themes[self.index] }
     
     var savedService: SavedServiceEntity?
@@ -40,25 +59,51 @@ class AddServiceTableViewController: UITableViewController {
         subscriptionNotificationStatusSwitch.onTintColor = UIColor(rgb: theme.sub1)
         
         guard savedService != nil else { return }
+        
         saveButton.setTitleColor(UIColor(rgb: theme.sub1), for: .normal)
         saveButtonContainerView.backgroundColor = UIColor(rgb: theme.sub1)
     }
     
+    func changeButtonColor() {
+        self.saveButton.isEnabled = true
+        self.saveButton.setTitleColor(UIColor(rgb: self.theme.sub1), for: .normal)
+        UIView.animate(withDuration: 0.5) {
+            self.saveButtonContainerView.backgroundColor = UIColor(rgb: self.theme.sub1)
+        }
+        
+    }
+    
+    func changeButtonStatus() {
+        UIView.animate(withDuration: 0.35) {
+            self.navigationController?.view.alpha = 0.90
+        }
+        
+        if renewalDate != nil {
+            NotificationCenter.default.addObserver(forName: .startDateDidSelecte, object: nil, queue: .main) { _ in
+                self.changeButtonColor()
+            }
+        } else if startDate != nil {
+            NotificationCenter.default.addObserver(forName: .renewalDateDidSelecte, object: nil, queue: .main) { _ in
+                self.changeButtonColor()
+            }
+        }
+    }
+    
     @IBAction func goBack(_ sender: Any) {
         defer { navigationController?.popViewController(animated: true) }
+        
         guard let serviceNameTextFieldText = serviceNameTextField.text else { return }
         guard let paymentTextFieldText = paymentTextField.text else { return }
         
         if let savedService = savedService {
             guard serviceNameTextFieldText != savedService.koreanName ||
-                    paymentTextFieldText != savedService.amountOfPayment ||
-                    startDate != savedService.subscriptionStartDate ||
-                    renewalDate != savedService.subscriptionRenewalDate  else { return }
+                  paymentTextFieldText != savedService.amountOfPayment ||
+                  startDate != savedService.subscriptionStartDate ||
+                  renewalDate != savedService.subscriptionRenewalDate  else { return }
             
             showUpdateCaution { _ in self.save(sender) }
         }
     }
-    
     
     @IBAction func turnOnPushAlert(_ sender: UISwitch) {
         if !(sender.isOn) {
@@ -66,7 +111,6 @@ class AddServiceTableViewController: UITableViewController {
             UNUserNotificationCenter.current().removeLocalNotification(with: name)
         }
     }
-    
     
     @IBAction func save(_ sender: Any) {
         
@@ -86,15 +130,19 @@ class AddServiceTableViewController: UITableViewController {
                                           startDate: startDate ?? Date(),
                                           renewalDate: renewalDate ?? "1개월",
                                           pushOn: subscriptionNotificationStatusSwitch.isOn)
+            
             NotificationCenter.default.post(name: .serviceDidUpdate, object: nil)
             navigationController?.popViewController(animated: true)
+            
         } else {
             if inputServiceName.isEmpty {
                 inputServiceName = "이름없는 서비스"
             }
+            
             if inputPayment.isEmpty {
                 inputPayment = "0".numberFormattedString(.currency)
             }
+            
             CoreDataManager.shared.add(category: selectedCategory,
                                        name: inputServiceName,
                                        englishName: serviceEnglishNameText,
@@ -103,7 +151,9 @@ class AddServiceTableViewController: UITableViewController {
                                        startDate: startDate ?? Date(),
                                        renewalDate: renewalDate ?? "1개월",
                                        pushOn: subscriptionNotificationStatusSwitch.isOn)
+            
             NotificationCenter.default.post(name: .serviceDidAdd, object: nil)
+            
             dismiss(animated: true, completion: nil)
         }
     }
@@ -122,33 +172,7 @@ class AddServiceTableViewController: UITableViewController {
         }
     }
     
-    func changeButtonColor() {
-        self.saveButton.isEnabled = true
-        self.saveButton.setTitleColor(UIColor(rgb: self.theme.sub1), for: .normal)
-        UIView.animate(withDuration: 0.5) {
-            self.saveButtonContainerView.backgroundColor = UIColor(rgb: self.theme.sub1)
-        }
-        
-    }
-    
-    func changeButtonStatus() {
-        UIView.animate(withDuration: 0.35) { self.navigationController?.view.alpha = 0.90 }
-        
-        if renewalDate != nil {
-            NotificationCenter.default.addObserver(forName: .startDateDidSelecte, object: nil, queue: .main) { _ in
-                self.changeButtonColor()
-            }
-        } else if startDate != nil {
-            NotificationCenter.default.addObserver(forName: .renewalDateDidSelecte, object: nil, queue: .main) { _ in
-                self.changeButtonColor()
-            }
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        paymentTextField.resignFirstResponder()
-        serviceNameTextField.resignFirstResponder()
-        
         if let startDateSettingViewController = segue.destination as? StartDateSettingViewController {
             startDateSettingViewController.delegate = self
             startDateSettingViewController.startDate = self.startDate
@@ -158,20 +182,7 @@ class AddServiceTableViewController: UITableViewController {
             changeButtonStatus()
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        changeTintColor()
         
-        NotificationCenter.default.addObserver(forName: .imageDidSelecte, object: nil, queue: .main) { (notification) in
-            if let imageURLString = notification.userInfo?["imageURLString"] as? String {
-                imageURLString.getImage { self.serviceImageView.image = UIImage(data: $0) }
-                self.selectedImageURLString = imageURLString
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -224,26 +235,54 @@ class AddServiceTableViewController: UITableViewController {
         guard let savedRenewalDate = savedService?.subscriptionRenewalDate else { return }
         renewalDate = savedRenewalDate
         renewalDateSettingButton.setTitle(savedRenewalDate, for: .normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        changeTintColor()
         
+        NotificationCenter.default.addObserver(forName: .imageDidSelecte, object: nil, queue: .main) { (notification) in
+            if let imageURLString = notification.userInfo?["imageURLString"] as? String {
+                imageURLString.getImage { self.serviceImageView.image = UIImage(data: $0) }
+                self.selectedImageURLString = imageURLString
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        paymentTextField.resignFirstResponder()
+        serviceNameTextField.resignFirstResponder()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  5
     }
+    
 }
 
 
+
+// MARK:- UIGestureRecognizerDelegate
 extension AddServiceTableViewController: UIGestureRecognizerDelegate {
+    
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         serviceNameTextField.resignFirstResponder()
         paymentTextField.resignFirstResponder()
     }
+    
 }
 
+
+
+// MARK:- UITextFieldDelegate
 extension AddServiceTableViewController: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard textField == paymentTextField else { return true }
         guard let nsString = textField.text as NSString? else { return true }
+        
         let finalString = nsString.replacingCharacters(in: range, with: string)
         
         if finalString.count >= 12 {
@@ -252,7 +291,6 @@ extension AddServiceTableViewController: UITextFieldDelegate {
         } else {
             textField.textColor = UIColor(rgb: theme.sub1)
         }
-        
         textField.text = finalString.numberFormattedString(.currency)
         
         return false
@@ -263,11 +301,17 @@ extension AddServiceTableViewController: UITextFieldDelegate {
         
         return true
     }
+    
 }
 
+
+
+// MARK:- DateSettingViewControllerDelegate
 extension AddServiceTableViewController: DateSettingViewControllerDelegate {
+    
     func dateSettingViewController(_ viewController: UIViewController, startDate: Date?) {
         guard let startDate = startDate else { return }
+        
         self.startDate = startDate
         startDateSettingButton.setTitle(startDate.formattedString(), for: .normal)
     }
@@ -282,5 +326,6 @@ extension AddServiceTableViewController: DateSettingViewControllerDelegate {
             self.navigationController?.view.alpha = alpha
         }
     }
+    
 }
 

@@ -11,27 +11,23 @@ class SettingViewController: UIViewController {
 
     @IBOutlet weak var listTableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         listTableView.reloadData()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
         
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-
 }
 
+
+//
 extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
@@ -42,6 +38,5 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
 
         return cell
     }
-    
     
 }

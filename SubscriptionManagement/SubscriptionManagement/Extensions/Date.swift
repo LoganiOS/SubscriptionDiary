@@ -31,6 +31,7 @@ extension Date {
     func formattedString(after component: Calendar.Component = .month, value: Int = 0) -> String {
         var calendar = Calendar.current
         calendar.locale = Locale(identifier: "ko_kr")
+        
         guard let renewalDate = calendar.date(byAdding: component, value: value, to: self) else { return "" }
         let dateFormat = DateFormatter()
         dateFormat.locale = Locale(identifier: "ko_kr")
@@ -49,6 +50,9 @@ extension Date {
     }
 }
 
+
+
+//
 extension Date {
     
     /// Return PaymentDays in Date Array

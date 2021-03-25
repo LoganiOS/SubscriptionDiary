@@ -14,6 +14,7 @@ struct Service: Codable {
     let imageURL: String
 }
 
+// 분리하기
 struct ServiceCategory: Codable {
     let id: Int
     let name: String

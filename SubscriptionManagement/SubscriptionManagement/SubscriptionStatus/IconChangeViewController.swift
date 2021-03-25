@@ -11,7 +11,6 @@ class IconChangeViewController: UIViewController {
     
     @IBOutlet weak var iconChangeCollectionView: UICollectionView!
     var services: [Service] { Array(ServiceApiManager.shared.services.joined()) }
-    
     var spinner = UIActivityIndicatorView(style: .gray)
     
     override func viewDidLoad() {
@@ -27,9 +26,14 @@ class IconChangeViewController: UIViewController {
             }
         }
     }
+    
 }
 
+
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension IconChangeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return services.count
     }
@@ -51,9 +55,14 @@ extension IconChangeViewController: UICollectionViewDataSource, UICollectionView
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
 }
 
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
 extension IconChangeViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize() }
         let numberOfCells: CGFloat = 3

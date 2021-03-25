@@ -20,8 +20,9 @@ extension UIColor {
     /// initialize with Hex Color code
     /// - Parameter rgb: example) white = 0xFFFFFF
    convenience init(rgb: Int) {
+    
        self.init(
-           red: (rgb >> 16) & 0xFF,
+           red: (rgb >> 16) & 0xFF, // RGB에 있는 비트를 16번 오른쪽으로 이동시키고,  0xFF를 2진수로 변환 한다음 & 연산자로 비교 // 이거 내용 봐야함
            green: (rgb >> 8) & 0xFF,
            blue: rgb & 0xFF
        )

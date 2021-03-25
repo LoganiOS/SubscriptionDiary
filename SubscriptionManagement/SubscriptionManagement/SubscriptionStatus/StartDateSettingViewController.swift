@@ -1,3 +1,9 @@
+//
+//  StartDateSettingViewController.swift
+//  SubscriptionManagement
+//
+//  Created by LoganBerry on 2021/02/17.
+//
 
 import UIKit
 
@@ -15,13 +21,11 @@ class StartDateSettingViewController: UIViewController {
         let index = UserDefaults.standard.integer(forKey: "selectedIndex")
         let customTintColor = UIColor(rgb: CustomColor.shared.themes[index].main)
         saveButton.tintColor = customTintColor
-
     }
     
     @IBAction func dismiss(_ sender: Any) {
         delegate?.dateSettingViewController?(self, alpha: 1)
         dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func dismissGesture(_ sender: UIPanGestureRecognizer) {
@@ -42,6 +46,7 @@ class StartDateSettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         startDateSettingDatePicker.datePickerMode = .date
         startDateSettingDatePicker.date = startDate ?? Date()
         startDateSettingDatePicker.maximumDate = Date()
@@ -49,7 +54,4 @@ class StartDateSettingViewController: UIViewController {
         changeTintColor()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
 }
