@@ -9,6 +9,7 @@ import UIKit
 import JTAppleCalendar
 
 class PaymentDateStatusViewController: UIViewController {
+
     @IBOutlet weak var favoriteCategoryTableView: UITableView!
     @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var monthLabel: UILabel! {
@@ -17,12 +18,12 @@ class PaymentDateStatusViewController: UIViewController {
         }
     }
     
+    var savedServicesSortedBySelectedDate = [SavedServiceEntity]()
+    var selectedDate: Date? = Date()
     var savedServicesSortedByDate: [SavedServiceEntity] {
         return CoreDataManager.shared.list.sorted { $0.nextPaymentDate ?? Date() < $1.nextPaymentDate ?? Date() }
     }
     
-    var savedServicesSortedBySelectedDate = [SavedServiceEntity]()
-    var selectedDate: Date? = Date()
     var thisMonthServiceCategoriesTotalPayment: Int {
         return CoreDataManager.shared.thisMonthServiceCategories.values.reduce(0, +)
     }
@@ -38,15 +39,12 @@ class PaymentDateStatusViewController: UIViewController {
             CoreDataManager.shared.list.forEach { (service) in
                 nextPaymentDate.append(ServiceNextPaymentDate(serviceName: service.koreanName ?? "",
                                                               nextPaymentDate: service.nextPaymentDate?.formattedString() ?? "" ))
-                
             }
         }
-        
         return nextPaymentDate
     }
     
     var didEndScroll = false
-    
     
     func callCalendarView() -> JTACMonthView?  {
         guard let calendarTableViewCell = favoriteCategoryTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return nil }
@@ -90,12 +88,10 @@ class PaymentDateStatusViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         savedServicesSortedBySelectedDate = [SavedServiceEntity]()
         selectedDate = nil
         
         didEndScroll = false
-        
     }
     
 }
@@ -361,7 +357,6 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
             } else {
                 cell.dateLabel.textColor = UIColor.lightGray
             }
-            
         }
     }
 }
