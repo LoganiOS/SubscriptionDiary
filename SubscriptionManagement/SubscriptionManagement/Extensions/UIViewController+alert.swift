@@ -1,12 +1,19 @@
-
+//
+//  UIViewController.swift
+//  SubscriptionManagement
+//
+//  Created by LoganBerry on 2021/02/02.
+//
 
 import UIKit
 
 extension UIViewController {
+    
     func showDeleteCaution(serviceName: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: "", message: "'\(serviceName)'서비스를\n 구독 리스트에서 지우시겠어요?\n삭제된 내용은 복구할 수 없습니다.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "취소", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: handler))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -16,12 +23,14 @@ extension UIViewController {
             self.navigationController?.popViewController(animated: true)
         }))
         alert.addAction(UIAlertAction(title: "저장", style: .default, handler: handler))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
     func showCaution(with message: String) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -59,4 +68,5 @@ extension UIViewController {
             .filter { ($0.constant < 0) }
             .first?.isActive = false
     }
+    
 }

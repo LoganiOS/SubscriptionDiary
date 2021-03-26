@@ -11,4 +11,6 @@ class IconChangeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var iconImageView: BorderImageView!
     
+    static let identifier = "IconChangeCollectionViewCell"
+    
 }

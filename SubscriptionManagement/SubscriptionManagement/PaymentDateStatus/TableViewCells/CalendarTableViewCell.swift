@@ -14,6 +14,8 @@ class CalendarTableViewCell: UITableViewCell {
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var sundayLabel: UILabel!
     
+    static let identifier = "CalendarTableViewCell"
+    
     @IBOutlet weak var calendarView: JTACMonthView! {
         didSet {
             calendarView.backgroundColor = .clear

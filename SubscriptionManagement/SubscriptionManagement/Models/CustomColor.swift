@@ -8,7 +8,9 @@
 import UIKit
 
 public class CustomColor {
+    
     static let shared = CustomColor()
+    
     private init() {}
     
     var themes = [
@@ -25,4 +27,6 @@ public class CustomColor {
         let sub1: Int
         let sub2: Int
     }
+    
 }
+

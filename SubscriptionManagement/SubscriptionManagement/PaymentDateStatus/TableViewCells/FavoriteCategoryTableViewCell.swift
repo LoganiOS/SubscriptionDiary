@@ -17,6 +17,8 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var thirdConstraint: NSLayoutConstraint!
     @IBOutlet weak var fourthConstraint: NSLayoutConstraint!
     
+    static let identifier = "FavoriteCategoryTableViewCell"
+    
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = "\(Date().month)월 이용현황"

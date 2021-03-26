@@ -64,15 +64,16 @@ class AddServiceTableViewController: UITableViewController {
         saveButtonContainerView.backgroundColor = UIColor(rgb: theme.sub1)
     }
     
+    /// 버튼의 isEnabled 속성을 true 값으로 저장하고 색상을 변경합니다.
     func changeButtonColor() {
         self.saveButton.isEnabled = true
         self.saveButton.setTitleColor(UIColor(rgb: self.theme.sub1), for: .normal)
         UIView.animate(withDuration: 0.5) {
             self.saveButtonContainerView.backgroundColor = UIColor(rgb: self.theme.sub1)
         }
-        
     }
     
+    /// 서비스 결제일, 결제 주기를 모두 입력한 상태에서만 버튼을 활성화합니다.
     func changeButtonStatus() {
         UIView.animate(withDuration: 0.35) {
             self.navigationController?.view.alpha = 0.90

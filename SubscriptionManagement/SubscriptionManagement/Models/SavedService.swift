@@ -1,9 +1,15 @@
-
+//
+//  SavedService.swift
+//  SubscriptionManagement
+//
+//  Created by LoganBerry on 2021/03/12.
+//
 
 import UIKit
 import WidgetKit
 
 public struct SavedService: Codable {
+    
     let name: String
     let icon: Data
     let payment: String
@@ -14,5 +20,6 @@ public struct SavedService: Codable {
             SavedService(name: "-", icon: Data(), payment: "-", paymentDate: Date())
         }
     }
+    
 }
 

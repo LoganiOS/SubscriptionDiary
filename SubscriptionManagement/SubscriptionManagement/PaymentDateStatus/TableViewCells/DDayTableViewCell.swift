@@ -11,6 +11,8 @@ class DDayTableViewCell: UITableViewCell {
    
     @IBOutlet weak var dDayCollectionView: UICollectionView!
     
+    static let identifer = "DDayTableViewCell"
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

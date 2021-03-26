@@ -1,5 +1,9 @@
-
-
+//
+//  ShadowView.swift
+//  SubscriptionManagement
+//
+//  Created by LoganBerry on 2021/02/02.
+//
 
 import UIKit
 
@@ -8,51 +12,35 @@ import UIKit
     @IBInspectable var shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
-        }
-        set {
+        } set {
             layer.shadowRadius = newValue
         }
     }
     
     @IBInspectable var shadowOffset : CGSize {
-
-        get{
+        get {
             return layer.shadowOffset
-        }set{
-
+        } set {
             layer.shadowOffset = newValue
         }
     }
 
     @IBInspectable var shadowColor : UIColor {
-        get{
+        get {
             guard let shadowColor = layer.shadowColor else { return UIColor() }
+            
             return UIColor.init(cgColor: shadowColor)
-        }
-        set {
+        } set {
             layer.shadowColor = newValue.cgColor
         }
     }
     
     @IBInspectable var shadowOpacity : Float {
-
-        get{
+        get {
             return layer.shadowOpacity
-        }
-        set {
-
+        } set {
             layer.shadowOpacity = newValue
-
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
     }
     
 }

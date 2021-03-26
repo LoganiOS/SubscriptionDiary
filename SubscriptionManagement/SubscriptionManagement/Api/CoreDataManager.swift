@@ -1,8 +1,9 @@
-
-
-
-
-
+//
+//  CoreDataManager.swift
+//  SubscriptionManagement
+//
+//  Created by LoganBerry on 2021/03/01.
+//
 
 import Foundation
 import CoreData
@@ -10,7 +11,9 @@ import UIKit
 import WidgetKit
 
 class CoreDataManager {
+    
     static let shared = CoreDataManager()
+    
     private init() {}
     
     /// 유저가 저장한 서비스 목록
@@ -37,6 +40,7 @@ class CoreDataManager {
     var thisMonthServiceCategories: [String: Int] {
         let categories = thisMonthServices.compactMap { $0.category }
         var categoriesTotalValue = [String: Int]()
+        
         for category in categories {
             let totalValue = thisMonthServices
                 .filter { $0.category == category }
@@ -46,6 +50,7 @@ class CoreDataManager {
             
             categoriesTotalValue[category] = totalValue
         }
+        
         return categoriesTotalValue
     }
     
@@ -112,11 +117,11 @@ class CoreDataManager {
     
     func delete(at index: Int) {
         let target = list[index]
+        
         delete(target)
     }
      
     // MARK: - Core Data stack
-    
     lazy var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "SavedService")
@@ -143,6 +148,5 @@ class CoreDataManager {
             }
         }
     }
+    
 }
-
-

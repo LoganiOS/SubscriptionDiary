@@ -17,6 +17,9 @@ class ColorSettingViewController: UIViewController {
     
 }
 
+
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension ColorSettingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -24,7 +27,7 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCollectionViewCell.identifier, for: indexPath) as! ColorCollectionViewCell
         let customColor = CustomColor.shared.themes[indexPath.item]
         
         cell.backgroundImageView.backgroundColor = UIColor(rgb: customColor.main)
@@ -48,20 +51,22 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
         
         collectionView.reloadData()
     }
-    
 
 }
 
 
 
-//
+// MARK: - UICollectionViewDelegateFlowLayout
 extension ColorSettingViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize() }
         
-        // FIX
-        return CGSize(width: (collectionView.frame.width + (flowLayout.sectionInset.left / 2)) / 3 - flowLayout.sectionInset.right,
-                      height: 300 - flowLayout.sectionInset.top)
+        let width = ((collectionView.frame.width + (flowLayout.sectionInset.left / 2)) / 3) - flowLayout.sectionInset.right
+        let height = 300 - flowLayout.sectionInset.top
+        
+        return CGSize(width: width, height: height)
     }
+    
 }

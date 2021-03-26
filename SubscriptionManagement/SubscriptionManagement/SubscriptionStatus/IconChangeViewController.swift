@@ -10,6 +10,7 @@ import UIKit
 class IconChangeViewController: UIViewController {
     
     @IBOutlet weak var iconChangeCollectionView: UICollectionView!
+    
     var services: [Service] { Array(ServiceApiManager.shared.services.joined()) }
     var spinner = UIActivityIndicatorView(style: .gray)
     
@@ -39,7 +40,7 @@ extension IconChangeViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IconChangeCollectionViewCell", for: indexPath) as? IconChangeCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IconChangeCollectionViewCell.identifier, for: indexPath) as? IconChangeCollectionViewCell else { return UICollectionViewCell() }
         services[indexPath.item].getImage { (data, _) in
             cell.iconImageView.image = UIImage(data: data)
         }

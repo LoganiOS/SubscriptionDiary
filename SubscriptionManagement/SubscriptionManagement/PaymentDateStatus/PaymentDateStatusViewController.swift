@@ -106,7 +106,7 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarTableViewCell", for: indexPath) as? CalendarTableViewCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.identifier, for: indexPath) as? CalendarTableViewCell {
                 let index = UserDefaults.standard.integer(forKey: "selectedIndex")
                 let theme = CustomColor.shared.themes[index]
                 
@@ -123,13 +123,13 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
             if CoreDataManager.shared.list.isEmpty {
                 return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
             } else {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "DDayTableViewCell", for: indexPath) as? DDayTableViewCell {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: DDayTableViewCell.identifer, for: indexPath) as? DDayTableViewCell {
                     return cell
                 }
             }
             
         case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCategoryTableViewCell", for: indexPath) as? FavoriteCategoryTableViewCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCategoryTableViewCell.identifier, for: indexPath) as? FavoriteCategoryTableViewCell {
                 cell.changeTintColor()
                 if self.favoriteCategoryTableView.contentOffset.y > 180 {
                     DispatchQueue.main.async {
@@ -178,7 +178,7 @@ extension PaymentDateStatusViewController: UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DDayCollectionViewCell",
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DDayCollectionViewCell.identifier,
                                                             for: indexPath) as? DDayCollectionViewCell else {
             #if DEBUG
             fatalError()
@@ -228,7 +228,7 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
     }
     
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
-        let cell = calendar.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as? DateCell ?? DateCell()
+        let cell = calendar.dequeueReusableCell(withReuseIdentifier: DateCell.identifier, for: indexPath) as! DateCell
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
         
         let index = UserDefaults.standard.integer(forKey: "selectedIndex")
@@ -356,4 +356,5 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
             }
         }
     }
+    
 }

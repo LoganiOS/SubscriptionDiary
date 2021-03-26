@@ -10,5 +10,7 @@ import UIKit
 class SettingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
+    
+    static let identifier = "SettingTableViewCell"
 
 }
