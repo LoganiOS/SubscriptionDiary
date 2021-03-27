@@ -8,6 +8,7 @@
 import UIKit
 
 extension String {
+    
     func getImage(_ completion: @escaping (Data) -> ()) {
         DispatchQueue.global().async {
             var data = Data()
@@ -56,4 +57,5 @@ extension String {
         
         return Data()
     }
+    
 }

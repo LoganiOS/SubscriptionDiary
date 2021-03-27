@@ -8,6 +8,7 @@
 import UIKit
 
 extension Date {
+    
     static func ==(lhs: Self, rhs: Self) -> Bool {
         return lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day
     }
@@ -48,6 +49,7 @@ extension Date {
         guard let date = calendar.date(from: dateComponents) else { return nil }
         self = date
     }
+    
 }
 
 
@@ -81,6 +83,8 @@ extension Date {
             guard let date = calendar.date(byAdding: component, value: dayValue, to: self) else { return [Date]() }
             paymentDays.append(date)
         }
+        
         return paymentDays.filter { Date() <= $0 }
     }
+    
 }

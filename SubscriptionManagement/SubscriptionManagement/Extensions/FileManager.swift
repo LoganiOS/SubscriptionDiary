@@ -8,8 +8,10 @@
 import Foundation
 
 extension FileManager {
+    
     static func sharedContainer() -> URL {
         return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.gookjo.SubscriptionManagement")!
     }
+    
 }
 

@@ -10,6 +10,7 @@ import NotificationCenter
 import UserNotifications
 
 extension UNUserNotificationCenter {
+    
     public func addLocalNotification(service: SavedServiceEntity) {
         guard service.notificationIsOn else { return }
         guard let name = service.koreanName else { return }

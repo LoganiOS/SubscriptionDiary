@@ -8,6 +8,7 @@
 import Foundation
 
 extension Service {
+    
     func getImage(_ completion: @escaping (Data, String) -> ()) {
         DispatchQueue.global().async {
             var data = Data()
@@ -38,4 +39,5 @@ extension Service {
             }
         }
     }
+    
 }

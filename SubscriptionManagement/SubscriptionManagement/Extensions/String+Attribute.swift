@@ -8,6 +8,7 @@
 import UIKit
 
 extension String {
+    
     func addingBoldAttribute(fontSize: CGFloat = 17, boldRange: String) -> NSMutableAttributedString {
         let fontSize = UIFont.boldSystemFont(ofSize: fontSize)
         let attributedString = NSMutableAttributedString(string: self)
@@ -15,4 +16,5 @@ extension String {
 
         return attributedString
     }
+    
 }
