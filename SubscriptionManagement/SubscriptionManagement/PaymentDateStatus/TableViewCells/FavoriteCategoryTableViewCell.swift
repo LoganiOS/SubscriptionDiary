@@ -9,6 +9,8 @@ import UIKit
 
 class FavoriteCategoryTableViewCell: UITableViewCell {
     
+    static let identifier = "FavoriteCategoryTableViewCell"
+    
     @IBOutlet weak var graphStackView: UIStackView!
     @IBOutlet weak var graphBackgroundStackView: UIStackView!
     @IBOutlet weak var insightStackView: UIStackView!
@@ -16,8 +18,6 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var secondConstraint: NSLayoutConstraint!
     @IBOutlet weak var thirdConstraint: NSLayoutConstraint!
     @IBOutlet weak var fourthConstraint: NSLayoutConstraint!
-    
-    static let identifier = "FavoriteCategoryTableViewCell"
     
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {

@@ -28,35 +28,35 @@ struct SavedServiceView: View {
                                    alignment: .leading)
                     }
                     
-//                    VStack(alignment: .leading) {
-//                        Text(entry.list[index].name)
-//                            .font(.system(size: 10))
-//                            .fontWeight(.light)
-//                            .foregroundColor(.white)
-//
-//                        Text(entry.list[index].payment)
-//                            .font(.system(size: 10))
-//                            .fontWeight(.medium)
-//                            .foregroundColor(.white)
-//                    }
+                    VStack(alignment: .leading) {
+                        Text(entry.list[index].name)
+                            .font(.system(size: 10))
+                            .fontWeight(.light)
+                            .foregroundColor(.white)
 
-//                    Spacer()
-//
-//                    VStack (alignment: .trailing) {
-//                        let calendar = Calendar.current
-//                        let day = calendar.dateComponents([.day],
-//                                                          from: calendar.startOfDay(for: Date()),
-//                                                          to: calendar.startOfDay(for: entry.list[index].paymentDate)).day ?? 0
-//                        Text("D-\(day)")
-//                            .font(.system(size: 13))
-//                            .fontWeight(.bold)
-//                            .foregroundColor(.white)
-//
-//                        Text(entry.list[index].paymentDate.formattedString())
-//                            .font(.system(size: 7))
-//                            .fontWeight(.regular)
-//                            .foregroundColor(.white)
-//                    }
+                        Text(entry.list[index].payment)
+                            .font(.system(size: 10))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                    }
+
+                    Spacer()
+
+                    VStack (alignment: .trailing) {
+                        let calendar = Calendar.current
+                        let day = calendar.dateComponents([.day],
+                                                          from: calendar.startOfDay(for: Date()),
+                                                          to: calendar.startOfDay(for: entry.list[index].paymentDate)).day ?? 0
+                        Text("D-\(day)")
+                            .font(.system(size: 13))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+
+                        Text(entry.list[index].paymentDate.formattedString())
+                            .font(.system(size: 7))
+                            .fontWeight(.regular)
+                            .foregroundColor(.white)
+                    }
                 }
             }
         }

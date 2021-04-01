@@ -10,6 +10,8 @@ import WidgetKit
 import CoreData
 
 struct SubscriptionEntry: TimelineEntry {
+    
     let date: Date
     let list: [SavedService]
+    
 }

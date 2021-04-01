@@ -12,6 +12,7 @@ import CoreData
 
 @main
 struct SubscriptionWidget: Widget {
+    
     let kind: String = "SubscriptionWidget"
     
     var body: some WidgetConfiguration {
@@ -22,4 +23,5 @@ struct SubscriptionWidget: Widget {
         .description("구독서비스 정리")
         .supportedFamilies([.systemSmall, .systemMedium])
     }
+    
 }

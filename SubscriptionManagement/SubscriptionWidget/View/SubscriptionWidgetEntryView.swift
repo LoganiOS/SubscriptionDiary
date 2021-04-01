@@ -13,14 +13,13 @@ struct SubscriptionWidgetEntryView : View {
     var entry: Provider.Entry
     
     @Environment(\.widgetFamily) var family
-//    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         
         ZStack {
             GeometryReader {
                 reader in
-//                Color(.systemBackground)
+                Color(.systemBackground)
             }
             
             switch family {

@@ -11,7 +11,9 @@ import WidgetKit
 let snapshotData = SubscriptionEntry(date: Date(), list: SavedService.dummy)
 
 struct Provider: TimelineProvider {
+    
     typealias Entry = SubscriptionEntry
+    
     func placeholder(in context: Context) -> SubscriptionEntry {
         snapshotData
     }
@@ -26,4 +28,5 @@ struct Provider: TimelineProvider {
         
         completion(timeline)
     }
+    
 }
