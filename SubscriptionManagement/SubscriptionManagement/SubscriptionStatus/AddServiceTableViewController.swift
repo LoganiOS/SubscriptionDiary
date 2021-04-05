@@ -394,6 +394,7 @@ class AddServiceTableViewController: UITableViewController {
         }
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let startDateSettingViewController = segue.destination as? StartDateSettingViewController {
             startDateSettingViewController.delegate = self
@@ -404,6 +405,7 @@ class AddServiceTableViewController: UITableViewController {
             changeButtonStatus()
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -461,12 +463,14 @@ class AddServiceTableViewController: UITableViewController {
         renewalDateSettingButton.setTitle(savedRenewalDate, for: .normal)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         changeTintColor()
         
+        // IconChangeViewController의 IconChangeCollectionViewCell이 선택되면 imageDidSelecte 이름을 가진 Notification을 post합니다.
         NotificationCenter.default.addObserver(forName: .imageDidSelecte, object: nil, queue: .main) { (notification) in
             if let imageURLString = notification.userInfo?["imageURLString"] as? String {
                 imageURLString.getImage { self.serviceImageView.image = UIImage(data: $0) }
@@ -474,6 +478,7 @@ class AddServiceTableViewController: UITableViewController {
             }
         }
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -493,10 +498,16 @@ class AddServiceTableViewController: UITableViewController {
 // MARK:- UIGestureRecognizerDelegate
 extension AddServiceTableViewController: UIGestureRecognizerDelegate {
     
+    /**
+     입력 컨트롤(키보드 등)이 활성화 되어있을 때 화면을 탭하면 키보드 활성을 해제하는 method입니다.
+      
+     serviceNameTextField 또는 paymentTextField가 FirstResponder인 경우 *resignFirstResponder()* 를 호출합니다.
+     
+     - Parameter sender: UITapGestureRecognizer 타입
+     */
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         guard serviceNameTextField.isFirstResponder || paymentTextField.isFirstResponder else { return }
-        
-        print(#function)
+
         serviceNameTextField.resignFirstResponder()
         paymentTextField.resignFirstResponder()
     }
@@ -508,7 +519,6 @@ extension AddServiceTableViewController: UIGestureRecognizerDelegate {
 // MARK:- UITextFieldDelegate
 extension AddServiceTableViewController: UITextFieldDelegate {
     
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard textField == paymentTextField else { return true }
         guard let nsString = textField.text as NSString? else { return true }
@@ -517,7 +527,6 @@ extension AddServiceTableViewController: UITextFieldDelegate {
         
         if finalString.count >= 12 {
             textField.textColor = .systemRed
-            
             return false
         } else {
             textField.textColor = UIColor(rgb: theme.sub1)
@@ -543,12 +552,15 @@ extension AddServiceTableViewController: UITextFieldDelegate {
 // MARK:- DateSettingViewControllerDelegate
 extension AddServiceTableViewController: DateSettingViewControllerDelegate {
     
+    
     func dateSettingViewController(_ viewController: UIViewController, startDate: Date?) {
         guard let startDate = startDate else { return }
+        
         self.startDate = startDate
         
         startDateSettingButton.setTitle(startDate.formattedString(), for: .normal)
     }
+    
     
     func dateSettingViewController(_ viewController: UIViewController, renewalDate: String) {
         self.renewalDate = renewalDate
@@ -556,11 +568,13 @@ extension AddServiceTableViewController: DateSettingViewControllerDelegate {
         renewalDateSettingButton.setTitle(renewalDate, for: .normal)
     }
     
+    
     func dateSettingViewController(_ viewController: UIViewController, alpha: CGFloat) {
         UIView.animate(withDuration: 0.1) {
             self.navigationController?.view.alpha = alpha
         }
     }
+    
     
 }
 
