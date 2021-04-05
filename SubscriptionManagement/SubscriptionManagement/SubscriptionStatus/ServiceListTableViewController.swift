@@ -8,6 +8,13 @@
 import UIKit
 import Moya
 
+
+/**
+ 서비스 목록을 보여주는 테이블 뷰 컨트롤러입니다.
+ 
+ 서버로부터 데이터를 가져오며, 데이터를 가져오는 동안 UIActivityIndicatorView 애니메이션이 실행됩니다.
+ 데이터를 불러오면 UIActivityIndicatorView의 애니메이션이 중지되고  모든 서비스 목록을 테이블뷰에 표시합니다.
+ */
 class ServiceListTableViewController: UITableViewController {
     
     
