@@ -8,6 +8,12 @@
 import UIKit
 import WidgetKit
 
+
+/**
+ 구독 기입장의 홈화면입니다.
+ 
+ 사용자가 추가한 서비스를 관리하거나 서비스를 추가하기 위한 뷰 컨트롤러입니다.
+ */
 class SubscriptionStatusViewController: UIViewController {
     
     
@@ -34,7 +40,7 @@ class SubscriptionStatusViewController: UIViewController {
     /**
      사용자가 추가한 서비스를 정렬하기 위한 UIButton입니다.
      
-     이 버튼을 탭하는 경우 *sortServices(_:)* 가 호출되고 뷰컨트롤러에 액션시트가 표시됩니다.
+     이 버튼을 탭하는 경우 *sortServices(_:)* 가 호출되고 뷰 컨트롤러에 액션시트가 표시됩니다.
      */
     @IBOutlet weak var sortButton: UIButton!
     
@@ -324,7 +330,7 @@ extension SubscriptionStatusViewController: UITableViewDataSource {
         cell.serviceNameLabel.text = coreManager.koreanName
         cell.paymentLabel.text = coreManager.amountOfPayment
         
-        // CoreData에 imageURLString이 저장되어 있으나, URL의 길이가 1 미만이라면 정상적인 URL이 아니므로 이 땐, cell.logoImageView.image에 Default Image를 생성해 저장합니다.
+        // CoreData에 imageURLString이 저장되어 있으나 URL의 길이가 1 미만이라면 정상적인 URL이 아니므로 이 땐, cell.logoImageView.image에 Default Image를 생성해 저장합니다.
         if let imageURLString = coreManager.imageURLString, imageURLString.count < 1 {
             cell.logoImageView.image = UIImage(named: "DefaultImage")
         } else if let _ = coreManager.imageURLString  {
