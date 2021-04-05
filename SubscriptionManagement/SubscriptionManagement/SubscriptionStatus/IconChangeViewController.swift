@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 /**
  AddServiceTableViewController의 serviceImageView 이미지 변경을 돕는 뷰 컨트롤러입니다.
  */
@@ -115,7 +116,6 @@ extension IconChangeViewController: UICollectionViewDelegateFlowLayout {
         
         // 3. width값을 계산합니다. 이 때 minimumInteritemSpacing 값 등 여백을 없앤 값을 저장합니다.
         let width = collectionView.frame.size.width - (flowLayout.minimumInteritemSpacing * (numberOfCells-1))
-        
         
         return CGSize(width: width/(numberOfCells), height: width/(numberOfCells))
     }
