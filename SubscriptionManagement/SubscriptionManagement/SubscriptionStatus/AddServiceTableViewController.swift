@@ -203,7 +203,7 @@ class AddServiceTableViewController: UITableViewController {
         paymentTextField.textColor = UIColor(rgb: theme.sub1)
         
         startDateSettingButton.tintColor = UIColor(rgb: theme.sub1)
-        
+       
         renewalDateSettingButton.tintColor = UIColor(rgb: theme.sub1)
         
         subscriptionNotificationStatusSwitch.onTintColor = UIColor(rgb: theme.sub1)

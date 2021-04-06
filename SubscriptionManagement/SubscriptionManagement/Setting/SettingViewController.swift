@@ -7,8 +7,15 @@
 
 import UIKit
 
+
+/**
+ 구독 기입장의 설정 화면(세번째 탭)입니다.
+ */
 class SettingViewController: UIViewController {
 
+    /**
+     설정 목록을 표시할 UITableView 속성입니다.
+     */
     @IBOutlet weak var listTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {

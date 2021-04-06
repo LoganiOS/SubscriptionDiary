@@ -36,7 +36,7 @@ class ServiceListTableViewCell: UITableViewCell {
     /**
      Cell의 identifier를 문자열로 저장한 타입 속성입니다.
      
-     tableview의 *dequeueReusableCell(withIdentifier:for:)*  method를 호출할 때 withIdentifier에 이 속성을 전달하세요.
+     tableview의 *dequeueReusableCell(withIdentifier:for:)*  method를 호출할 때 withIdentifier 파라미터에 이 속성을 전달하세요.
      */
     static let identifier: String = "ServiceListTableViewCell"
     

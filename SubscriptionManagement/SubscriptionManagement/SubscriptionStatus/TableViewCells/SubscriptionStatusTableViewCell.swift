@@ -9,9 +9,9 @@ import UIKit
 
 
 /**
- 이 Cell을 통해 사용자가 추가한 서비스를 SubscriptionStatusViewController 뷰 컨트롤러에 표시할 수 있습니다.
- 
  이 Cell은 subscriptionStatusTableView의 재사용 Cell로 사용됩니다.
+ 
+ SubscriptionStatusViewController의 subscriptionStatusTableView속성에서 *dequeueReusableCell(withIdentifier:for:)* method를 호출할 때 이 Cell을 사용하세요.
  */
 class SubscriptionStatusTableViewCell: UITableViewCell {
     
@@ -37,7 +37,7 @@ class SubscriptionStatusTableViewCell: UITableViewCell {
     /**
      Cell의 identifier를 문자열로 저장한 타입 속성입니다.
      
-     tableview의 *dequeueReusableCell(withIdentifier:for:)*  method를 호출할 때 withIdentifier에 이 속성을 전달하세요.
+     tableview의 *dequeueReusableCell(withIdentifier:for:)*  method를 호출할 때 withIdentifier 파라미터에 이 속성을 전달하세요.
      */
     static let identifier: String = "SubscriptionStatusTableViewCell"
     
