@@ -8,54 +8,146 @@
 import UIKit
 import JTAppleCalendar
 
-class PaymentDateStatusViewController: UIViewController {
 
-    @IBOutlet weak var favoriteCategoryTableView: UITableView!
-    @IBOutlet weak var underlineView: UIView!
-    @IBOutlet weak var monthLabel: UILabel! {
-        didSet {
-            monthLabel.text = "\(Date().month)월"
-        }
-    }
+/**
+ 구독 기입장의 모아보기 화면(두번째 탭)입니다.
+ 
+ favoriteCategoryTableView의 indexPath.row따라 데이터를 보여줍니다.
+ - 0: 달력
+ - 1: 사용자가 추가한 서비스를 결제일 순서대로 정렬해서 컬렉션 뷰에 표시
+ - 2: 사용자가 추가한 서비스의 통계를 그래프로 표시
+ */
+class PaymentDateStatusViewController: UIViewController {
     
-    var savedServicesSortedBySelectedDate = [SavedServiceEntity]()
-    var selectedDate: Date? = Date()
-    var savedServicesSortedByDate: [SavedServiceEntity] {
-        return CoreDataManager.shared.list.sorted { $0.nextPaymentDate ?? Date() < $1.nextPaymentDate ?? Date() }
-    }
     
-    var thisMonthServiceCategoriesTotalPayment: Int {
-        return CoreDataManager.shared.thisMonthServiceCategories.values.reduce(0, +)
-    }
-    
+    /**
+     ServiceNextPaymentDate 타입의 구조체입니다.
+     
+     사용자가 추가한 서비스 명과 서비스의 바로 직전의 결제 예상일을 속성에 저장할 수 있습니다.
+     */
     struct ServiceNextPaymentDate {
+        /// 서비스 명
         let serviceName: String
+        
+        /// 결제 예상일
         let nextPaymentDate: String
     }
     
+    
+    /**
+     이 속성은 ServiceNextPaymentDate 타입의 배열입니다.
+     
+     사용자가 추가한 서비스가 없다면 (CoreDataManager.shared.list.isEmpty) 빈 배열을 리턴하고,
+     사용자가 추가한 서비스가 있다면 서비스 명과 바로 다음 결제일만 문자열로 리턴합니다.
+     */
     var serviceNextPaymentDate: [ServiceNextPaymentDate] {
         var nextPaymentDate = [ServiceNextPaymentDate]()
+        
         if !(CoreDataManager.shared.list.isEmpty) {
             CoreDataManager.shared.list.forEach { (service) in
                 nextPaymentDate.append(ServiceNextPaymentDate(serviceName: service.koreanName ?? "",
                                                               nextPaymentDate: service.nextPaymentDate?.formattedString() ?? "" ))
             }
         }
+        
         return nextPaymentDate
     }
     
-    var didEndScroll = false
+    /**
+     *calendar(_: didSelectDate:cell:cellState:indexPath:)* method가 호출될 때 이 속성에 선택된 날짜에 해당되는 서비스만 필터링 합니다.
+     ```
+     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        CoreDataManager.shared.list.filter {
+            $0.nextPaymentDate?.formattedString() == date.formattedString()
+        }
+     }
+     ```
+     viewDidDisappear(_ :)에서 이 속성값을 빈 배열로 변경해야 합니다.
+     */
+    var savedServicesSortedBySelectedDate = [SavedServiceEntity]()
     
-    func callCalendarView() -> JTACMonthView?  {
-        guard let calendarTableViewCell = favoriteCategoryTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return nil }
-        
-        return calendarTableViewCell.calendarView
+    
+    /**
+     calendarView에서 선택된 날짜를 이 속성에 저장합니다.
+     
+     이 속성의 초기화 값은 Date() 입니다.
+     */
+    var selectedDate: Date? = Date()
+    
+    
+    /**
+     사용자가 추가한 서비스들을 다가오는 결제일 순서로 정렬한 배열입니다.
+     */
+    var savedServicesSortedByDate: [SavedServiceEntity] {
+        return CoreDataManager.shared.list.sorted { $0.nextPaymentDate ?? Date() < $1.nextPaymentDate ?? Date() }
     }
+    
+    
+    /**
+     사용자가 추가한 서비스들 중 결제 예상일이 이번달에 포함된 서비스들만 필터링 한 다음, 예상 결제 금액을 합산한 값입니다.
+     */
+    var thisMonthServiceCategoriesTotalPayment: Int {
+        return CoreDataManager.shared.thisMonthServiceCategories.values.reduce(0, +)
+    }
+    
+    
+    /**
+     이 속성이 false 인 경우에만 *changeTintColorWhenReachedEnd()* method가 실행됩니다.
+     
+     반드시 *scrollViewDidScroll(_ :)*, *viewDidDisappear(_:)* method에서만 이 속성값을 변경하세요.
+     */
+    private var didEndScroll = false
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.favoriteCategoryTableView.contentOffset.y > 40 && didEndScroll == false {
+            
+            didEndScroll = true
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 2) {
+                    if let tableView = scrollView as? UITableView {
+                        if let cell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? FavoriteCategoryTableViewCell {
+                            // graphStackView의 색상을 변경함과 동시에 constant값을 변경합니다.
+                            cell.changeTintColorWhenReachedEnd()
+                            
+                            self.view.layoutIfNeeded()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    /**
+     사용자가 추가한 서비스를 표시하기 위한 UITableView입니다.
+     */
+    @IBOutlet weak var favoriteCategoryTableView: UITableView!
+    
+    
+    /**
+     totalAmountOfPaymentLabel 아래, 밑줄을 표시하기 위한 UIView입니다.
+     */
+    @IBOutlet weak var underlineView: UIView!
+    
+    
+    /**
+     '월'을 표시하는 UILabel입니다. 기본값은 Date()속성의 '월'을 표시합니다.
+     */
+    @IBOutlet weak var monthLabel: UILabel! {
+        didSet {
+            monthLabel.text = "\(Date().month)월"
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         favoriteCategoryTableView.contentInset.top = 60
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,31 +155,35 @@ class PaymentDateStatusViewController: UIViewController {
         defer { favoriteCategoryTableView.reloadData() }
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
-        guard !(CoreDataManager.shared.list.isEmpty) else { return }
-        for i in 0..<CoreDataManager.shared.list.count {
-            CoreDataManager.shared.list[i].nextPaymentDate = CoreDataManager.shared.list[i].subscriptionStartDate?
-                .calculatingPaymentDays(
-                    CoreDataManager.shared.list[i].subscriptionRenewalDate ?? "1개월").first
+        let savedservices = CoreDataManager.shared.list
+        
+        guard !(savedservices.isEmpty) else { return }
+        
+        for i in 0..<savedservices.count {
+            savedservices[i].nextPaymentDate = savedservices[i].subscriptionStartDate?.calculatingPaymentDays(savedservices[i].subscriptionRenewalDate ?? "1개월").first
         }
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         callCalendarView()?.reloadData()
     }
-        
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        // MARK:- FIX ME!!!!
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.view.frame.width > self.view.frame.height ? self.callCalendarView()?.reloadData() : self.callCalendarView()?.reloadData()
         }
     }
     
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         savedServicesSortedBySelectedDate = [SavedServiceEntity]()
         selectedDate = nil
         
@@ -99,10 +195,17 @@ class PaymentDateStatusViewController: UIViewController {
 
 // MARK:- UITableViewDataSource, UITableViewDelegate
 extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
+    
+    // indexPath.row에 따라 아래의 Cell을 return합니다.
+    // - 0: CalendarTableViewCell
+    // - 1: DDayTableViewCell (데이터가 없는 경우 EmptyCell)
+    // - 2: FavoriteCategoryTableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -112,13 +215,13 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
                 
                 underlineView.backgroundColor = UIColor(rgb: theme.sub2)
                 monthLabel.textColor = UIColor(rgb: theme.main)
-    
+                
                 cell.saturdayLabel.textColor = UIColor(rgb: theme.sub1)
                 cell.sundayLabel.textColor = UIColor(rgb: theme.sub1)
-  
+                
                 return cell
             }
-        
+            
         case 1:
             if CoreDataManager.shared.list.isEmpty {
                 return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
@@ -135,6 +238,7 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 2) {
                             cell.changeTintColorWhenReachedEnd()
+                            
                             self.view.layoutIfNeeded()
                         }
                     }
@@ -151,44 +255,25 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
         return UITableViewCell()
         #endif
     }
-
-    // FIX 이거 별도로 빼기 (테이블뷰 델리게이트가 아님)
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if self.favoriteCategoryTableView.contentOffset.y > 40 && didEndScroll == false {
-            didEndScroll = true
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 2) {
-                    if let tableView = scrollView as? UITableView {
-                        if let cell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? FavoriteCategoryTableViewCell {
-                            cell.changeTintColorWhenReachedEnd()
-                            self.view.layoutIfNeeded()
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
 }
 
 
 // MARK:- UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension PaymentDateStatusViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return savedServicesSortedBySelectedDate.isEmpty ? CoreDataManager.shared.list.count : savedServicesSortedBySelectedDate.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DDayCollectionViewCell.identifier,
-                                                            for: indexPath) as? DDayCollectionViewCell else {
-            #if DEBUG
-            fatalError()
-            #else
-            return UITableViewCell()
-            #endif
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DDayCollectionViewCell.identifier,
+                                                      for: indexPath) as! DDayCollectionViewCell
         
         let selectedDates = savedServicesSortedBySelectedDate.isEmpty ? savedServicesSortedByDate : savedServicesSortedBySelectedDate
-
+        
         let selectedDate = selectedDates[indexPath.item]
         cell.serviceNameLabel.text = selectedDate.koreanName
         
@@ -209,17 +294,36 @@ extension PaymentDateStatusViewController: UICollectionViewDataSource, UICollect
         return cell  
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let flowlayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize() }
+        
         let sectionInset = flowlayout.sectionInset
+        
         return CGSize(width: collectionView.frame.height * 0.6,
                       height: collectionView.frame.height - (sectionInset.top + sectionInset.bottom))
     }
+    
+    
 }
 
 
 // MARK:- JTACMonthViewDataSource, JTACMonthViewDelegate, JTACCellMonthViewDelegate
 extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthViewDelegate, JTACCellMonthViewDelegate {
+    
+    /**
+     CalendarTableViewCell의 calendarView 속성을 리턴합니다.
+     
+     Cell이 생성된 다음 이 method를 호출하세요.
+     */
+    func callCalendarView() -> JTACMonthView? {
+        guard let calendarTableViewCell = favoriteCategoryTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return nil }
+        
+        return calendarTableViewCell.calendarView
+    }
+    
+    
+    // calendar의 날짜 범위 지정
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         let now = Date()
         let maximumDate = Date(year: now.year, month: now.month+1, day: now.day) ?? Date()
@@ -227,6 +331,8 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         return ConfigurationParameters(startDate: now, endDate: maximumDate)
     }
     
+    
+    // JTACDayCell 타입 Cell 생성 담당
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         let cell = calendar.dequeueReusableCell(withReuseIdentifier: DateCell.identifier, for: indexPath) as! DateCell
         self.calendar(calendar, willDisplay: cell, forItemAt: date, cellState: cellState, indexPath: indexPath)
@@ -245,13 +351,30 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         return cell
     }
     
+    /**
+     JTACDayCell을 상속받은 DateCell Class의 초기화를 담당하는 method입니다.
+     calendar(_ :willDisplay:forItemAt:cellState:indexPath:)에서 이 method를 호출하세요.
+     
+     - Parameter view: JTACDayCell 타입을 전달할 수 있습니다.
+     - Parameter cellState: Cell의 상태를 전달할 수 있습니다.
+     */
+    private func configureCell(view: JTACDayCell?, cellState: CellState) {
+        guard let cell = view as? DateCell  else { return }
+        
+        cell.dateLabel.text = cellState.text
+    }
+    
+    
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         configureCell(view: cell, cellState: cellState)
     }
     
+    
+    // calendar가 scroll된 후에 호출
     func calendarDidScroll(_ calendar: JTACMonthView) {
         let originalLabel = monthLabel.text
         monthLabel.text = "\(calendar.visibleDates().monthDates.first?.date.month ?? 0)월"
+        
         if monthLabel.text != originalLabel {
             let animation = CATransition()
             animation.duration = 0.3
@@ -260,12 +383,20 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
             monthLabel.layer.add(animation, forKey: CATransitionType.push.rawValue)
             
             calendar.deselectAllDates()
+            
             self.selectedDate = nil
         }
     }
     
-    func reloadDdayCollectionViewWithAnimate() {
+    /**
+     dDayTableViewCell.dDayCollectionView을 reload할 때 transition 효과를 추가합니다.
+     
+     - duration: 0.2
+     - options: .transitionCrossDissolve
+     */
+    private func reloadDdayCollectionViewWithAnimate() {
         let indexPath = IndexPath(row: 1, section: 0)
+        
         if let dDayTableViewCell = favoriteCategoryTableView.cellForRow(at: indexPath) as? DDayTableViewCell {
             UIView.transition(with: dDayTableViewCell.dDayCollectionView,
                               duration: 0.2,
@@ -275,9 +406,11 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         }
     }
     
+    
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
         return cellState.dateBelongsTo == .thisMonth ? true : false
     }
+    
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         
@@ -296,32 +429,33 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         
     }
     
+    
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        if date == selectedDate {
+            self.selectedDate = Date()
+        }
         
-        if date == selectedDate { self.selectedDate = Date() }
         savedServicesSortedBySelectedDate = [SavedServiceEntity]()
         calendar.reloadData()
         reloadDdayCollectionViewWithAnimate()
         
     }
     
+    
     func monthView(_ monthView: JTACCellMonthView, drawingFor segmentRect: CGRect, with date: Date, dateOwner: DateOwner, monthIndex: Int) {
-        
+        // 필수 method
     }
     
-    func configureCell(view: JTACDayCell?, cellState: CellState) {
-        guard let cell = view as? DateCell  else { return }
-        cell.dateLabel.text = cellState.text
-        
-    }
     
     func handleCellEvents(cell: DateCell, cellState: CellState) {
         let date = cellState.date
         var calendar = Calendar.current
         calendar.locale = Locale(identifier: "ko_kr")
+        
         cell.todayCircleView.isHidden = (calendar.isDateInToday(date) && cellState.dateBelongsTo == .thisMonth) ? false : true
         cell.paymentDotView.isHidden = serviceNextPaymentDate.contains(where: { $0.nextPaymentDate == date.formattedString() }) ? false : true
     }
+    
     
     func handleCellTextColor(cell: DateCell, cellState: CellState) {
         let date = cellState.date
@@ -356,5 +490,6 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
             }
         }
     }
+    
     
 }
