@@ -34,7 +34,6 @@
 		02A0089A256FFE1F0067E81A /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A00899256FFE1F0067E81A /* BorderView.swift */; };
 		02A094CD260E3F4300302C11 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A094CC260E3F4300302C11 /* ServiceCategory.swift */; };
 		02A094D6260E3F7200302C11 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A094CC260E3F4300302C11 /* ServiceCategory.swift */; };
-		02A3363E256FF97200891554 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3363D256FF97200891554 /* UIView+shadow.swift */; };
 		02A860D025715E34002F8613 /* CornerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860CF25715E34002F8613 /* CornerRadiusView.swift */; };
 		02A860D625715EC4002F8613 /* CornerRadiusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860D525715EC4002F8613 /* CornerRadiusImageView.swift */; };
 		02A860DE25715EF8002F8613 /* BorderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860DD25715EF8002F8613 /* BorderImageView.swift */; };
@@ -57,7 +56,6 @@
 		02C79A2525D4475100967972 /* String+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9A258F86CC00141672 /* String+Attribute.swift */; };
 		02C79A2A25D4475300967972 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
 		02C79A2F25D4475500967972 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02879701257638F200C524A0 /* Notification.Name.swift */; };
-		02C79A3425D4475A00967972 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3363D256FF97200891554 /* UIView+shadow.swift */; };
 		02C79A3925D4475C00967972 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1E687258140BD008FF809 /* UIViewController+alert.swift */; };
 		02C79A5325D450B700967972 /* SubscriptionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79A4D25D44E1000967972 /* SubscriptionEntry.swift */; };
 		02C79A5E25D4514100967972 /* SubscriptionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79A5825D450C800967972 /* SubscriptionProvider.swift */; };
@@ -160,7 +158,6 @@
 		029F014D25E5820E00C61313 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		02A00899256FFE1F0067E81A /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		02A094CC260E3F4300302C11 /* ServiceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory.swift; sourceTree = "<group>"; };
-		02A3363D256FF97200891554 /* UIView+shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
 		02A860CF25715E34002F8613 /* CornerRadiusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusView.swift; sourceTree = "<group>"; };
 		02A860D525715EC4002F8613 /* CornerRadiusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusImageView.swift; sourceTree = "<group>"; };
 		02A860DD25715EF8002F8613 /* BorderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImageView.swift; sourceTree = "<group>"; };
@@ -336,7 +333,6 @@
 		028EC93F256FE71A006D3657 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				02A3363D256FF97200891554 /* UIView+shadow.swift */,
 				02D1E687258140BD008FF809 /* UIViewController+alert.swift */,
 				02879701257638F200C524A0 /* Notification.Name.swift */,
 				0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */,
@@ -358,8 +354,8 @@
 		0291AF22256AC431005080CF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0291AF23256AC44B005080CF /* SavedService.swift */,
 				02D3C17925EC1C4A00F8F13A /* Service.swift */,
+				0291AF23256AC44B005080CF /* SavedService.swift */,
 				02A094CC260E3F4300302C11 /* ServiceCategory.swift */,
 				02DE79E225C9778700FFC303 /* CustomColor.swift */,
 				0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */,
@@ -447,9 +443,9 @@
 			children = (
 				02C799E125D4458500967972 /* SubscriptionWidgetExtension.entitlements */,
 				02CB6D97255567F300D01B79 /* SubscriptionManagement */,
+				02C799D025D4452B00967972 /* SubscriptionWidget */,
 				02CB6DAE255567F600D01B79 /* SubscriptionManagementTests */,
 				02CB6DB9255567F600D01B79 /* SubscriptionManagementUITests */,
-				02C799D025D4452B00967972 /* SubscriptionWidget */,
 				02CB6D96255567F300D01B79 /* Products */,
 				28282087579B2EA87CEF715B /* Frameworks */,
 				4C738F8DBFEE54F1E258457D /* Pods */,
@@ -763,7 +759,6 @@
 			files = (
 				02D6183825D96B5B0032C6FC /* SavedServiceView.swift in Sources */,
 				02744F1F25F955C50018B64C /* String+getImage.swift in Sources */,
-				02C79A3425D4475A00967972 /* UIView+shadow.swift in Sources */,
 				02D3C17025EC140900F8F13A /* ServiceApiManager.swift in Sources */,
 				02C79A3925D4475C00967972 /* UIViewController+alert.swift in Sources */,
 				02C79A5325D450B700967972 /* SubscriptionEntry.swift in Sources */,
@@ -800,7 +795,6 @@
 				02C94D8125892E5900A42F04 /* DDayCollectionViewCell.swift in Sources */,
 				024DF907258A6EED00EBEAF4 /* Date.swift in Sources */,
 				02EDB2D525716B060008ED4B /* ShadowView.swift in Sources */,
-				02A3363E256FF97200891554 /* UIView+shadow.swift in Sources */,
 				024DF8FC258A541700EBEAF4 /* UIColor+init.swift in Sources */,
 				02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */,
 				0291AF1E256ABDD5005080CF /* ServiceListTableViewController.swift in Sources */,

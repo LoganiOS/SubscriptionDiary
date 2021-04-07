@@ -11,12 +11,22 @@ import RxSwift
 import RxCocoa
 import Alamofire
 
+
+/**
+ MoyaProvider에 사용할 TargetType입니다.
+ 
+ 이 열거형의 case를 전달하면 서버로부터 연관된 api를 요청합니다.
+ */
 enum ServiceProvider {
     case services
 }
 
+
+
+// MARK: - Moya TargetType
 extension ServiceProvider: TargetType {
 
+    
     var baseURL: URL {
         switch self {
         case .services:
@@ -55,4 +65,6 @@ extension ServiceProvider: TargetType {
     var headers: [String : String]? {
         return ["Content-Type":"application/json"]
     }
+    
+    
 }

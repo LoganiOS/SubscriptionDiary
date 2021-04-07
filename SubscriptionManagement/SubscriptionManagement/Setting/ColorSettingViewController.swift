@@ -32,7 +32,7 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        CustomColor.shared.themes.count
+        return CustomColor.shared.themes.count
     }
     
     
@@ -63,6 +63,7 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
         
         collectionView.reloadData()
     }
+    
 
 }
 

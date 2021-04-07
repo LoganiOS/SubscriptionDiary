@@ -13,10 +13,12 @@ import UIKit
  */
 class SettingViewController: UIViewController {
 
+    
     /**
      설정 목록을 표시할 UITableView 속성입니다.
      */
     @IBOutlet weak var listTableView: UITableView!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,6 +26,7 @@ class SettingViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         listTableView.reloadData()
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
