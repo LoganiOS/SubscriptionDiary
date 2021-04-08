@@ -52,7 +52,7 @@ class ServiceListTableViewController: UITableViewController {
      */
     func changeTintColor() {
         let index = UserDefaults.standard.integer(forKey: "selectedIndex")
-        let customTintColor = UIColor(rgb: CustomColor.shared.themes[index].main)
+        let customTintColor = UIColor(hex: CustomColor.shared.themes[index].main)
         
         self.navigationItem.leftBarButtonItem?.tintColor = customTintColor
         self.navigationItem.rightBarButtonItem?.tintColor = customTintColor

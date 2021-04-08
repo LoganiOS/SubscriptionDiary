@@ -9,7 +9,9 @@ import CoreData
 import UIKit
 import WidgetKit
 
+
 extension CoreDataManager {
+    
     
     var url: URL {
         return FileManager.sharedContainer().appendingPathComponent("data.json")
@@ -50,5 +52,6 @@ extension CoreDataManager {
         }
         return list
     }
+    
     
 }

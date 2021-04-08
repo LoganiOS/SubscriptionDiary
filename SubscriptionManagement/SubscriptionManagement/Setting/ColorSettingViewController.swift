@@ -40,7 +40,7 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCollectionViewCell.identifier, for: indexPath) as! ColorCollectionViewCell
         let customColor = CustomColor.shared.themes[indexPath.item]
         
-        cell.backgroundImageView.backgroundColor = UIColor(rgb: customColor.main)
+        cell.backgroundImageView.backgroundColor = UIColor(hex: customColor.main)
         cell.themeLabel.text = customColor.name
         
         UIView.transition(with: collectionView, duration: 0.25, options: .transitionCrossDissolve) {
@@ -57,7 +57,7 @@ extension ColorSettingViewController: UICollectionViewDataSource, UICollectionVi
         // 사용자가 item을 선택할 때마다 선택된 index값을 저장합니다.
         UserDefaults.standard.setValue(index, forKey: "selectedIndex")
         
-        let customTintColor = UIColor(rgb: CustomColor.shared.themes[index].main)
+        let customTintColor = UIColor(hex: CustomColor.shared.themes[index].main)
         UIApplication.shared.windows.first?.tintColor = customTintColor
         self.tabBarController?.tabBar.tintColor = customTintColor
         

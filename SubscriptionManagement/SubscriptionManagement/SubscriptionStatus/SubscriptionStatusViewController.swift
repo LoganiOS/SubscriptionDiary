@@ -165,11 +165,11 @@ class SubscriptionStatusViewController: UIViewController {
         let index = UserDefaults.standard.integer(forKey: "selectedIndex")
         let theme = CustomColor.shared.themes[index]
         
-        UIApplication.shared.windows.first?.tintColor = UIColor(rgb: theme.main)
-        sortButton.tintColor = UIColor(rgb: theme.main)
-        servicePlusButton.tintColor = UIColor(rgb: theme.main)
-        self.tabBarController?.tabBar.tintColor = UIColor(rgb: theme.main)
-        underlineView.backgroundColor = UIColor(rgb: theme.sub2)
+        UIApplication.shared.windows.first?.tintColor = UIColor(hex: theme.main)
+        sortButton.tintColor = UIColor(hex: theme.main)
+        servicePlusButton.tintColor = UIColor(hex: theme.main)
+        self.tabBarController?.tabBar.tintColor = UIColor(hex: theme.main)
+        underlineView.backgroundColor = UIColor(hex: theme.sub2)
     }
     
     

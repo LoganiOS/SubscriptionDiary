@@ -18,7 +18,6 @@
 		02628BD825FA614300D122EA /* Service+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02628BD225FA613B00D122EA /* Service+getImage.swift */; };
 		026A3D932588FEDA0008FEBE /* PaymentDateStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026A3D922588FEDA0008FEBE /* PaymentDateStatusViewController.swift */; };
 		026A3D9C2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026A3D9B2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift */; };
-		026FB4AF257E456600F17900 /* NSMutableAttributedString+titleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */; };
 		0273C25B2577A453008CBAA2 /* SavedService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */; };
 		0273C2602577A555008CBAA2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273C25F2577A555008CBAA2 /* CoreDataManager.swift */; };
 		02744F1F25F955C50018B64C /* String+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98E625F951BF004C1327 /* String+getImage.swift */; };
@@ -52,7 +51,6 @@
 		02C79A1125D4469A00967972 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273C25F2577A555008CBAA2 /* CoreDataManager.swift */; };
 		02C79A1625D4474600967972 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF906258A6EED00EBEAF4 /* Date.swift */; };
 		02C79A1B25D4474A00967972 /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+init.swift */; };
-		02C79A2025D4474D00967972 /* NSMutableAttributedString+titleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */; };
 		02C79A2A25D4475300967972 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
 		02C79A2F25D4475500967972 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02879701257638F200C524A0 /* Notification.Name.swift */; };
 		02C79A3925D4475C00967972 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1E687258140BD008FF809 /* UIViewController+alert.swift */; };
@@ -143,7 +141,6 @@
 		02628BD225FA613B00D122EA /* Service+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+getImage.swift"; sourceTree = "<group>"; };
 		026A3D922588FEDA0008FEBE /* PaymentDateStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDateStatusViewController.swift; sourceTree = "<group>"; };
 		026A3D9B2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCategoryTableViewCell.swift; sourceTree = "<group>"; };
-		026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+titleStyle.swift"; sourceTree = "<group>"; };
 		0273C25A2577A453008CBAA2 /* UserSavedService.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSavedService.xcdatamodel; sourceTree = "<group>"; };
 		0273C25F2577A555008CBAA2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		02766A9025DD4EDB00AC947D /* IconChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangeViewController.swift; sourceTree = "<group>"; };
@@ -336,11 +333,10 @@
 				021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */,
 				02DC98E625F951BF004C1327 /* String+getImage.swift */,
 				02628BD225FA613B00D122EA /* Service+getImage.swift */,
-				026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */,
 				024DF8FB258A541700EBEAF4 /* UIColor+init.swift */,
-				024DF906258A6EED00EBEAF4 /* Date.swift */,
 				029F014D25E5820E00C61313 /* UISegmentedControl.swift */,
 				02DC98DB25F914A1004C1327 /* FileManager.swift */,
+				024DF906258A6EED00EBEAF4 /* Date.swift */,
 				02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */,
 				02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */,
 			);
@@ -769,7 +765,6 @@
 				02FAC5F425FA949D001634E4 /* ServiceProvider.swift in Sources */,
 				02EA0A3725FBD77000089499 /* URL+excludeFromBackup.swift in Sources */,
 				02DC98EE25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */,
-				02C79A2025D4474D00967972 /* NSMutableAttributedString+titleStyle.swift in Sources */,
 				02D6185925D96C200032C6FC /* SubscriptionWidgetEntryView.swift in Sources */,
 				02C799D225D4452B00967972 /* SubscriptionWidget.swift in Sources */,
 				02DC98E125F914F3004C1327 /* FileManager.swift in Sources */,
@@ -797,7 +792,6 @@
 				02D1E688258140BD008FF809 /* UIViewController+alert.swift in Sources */,
 				0273C2602577A555008CBAA2 /* CoreDataManager.swift in Sources */,
 				026A3D9C2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift in Sources */,
-				026FB4AF257E456600F17900 /* NSMutableAttributedString+titleStyle.swift in Sources */,
 				02E19E2925A48830003492CF /* ColorCollectionViewCell.swift in Sources */,
 				02A860D625715EC4002F8613 /* CornerRadiusImageView.swift in Sources */,
 				02DC98DC25F914A1004C1327 /* FileManager.swift in Sources */,

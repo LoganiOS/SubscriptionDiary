@@ -191,27 +191,27 @@ class AddServiceTableViewController: UITableViewController {
      사용자가 선택한 색상으로 뷰의 틴트컬러를 변경합니다.
      */
     func changeTintColor() {
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(rgb: theme.sub1)
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(rgb: theme.sub1)
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(hex: theme.sub1)
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: theme.sub1)
         
-        serviceNameTextField.textColor = UIColor(rgb: theme.sub1)
+        serviceNameTextField.textColor = UIColor(hex: theme.sub1)
         
         categorySegmentedControl.hideBackground()
-        categorySegmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(rgb: theme.sub1)], for: .selected)
+        categorySegmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(hex: theme.sub1)], for: .selected)
         categorySegmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.lightGray], for: .normal)
         
-        paymentTextField.textColor = UIColor(rgb: theme.sub1)
+        paymentTextField.textColor = UIColor(hex: theme.sub1)
         
-        startDateSettingButton.tintColor = UIColor(rgb: theme.sub1)
+        startDateSettingButton.tintColor = UIColor(hex: theme.sub1)
        
-        renewalDateSettingButton.tintColor = UIColor(rgb: theme.sub1)
+        renewalDateSettingButton.tintColor = UIColor(hex: theme.sub1)
         
-        subscriptionNotificationStatusSwitch.onTintColor = UIColor(rgb: theme.sub1)
+        subscriptionNotificationStatusSwitch.onTintColor = UIColor(hex: theme.sub1)
         
         guard savedService != nil else { return }
         
-        saveButton.setTitleColor(UIColor(rgb: theme.sub1), for: .normal)
-        saveButtonContainerView.backgroundColor = UIColor(rgb: theme.sub1)
+        saveButton.setTitleColor(UIColor(hex: theme.sub1), for: .normal)
+        saveButtonContainerView.backgroundColor = UIColor(hex: theme.sub1)
     }
     
 
@@ -220,10 +220,10 @@ class AddServiceTableViewController: UITableViewController {
      */
     func changeButtonColor() {
         self.saveButton.isEnabled = true
-        self.saveButton.setTitleColor(UIColor(rgb: self.theme.sub1), for: .normal)
+        self.saveButton.setTitleColor(UIColor(hex: self.theme.sub1), for: .normal)
         
         UIView.animate(withDuration: 0.5) {
-            self.saveButtonContainerView.backgroundColor = UIColor(rgb: self.theme.sub1)
+            self.saveButtonContainerView.backgroundColor = UIColor(hex: self.theme.sub1)
         }
     }
     
@@ -529,7 +529,7 @@ extension AddServiceTableViewController: UITextFieldDelegate {
             textField.textColor = .systemRed
             return false
         } else {
-            textField.textColor = UIColor(rgb: theme.sub1)
+            textField.textColor = UIColor(hex: theme.sub1)
         }
         
         textField.text = finalString.numberFormattedString(.currency)

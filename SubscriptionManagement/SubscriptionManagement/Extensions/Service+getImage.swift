@@ -7,9 +7,21 @@
 
 import Foundation
 
+
 extension Service {
     
-    func getImage(_ completion: @escaping (Data, String) -> ()) {
+    
+    /**
+     imageURL 속성으로부터 URL 인스턴스를 생성한 다음 클로저로 URL을 기반으로 생성한 Data 타입 속성을 전달합니다.
+     
+     - parameter completion: @escaping Block입니다.
+     - parameter data: URL로 생성한 Data 속성이 전달됩니다.
+     - parameter string: URL을 문자열로 전달합니다.
+     
+     - returns: 최초로 이 method가 실행될 때 전달된 문자열과 서버 URL과 일치한다면 URL로 Data를 생성하고 cachesDirectory에 저장합니다. 두번째 이후로 이 method가 실행되면 cachesDirectory에 저장된 path가 있는지 확인하고 있다면 해당 path를 사용해 Data를 생성합니다.
+     일치하는 path가 없다면 다시 서버 URL로 Data를 생성합니다.
+     */
+    func getImage(_ completion: @escaping (_ data: Data, _ string: String) -> ()) {
         DispatchQueue.global().async {
             var data = Data()
             var imageURLString: String = ""

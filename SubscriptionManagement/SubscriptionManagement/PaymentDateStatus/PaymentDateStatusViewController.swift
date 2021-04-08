@@ -213,11 +213,11 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
                 let index = UserDefaults.standard.integer(forKey: "selectedIndex")
                 let theme = CustomColor.shared.themes[index]
                 
-                underlineView.backgroundColor = UIColor(rgb: theme.sub2)
-                monthLabel.textColor = UIColor(rgb: theme.main)
+                underlineView.backgroundColor = UIColor(hex: theme.sub2)
+                monthLabel.textColor = UIColor(hex: theme.main)
                 
-                cell.saturdayLabel.textColor = UIColor(rgb: theme.sub1)
-                cell.sundayLabel.textColor = UIColor(rgb: theme.sub1)
+                cell.saturdayLabel.textColor = UIColor(hex: theme.sub1)
+                cell.sundayLabel.textColor = UIColor(hex: theme.sub1)
                 
                 return cell
             }
@@ -341,8 +341,8 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         let hexCode = CustomColor.shared.themes[index].sub2
         
         UIView.animate(withDuration: 0.1) {
-            cell.paymentDotView.backgroundColor = (date == self.selectedDate) ? UIColor(rgb: hexCode) : UIColor.clear
-            cell.paymentDotView.borderColor = UIColor(rgb: hexCode)
+            cell.paymentDotView.backgroundColor = (date == self.selectedDate) ? UIColor(hex: hexCode) : UIColor.clear
+            cell.paymentDotView.borderColor = UIColor(hex: hexCode)
         }
         
         handleCellTextColor(cell: cell, cellState: cellState)
@@ -463,12 +463,12 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         calendar.locale = Locale(identifier: "ko_kr")
         
         let theme = CustomColor.shared.themes[UserDefaults.standard.integer(forKey: "selectedIndex")]
-        cell.todayCircleView.backgroundColor = UIColor(rgb: theme.main)
+        cell.todayCircleView.backgroundColor = UIColor(hex: theme.main)
         
         if (calendar.isDateInWeekend(date) && cellState.dateBelongsTo == .thisMonth) {
             cell.dateLabel.alpha = 1
             cell.paymentDotView.alpha = 1
-            cell.dateLabel.textColor = UIColor(rgb: theme.sub1)
+            cell.dateLabel.textColor = UIColor(hex: theme.sub1)
         } else if cellState.dateBelongsTo == .thisMonth {
             cell.dateLabel.alpha = 1
             cell.paymentDotView.alpha = 1

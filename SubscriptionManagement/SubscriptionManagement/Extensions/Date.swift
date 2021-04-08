@@ -100,8 +100,11 @@ extension Date {
     
     
     /**
-     - Parameter renewalDateString:
-     - Returns:
+     파라미터로 전달된 주기일을 기준으로 결제 예상일을 계산합니다.
+     
+     - Parameter renewalDateString: 주기를 전달합니다. 이 파라미터에 문자열을 직접 전달할 수 없습니다. 반드시 코어데이터의 renewalDate 속성만 전달해야합니다.
+     
+     - Returns:renewalDateString로 전달된 주기일을 계산한 다음 연관된 예상 결제일을 [Date] 배열에 담아 리턴합니다.
      */
     func calculatingPaymentDays(_ renewalDateString: String) -> [Date] {
         var component: Calendar.Component = .month
@@ -129,5 +132,6 @@ extension Date {
         
         return paymentDays.filter { Date() <= $0 }
     }
+    
     
 }

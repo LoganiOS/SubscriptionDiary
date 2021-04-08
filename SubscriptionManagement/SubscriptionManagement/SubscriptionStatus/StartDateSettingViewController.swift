@@ -66,7 +66,7 @@ class StartDateSettingViewController: UIViewController {
      */
     func changeTintColor() {
         let index = UserDefaults.standard.integer(forKey: "selectedIndex")
-        let customTintColor = UIColor(rgb: CustomColor.shared.themes[index].main)
+        let customTintColor = UIColor(hex: CustomColor.shared.themes[index].main)
         saveButton.tintColor = customTintColor
     }
     

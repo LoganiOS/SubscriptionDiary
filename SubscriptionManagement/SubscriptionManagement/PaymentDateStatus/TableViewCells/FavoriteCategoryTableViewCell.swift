@@ -128,9 +128,9 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
         let selectedIndex = UserDefaults.standard.integer(forKey: "selectedIndex")
         let theme = CustomColor.shared.themes[selectedIndex]
         
-        let colors = [UIColor(rgb: theme.main),
-                      UIColor(rgb: theme.sub1),
-                      UIColor(rgb: theme.sub2),
+        let colors = [UIColor(hex: theme.main),
+                      UIColor(hex: theme.sub1),
+                      UIColor(hex: theme.sub2),
                       UIColor(named: "Translucent Label Color")]
         
         let categoriesSortedByExpenses = CoreDataManager.shared.categoryExpenses
@@ -211,8 +211,8 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
     func changeTintColorWhenReachedEnd() {
         let selectedIndex = UserDefaults.standard.integer(forKey: "selectedIndex")
         let theme = CustomColor.shared.themes[selectedIndex]
-        let colors = [UIColor(rgb: theme.main), UIColor(rgb: theme.sub1),
-                      UIColor(rgb: theme.sub2), UIColor(named: "Custom Background Color")]
+        let colors = [UIColor(hex: theme.main), UIColor(hex: theme.sub1),
+                      UIColor(hex: theme.sub2), UIColor(named: "Custom Background Color")]
 
         /// 카테고리별로 예상 결제 금액 비율을 계산한 다음 결제 금액이 높은 순서대로 정렬한 배열입니다.
         let values: [CGFloat] = [OTT/all, music/all, office/all, others/all].sorted(by: >)

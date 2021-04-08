@@ -5,6 +5,7 @@
 
 import UIKit
 
+
 /**
  Service타입을 통해 서버로부터 요청한 데이터를 decoding할 수 있습니다.
  */
