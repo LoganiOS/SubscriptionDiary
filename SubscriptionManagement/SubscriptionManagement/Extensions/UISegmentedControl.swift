@@ -9,7 +9,10 @@ import UIKit
 
 extension UISegmentedControl {
     
-    /// iOS 13.0 버전 이상에서 SegmenteControl의 배경을 숨깁니다.
+    
+    /**
+     iOS 13.0 버전 이상에서 SegmenteControl의 배경을 숨깁니다.
+     */
     func hideBackground() {
         if #available(iOS 13.0, *) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -20,5 +23,6 @@ extension UISegmentedControl {
             }
         }
     }
+    
     
 }

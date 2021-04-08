@@ -53,7 +53,6 @@
 		02C79A1625D4474600967972 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF906258A6EED00EBEAF4 /* Date.swift */; };
 		02C79A1B25D4474A00967972 /* UIColor+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024DF8FB258A541700EBEAF4 /* UIColor+init.swift */; };
 		02C79A2025D4474D00967972 /* NSMutableAttributedString+titleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */; };
-		02C79A2525D4475100967972 /* String+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9A258F86CC00141672 /* String+Attribute.swift */; };
 		02C79A2A25D4475300967972 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
 		02C79A2F25D4475500967972 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02879701257638F200C524A0 /* Notification.Name.swift */; };
 		02C79A3925D4475C00967972 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1E687258140BD008FF809 /* UIViewController+alert.swift */; };
@@ -74,7 +73,6 @@
 		02D3C17B25EC1C4A00F8F13A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C17925EC1C4A00F8F13A /* Service.swift */; };
 		02D6183825D96B5B0032C6FC /* SavedServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D6183725D96B5B0032C6FC /* SavedServiceView.swift */; };
 		02D6185925D96C200032C6FC /* SubscriptionWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D6183D25D96B840032C6FC /* SubscriptionWidgetEntryView.swift */; };
-		02DBEF9B258F86CC00141672 /* String+Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9A258F86CC00141672 /* String+Attribute.swift */; };
 		02DBEFA0258FB25400141672 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DBEF9F258FB25400141672 /* CalendarTableViewCell.swift */; };
 		02DC98DC25F914A1004C1327 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98DB25F914A1004C1327 /* FileManager.swift */; };
 		02DC98E125F914F3004C1327 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98DB25F914A1004C1327 /* FileManager.swift */; };
@@ -194,7 +192,6 @@
 		02D3C17925EC1C4A00F8F13A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		02D6183725D96B5B0032C6FC /* SavedServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServiceView.swift; sourceTree = "<group>"; };
 		02D6183D25D96B840032C6FC /* SubscriptionWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionWidgetEntryView.swift; sourceTree = "<group>"; };
-		02DBEF9A258F86CC00141672 /* String+Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attribute.swift"; sourceTree = "<group>"; };
 		02DBEF9F258FB25400141672 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		02DC98DB25F914A1004C1327 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		02DC98E625F951BF004C1327 /* String+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+getImage.swift"; sourceTree = "<group>"; };
@@ -337,7 +334,6 @@
 				02879701257638F200C524A0 /* Notification.Name.swift */,
 				0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */,
 				021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */,
-				02DBEF9A258F86CC00141672 /* String+Attribute.swift */,
 				02DC98E625F951BF004C1327 /* String+getImage.swift */,
 				02628BD225FA613B00D122EA /* Service+getImage.swift */,
 				026FB4AE257E456600F17900 /* NSMutableAttributedString+titleStyle.swift */,
@@ -345,8 +341,8 @@
 				024DF906258A6EED00EBEAF4 /* Date.swift */,
 				029F014D25E5820E00C61313 /* UISegmentedControl.swift */,
 				02DC98DB25F914A1004C1327 /* FileManager.swift */,
-				02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */,
 				02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */,
+				02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -765,7 +761,6 @@
 				02C79A5E25D4514100967972 /* SubscriptionProvider.swift in Sources */,
 				02C79A1B25D4474A00967972 /* UIColor+init.swift in Sources */,
 				02628BD825FA614300D122EA /* Service+getImage.swift in Sources */,
-				02C79A2525D4475100967972 /* String+Attribute.swift in Sources */,
 				02C79A1625D4474600967972 /* Date.swift in Sources */,
 				02C799EC25D445E600967972 /* SavedService.xcdatamodeld in Sources */,
 				029C863725DC13F600EB1C6F /* SavedService.swift in Sources */,
@@ -821,7 +816,6 @@
 				02E19E1425A480B6003492CF /* SettingTableViewCell.swift in Sources */,
 				02CB6D9B255567F300D01B79 /* SceneDelegate.swift in Sources */,
 				0237D36E257BC1F700E5A62A /* AddServiceTableViewController.swift in Sources */,
-				02DBEF9B258F86CC00141672 /* String+Attribute.swift in Sources */,
 				02DC98E725F951BF004C1327 /* String+getImage.swift in Sources */,
 				02D3C16F25EC140900F8F13A /* ServiceApiManager.swift in Sources */,
 				02628BD325FA613B00D122EA /* Service+getImage.swift in Sources */,

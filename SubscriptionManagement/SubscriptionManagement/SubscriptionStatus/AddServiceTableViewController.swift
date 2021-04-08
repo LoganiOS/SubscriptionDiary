@@ -457,7 +457,7 @@ class AddServiceTableViewController: UITableViewController {
         guard let savedStartDate = savedService?.subscriptionStartDate else { return }
         startDate = savedStartDate
         startDateSettingButton.setTitle(savedStartDate.formattedString(), for: .normal)
-        
+
         guard let savedRenewalDate = savedService?.subscriptionRenewalDate else { return }
         renewalDate = savedRenewalDate
         renewalDateSettingButton.setTitle(savedRenewalDate, for: .normal)

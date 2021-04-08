@@ -197,9 +197,7 @@ class SubscriptionStatusViewController: UIViewController {
             guard name == .serviceDidAdd || name == .serviceDidUpdate else { return }
             
             for service in CoreDataManager.shared.list {
-                if service.notificationIsOn {
-                    UNUserNotificationCenter.current().addLocalNotification(service: service)
-                }
+                UNUserNotificationCenter.current().addLocalNotification(service: service)
             }
         }
     }
@@ -281,7 +279,7 @@ class SubscriptionStatusViewController: UIViewController {
         changeTintColor()
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-
+        
         guard !(CoreDataManager.shared.list.isEmpty) else { return }
         
         for i in 0..<CoreDataManager.shared.list.count {

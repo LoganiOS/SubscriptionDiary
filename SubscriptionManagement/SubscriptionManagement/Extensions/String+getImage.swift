@@ -9,6 +9,7 @@ import UIKit
 
 extension String {
     
+    
     func getImage(_ completion: @escaping (Data) -> ()) {
         DispatchQueue.global().async {
             var data = Data()
@@ -20,6 +21,7 @@ extension String {
             
             var imageURL = cachesDirectory.appendingPathComponent(self)
             let path = imageURL.path
+            
             if manager.fileExists(atPath: path) {
                 if let imageData = try? Data(contentsOf: imageURL) {
                     data = imageData
