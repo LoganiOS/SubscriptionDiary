@@ -24,7 +24,9 @@ class CoreDataManager {
     
     
     // 다른 코드블럭에서 CoreDataManager 생성을 할 수 없게 생성자에 private Level 키워드를 추가합니다.
-    private init() { }
+    // 테스트를 진행할 경우 private 키워드를 삭제합니다.
+    // private init() { }
+    init() { }
     
     
     /**
@@ -33,32 +35,36 @@ class CoreDataManager {
     var list = [SavedServiceEntity]()
     
     
-    var mainContext: NSManagedObjectContext { return persistentContainer.viewContext }
-    
-    
     /**
-     사용자가 추가한 서비스 중 다음 결제 예상일이 이번 달에 포함된 서비스만 필터링한 배열입니다.
+     Main Queue와 연관된 managed objects를 저장하거나 *fetch()* method 등을 호출할 수 있습니다.
      */
-    var thisMonthServices: [SavedServiceEntity] {
-        CoreDataManager.shared.list.filter {
-            $0.nextPaymentDate?.month == Date().month &&
-            $0.nextPaymentDate?.year == Date().year
-        }
-    }
+    var mainContext: NSManagedObjectContext { return persistentContainer.viewContext }
     
     
     /**
      사용자가 추가한 서비스의 모든 결제 예상 금액을 합산한 정수 값입니다.
      */
     var total: Int {
-        CoreDataManager.shared.list
+        list
             .compactMap { $0.amountOfPayment?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined() }
             .compactMap { Int($0) }
             .reduce(0, +)
     }
     
+    
     /**
-     사용자가 추가한 서비스 중 다음 결제 예상일이 이번 달에 포함된 서비스만 필터링한 딕셔너리입니다.
+     사용자가 추가한 서비스 중 다음 결제 예상일이 이번 달에 포함된 서비스만 필터링한 배열입니다.
+     */
+    var thisMonthServices: [SavedServiceEntity] {
+        list.filter {
+            $0.nextPaymentDate?.month == Date().month &&
+                $0.nextPaymentDate?.year == Date().year
+        }
+    }
+    
+    
+    /**
+     사용자가 추가한 서비스 중 다음 결제 예상일이 이번 달에 포함된 서비스의 카테고리 이름을 키로 저장하고 해당 카테고리의 이번 달 결제 예상금액을 값으로 저장한 딕셔너리입니다.
      
      키와 값은 아래와 같습니다.
      - key : 카테고리 이름
@@ -83,7 +89,7 @@ class CoreDataManager {
     
     
     /**
-     카테고리의 결제 예상금액에따라 내림차순으로 정렬한 배열입니다.
+     thisMonthServiceCategories 속성을 값따라 내림차순으로 정렬한 배열입니다.
      
      배열의 요소는 튜플 형태의 타입입니다.
      */
@@ -117,6 +123,9 @@ class CoreDataManager {
     }
     
     
+    /**
+     새로운 Entity 인스턴스를 생성하고 list에 추가한 다음 context를 저장합니다.
+     */
     func add(category: String, name: String, englishName: String, imageURLString: String, payment: String, startDate: Date, renewalDate: String, pushOn notification: Bool) {
         let newService = SavedServiceEntity(context: mainContext)
         newService.createdDate = Date()
@@ -131,10 +140,24 @@ class CoreDataManager {
         newService.imageURLString = imageURLString
         
         list.append(newService)
+        
         saveContext()
     }
     
     
+    /**
+     Entity 속성을  변경하고 context를 저장합니다.
+     
+     - parameter service: 변경할 SavedServiceEntity 타입의 속성을 전달합니다.
+     - parameter category: 변경할 카테고리를 문자열로 전달합니다.
+     - parameter name: 변경할 서비스 이름을 문자열로 전달합니다.
+     - parameter englishName: 변경할 서비스 영문 이름을 문자열로 전달합니다.
+     - parameter imageURLString: 변경할 이미지의 URL을 문자열로 전달합니다.
+     - parameter payment: 변경할 결제 예상금액을 문자열로 전달합니다.
+     - parameter startDate: 변경할 구독 사작일을 Date 타입의 속성으로 전달합니다.
+     - parameter renewalDate: 변경할 결제 갱신일을 문자열로 전달합니다.
+     - parameter notification: Push Notification을 받고 싶다면 true를 전달합니다.
+     */
     func update(_ service: SavedServiceEntity, category: String, name: String, englishName: String, imageURLString: String, payment: String, startDate: Date, renewalDate: String, pushOn notification: Bool) {
         service.category = category
         service.koreanName = name
@@ -148,26 +171,44 @@ class CoreDataManager {
         
         saveContext()
     }
-
     
-    func delete(_ service: SavedServiceEntity?) {
-        guard let service = service else { return }
-        mainContext.delete(service)
-        
-        if let index = list.firstIndex(of: service) {
-            list.remove(at: index)
+    
+    /**
+     list 속성과 mainContext에서 파라미터로 전달된 SavedServiceEntity를 삭제합니다.
+     */
+    @discardableResult
+    func delete(_ service: SavedServiceEntity?) -> Bool {
+        if let service = service {
+            mainContext.delete(service)
+            
+            if let index = list.firstIndex(of: service) {
+                list.remove(at: index)
+            }
+            
+            saveContext()
+            
+            return true
         }
-        saveContext()
+        
+        return false
     }
     
     
-    func delete(at index: Int) {
+    /**
+     list 배열의 요소를 index를 전달해 삭제합니다.
+     */
+    @discardableResult
+    func delete(at index: Int) -> SavedServiceEntity? {
+        guard index >= 0 && index < list.count else { return nil }
+        
         let target = list[index]
         
         delete(target)
+        
+        return target
     }
     
-     
+    
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
         
@@ -189,11 +230,11 @@ class CoreDataManager {
             do {
                 try context.save()
             } catch {
-                
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
+    
     
 }
