@@ -17,6 +17,7 @@ extension CoreDataManager {
         return FileManager.sharedContainer().appendingPathComponent("data.json")
     }
     
+    
     func writeSharedJson(list: [SavedServiceEntity]) {
         var services = (1...4).map { (n: Int) -> SavedService in
             SavedService(name: "-", icon: Data(), payment: "-", paymentDate: Date())
@@ -28,7 +29,10 @@ extension CoreDataManager {
                                                  paymentDate: $0.nextPaymentDate ?? Date()) }
         
         let values = services.count > didmapList.count ? didmapList.count : services.count
-        for index in 0..<values { services[index] = didmapList[index] }
+        
+        for index in 0..<values {
+            services[index] = didmapList[index]
+        }
         
         do {
             try JSONEncoder().encode(services).write(to: url)
@@ -41,8 +45,10 @@ extension CoreDataManager {
         }
     }
     
+    
     func readSharedJson() -> [SavedService] {
         var list = [SavedService]()
+        
         if let data = try? Data(contentsOf: url) {
             do {
                 list = try JSONDecoder().decode([SavedService].self, from: data)
