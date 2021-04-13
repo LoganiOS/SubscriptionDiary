@@ -10,7 +10,6 @@ def share_pods
 	 pod 'RxCocoa'
 end
 
-
 target 'SubscriptionManagement' do
 	share_pods
 
@@ -20,3 +19,14 @@ target 'SubscriptionWidgetExtension' do
 	share_pods
 
 end
+
+target 'SubscriptionManagementTests' do
+  share_pods
+
+end
+
+target 'SubscriptionManagementUITests' do
+  share_pods
+
+end
+

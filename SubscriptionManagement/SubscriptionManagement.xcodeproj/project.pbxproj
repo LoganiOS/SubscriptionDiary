@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		00F2645F0C44FA6292ED577B /* Pods_SubscriptionWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68DD7FF54F1CF8B001637E1E /* Pods_SubscriptionWidgetExtension.framework */; };
 		021E2F8225750B9300DC35B5 /* String+numberFormattedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */; };
+		02242B8D262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02242B8C262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift */; };
 		0237D36E257BC1F700E5A62A /* AddServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237D36D257BC1F700E5A62A /* AddServiceTableViewController.swift */; };
 		023A1E3E2588CAF800C2007E /* DateSettingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */; };
 		023EE81425FBDBD200EA0921 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243E2E025F2C7E700DD1BA7 /* UNUserNotificationCenter.swift */; };
@@ -137,6 +138,7 @@
 
 /* Begin PBXFileReference section */
 		021E2F8125750B9300DC35B5 /* String+numberFormattedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+numberFormattedString.swift"; sourceTree = "<group>"; };
+		02242B8C262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewControllerTests.swift; sourceTree = "<group>"; };
 		0237D36D257BC1F700E5A62A /* AddServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewController.swift; sourceTree = "<group>"; };
 		023A1E3D2588CAF800C2007E /* DateSettingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSettingViewControllerDelegate.swift; sourceTree = "<group>"; };
 		02426949261F6AAB0028E206 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				02CB6DB1255567F600D01B79 /* Info.plist */,
 				02426949261F6AAB0028E206 /* CoreDataManagerTests.swift */,
 				0242695D261F6B270028E206 /* MockCoreDataManager.swift */,
+				02242B8C262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift */,
 			);
 			path = SubscriptionManagementTests;
 			sourceTree = "<group>";
@@ -958,6 +961,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0242694A261F6AAB0028E206 /* CoreDataManagerTests.swift in Sources */,
+				02242B8D262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift in Sources */,
 				0242695E261F6B270028E206 /* MockCoreDataManager.swift in Sources */,
 				02CB6DB0255567F600D01B79 /* SubscriptionManagementTests.swift in Sources */,
 			);
