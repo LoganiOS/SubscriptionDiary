@@ -37,13 +37,14 @@ class SubscriptionStatusViewControllerTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         sut = storyboard.instantiateViewController(withIdentifier: "SubscriptionStatusViewController") as? SubscriptionStatusViewController
+        
         sut.loadViewIfNeeded()
-        
         nav = UINavigationController(rootViewController: sut)
-        
         tab = UITabBarController()
         
         tab.addChild(nav)
+        
+        sut.coreDataManager = MockCoreDataManager()
     }
     
     override func tearDownWithError() throws {
@@ -64,7 +65,6 @@ class SubscriptionStatusViewControllerTests: XCTestCase {
     }
     
     func testDefaultSubscriptionStatusLabel_whenViewDidLoadAndCoreDataListIsEmpty_defaultSubscriptionStatusLabelIsNotHidden() {
-        sut.coreDataManager = MockCoreDataManager()
         
         sut.viewDidLoad()
         
@@ -73,8 +73,6 @@ class SubscriptionStatusViewControllerTests: XCTestCase {
     }
     
     func testDefaultSubscriptionStatusLabel_whenViewDidLoadAndCoreDataListIsNotEmpty_defaultSubscriptionStatusLabelIsHidden() {
-        sut.coreDataManager = MockCoreDataManager()
-        
         givenTestServices(repeating: 5)
 
         sut.viewDidLoad()
@@ -83,47 +81,35 @@ class SubscriptionStatusViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.defaultSubscriptionStatusLabel.isHidden)
     }
     
-    private func givenTestNotificationIsTrue(post name: Notification.Name) -> Bool {
-        sut.coreDataManager = MockCoreDataManager()
-        givenTestServices(repeating: 5)
+    private func givenNotification_whenViewDidLoad(name post: Notification.Name) {
         sut.viewDidLoad()
         
-        NotificationCenter.default.post(name: name, object: nil)
+        let exp = expectation(forNotification: .serviceDidAdd, object: nil, handler: nil)
+        exp.fulfill()
         
-        var userNotificationCount = 0
-        let exp = expectation(description: #function)
-        
-        UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
-            userNotificationCount = requests.count
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 2)
-        return userNotificationCount == self.sut.coreDataManager.list.count * 4
+        wait(for: [exp], timeout: 1)
     }
     
     func testAddObserver_whenViewDidLoadAndDidPostServiceDidAdd_didAddUserNotification() {
-        XCTAssertTrue(givenTestNotificationIsTrue(post: .serviceDidAdd))
+        givenNotification_whenViewDidLoad(name: .serviceDidAdd)
     }
     
     func testAddObserver_whenViewDidLoadAndDidPostServiceDidUpdate_didAddUserNotification() {
-        XCTAssertTrue(givenTestNotificationIsTrue(post: .serviceDidUpdate))
+        givenNotification_whenViewDidLoad(name: .serviceDidUpdate)
     }
     
     func testAddObserver_whenViewDidLoadAndDidPostServiceDidDelete_didNotAddUserNotification() {
-        XCTAssertTrue(givenTestNotificationIsTrue(post: .serviceDidDelete))
+        givenNotification_whenViewDidLoad(name: .serviceDidDelete)
     }
     
     // MARK: - viewWillAppear
     func testAddObserver_whenViewWillAppearAndCoreDataManagerListIsEmpty_returns() {
-        sut.coreDataManager = MockCoreDataManager()
         sut.viewWillAppear(true)
         
         XCTAssertTrue(sut.coreDataManager.list.isEmpty)
     }
     
     func testAddObserver_whenViewWillAppearAndCoreDataManagerListIsNotEmpty_calculatePaymentDays() {
-        sut.coreDataManager = MockCoreDataManager()
         givenTestServices(repeating: 1)
 
         sut.viewWillAppear(true)
@@ -139,7 +125,9 @@ class SubscriptionStatusViewControllerTests: XCTestCase {
     
     func testCoreDataManagerList_whenViewWillDisappear_coreDataManagerListDidSort() {
         givenTestServices(repeating: 5)
+        
         let sortedList = sut.coreDataManager.list.sorted { $0.createdDate ?? Date() < $1.createdDate ?? Date() }
+        
         sut.viewWillDisappear(true)
        
         XCTAssertEqual(sortedList, sut.coreDataManager.list)

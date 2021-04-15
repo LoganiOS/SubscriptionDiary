@@ -67,7 +67,6 @@
 		02CB6DA2255567F600D01B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA1255567F600D01B79 /* Assets.xcassets */; };
 		02CB6DA5255567F600D01B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA3255567F600D01B79 /* LaunchScreen.storyboard */; };
 		02CB6DB0255567F600D01B79 /* SubscriptionManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */; };
-		02CB6DBB255567F600D01B79 /* SubscriptionManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB6DBA255567F600D01B79 /* SubscriptionManagementUITests.swift */; };
 		02D1E688258140BD008FF809 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1E687258140BD008FF809 /* UIViewController+alert.swift */; };
 		02D3C16F25EC140900F8F13A /* ServiceApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */; };
 		02D3C17025EC140900F8F13A /* ServiceApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */; };
@@ -82,6 +81,7 @@
 		02DC98ED25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */; };
 		02DC98EE25F95430004C1327 /* CoreDataManager+Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */; };
 		02DE79E325C9778700FFC303 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DE79E225C9778700FFC303 /* CustomColor.swift */; };
+		02E16ED12627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E16ED02627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift */; };
 		02E19E1425A480B6003492CF /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E1325A480B6003492CF /* SettingTableViewCell.swift */; };
 		02E19E1C25A4814C003492CF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E1B25A4814C003492CF /* SettingViewController.swift */; };
 		02E19E2425A483F4003492CF /* ColorSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E19E2325A483F4003492CF /* ColorSettingViewController.swift */; };
@@ -190,7 +190,6 @@
 		02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManagementTests.swift; sourceTree = "<group>"; };
 		02CB6DB1255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CB6DB6255567F600D01B79 /* SubscriptionManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		02CB6DBA255567F600D01B79 /* SubscriptionManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManagementUITests.swift; sourceTree = "<group>"; };
 		02CB6DBC255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02D1E687258140BD008FF809 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceApiManager.swift; sourceTree = "<group>"; };
@@ -202,6 +201,7 @@
 		02DC98E625F951BF004C1327 /* String+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+getImage.swift"; sourceTree = "<group>"; };
 		02DC98EC25F95430004C1327 /* CoreDataManager+Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Widget.swift"; sourceTree = "<group>"; };
 		02DE79E225C9778700FFC303 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		02E16ED02627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewControllerUITests.swift; sourceTree = "<group>"; };
 		02E19E1325A480B6003492CF /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		02E19E1B25A4814C003492CF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		02E19E2325A483F4003492CF /* ColorSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingViewController.swift; sourceTree = "<group>"; };
@@ -509,8 +509,8 @@
 		02CB6DB9255567F600D01B79 /* SubscriptionManagementUITests */ = {
 			isa = PBXGroup;
 			children = (
-				02CB6DBA255567F600D01B79 /* SubscriptionManagementUITests.swift */,
 				02CB6DBC255567F600D01B79 /* Info.plist */,
+				02E16ED02627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift */,
 			);
 			path = SubscriptionManagementUITests;
 			sourceTree = "<group>";
@@ -667,6 +667,7 @@
 					};
 					02CB6DB5255567F600D01B79 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1240;
 						TestTargetID = 02CB6D94255567F300D01B79;
 					};
 				};
@@ -971,7 +972,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02CB6DBB255567F600D01B79 /* SubscriptionManagementUITests.swift in Sources */,
+				02E16ED12627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1280,6 +1281,7 @@
 			baseConfigurationReference = CA5A18C37DE95424EB40BFB1 /* Pods-SubscriptionManagementUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D24QAJZ476;
 				INFOPLIST_FILE = SubscriptionManagementUITests/Info.plist;
@@ -1290,6 +1292,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagementUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SubscriptionManagement;
@@ -1301,6 +1304,7 @@
 			baseConfigurationReference = B0D24328E6EE6417AF7D6D69 /* Pods-SubscriptionManagementUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D24QAJZ476;
 				INFOPLIST_FILE = SubscriptionManagementUITests/Info.plist;
