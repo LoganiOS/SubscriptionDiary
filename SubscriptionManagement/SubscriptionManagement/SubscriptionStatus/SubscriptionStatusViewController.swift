@@ -16,6 +16,12 @@ import WidgetKit
  */
 class SubscriptionStatusViewController: UIViewController {
     
+    /**
+     CoreDataManager의 인스턴스에 접근할 때 사용합니다.
+     
+     테스트를 할 때 이 속성을 MockCoreDataManager로 저장하세요.
+     */
+    var coreDataManager = CoreDataManager.shared
     
     /**
      SubscriptionStatusViewController 상단에 위치한 백그라운드뷰입니다.
@@ -34,7 +40,7 @@ class SubscriptionStatusViewController: UIViewController {
      
      이 속성은 배열을 정렬하기 위해 사용됩니다.
      */
-    lazy var sortedServices: [SavedServiceEntity] = { return CoreDataManager.shared.list }()
+    lazy var sortedServices: [SavedServiceEntity] = { return coreDataManager.list }()
     
     
     /**
@@ -79,7 +85,7 @@ class SubscriptionStatusViewController: UIViewController {
      */
     var total: Int = 0 {
         didSet {
-            total = CoreDataManager.shared.total
+            total = coreDataManager.total
             
             let animation = CATransition()
             animation.duration = 0.3
@@ -149,11 +155,13 @@ class SubscriptionStatusViewController: UIViewController {
      */
     private func presentDefaultLabel() {
         UIView.animate(withDuration: 0.5, delay: .zero) {
-            let serviceIsEmpty = CoreDataManager.shared.list.isEmpty
+            let serviceIsEmpty = self.coreDataManager.list.isEmpty
+            
             self.defaultSubscriptionStatusLabel.alpha = serviceIsEmpty ? 0.3 : 0.0
             self.defaultSubscriptionStatusLabel.isHidden = serviceIsEmpty ? false : true
         }
     }
+
     
     /**
      사용자가 선택한 색상으로 뷰의 틴트컬러를 변경합니다.
@@ -188,7 +196,7 @@ class SubscriptionStatusViewController: UIViewController {
      */
     func addObserver(name: NSNotification.Name, queue: OperationQueue = .main) {
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: queue) { _ in
-            self.total = CoreDataManager.shared.total
+            self.total = self.coreDataManager.total
             
             self.subscriptionStatusTableView.reloadData()
             
@@ -196,13 +204,13 @@ class SubscriptionStatusViewController: UIViewController {
             
             guard name == .serviceDidAdd || name == .serviceDidUpdate else { return }
             
-            for service in CoreDataManager.shared.list {
+            for service in self.coreDataManager.list {
                 UNUserNotificationCenter.current().addLocalNotification(service: service)
             }
         }
     }
     
-    
+
     /**
      이 버튼을 탭하는 경우 사용자가 정렬방법을 선택할 수 있습니다.
      
@@ -212,9 +220,8 @@ class SubscriptionStatusViewController: UIViewController {
     @IBAction func sortServices(_ sender: UIButton) {
         
         showSortActionSheet(sender) { action in
-            sender.setTitle((action.title ?? "")+" ▼", for: .normal)
-            
-            CoreDataManager.shared.list.sort {
+
+            self.coreDataManager.list.sort {
                 switch action.title {
                 case "이름순":
                     return $0.koreanName ?? "" < $1.koreanName ?? ""
@@ -232,6 +239,8 @@ class SubscriptionStatusViewController: UIViewController {
                     return false
                 }
             }
+            
+            sender.setTitle((action.title ?? "")+" ▼", for: .normal)
             self.subscriptionStatusTableView.reloadData()
         }
     }
@@ -240,15 +249,15 @@ class SubscriptionStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CoreDataManager.shared.fetch()
+        coreDataManager.fetch()
         
-        for service in CoreDataManager.shared.list {
+        for service in coreDataManager.list {
             if service.notificationIsOn {
                 UNUserNotificationCenter.current().addLocalNotification(service: service)
             }
         }
         
-        total = CoreDataManager.shared.total
+        total = coreDataManager.total
         
         addDefaultLabel()
         presentDefaultLabel()
@@ -263,7 +272,7 @@ class SubscriptionStatusViewController: UIViewController {
         guard let tempServiceTVC = segue.destination as? AddServiceTableViewController else { return }
         
         if let cell = sender as? SubscriptionStatusTableViewCell, let indexPath = subscriptionStatusTableView.indexPath(for: cell) {
-            let savedService = CoreDataManager.shared.list[indexPath.row]
+            let savedService = coreDataManager.list[indexPath.row]
             
             tempServiceTVC.savedService = savedService
             
@@ -280,11 +289,11 @@ class SubscriptionStatusViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
-        guard !(CoreDataManager.shared.list.isEmpty) else { return }
+        guard !(coreDataManager.list.isEmpty) else { return }
         
-        for i in 0..<CoreDataManager.shared.list.count {
-            CoreDataManager.shared.list[i].nextPaymentDate = CoreDataManager.shared.list[i].subscriptionStartDate?
-                .calculatingPaymentDays(CoreDataManager.shared.list[i].subscriptionRenewalDate ?? "1개월").first
+        for i in 0..<coreDataManager.list.count {
+            coreDataManager.list[i].nextPaymentDate = coreDataManager.list[i].subscriptionStartDate?
+                .calculatingPaymentDays(coreDataManager.list[i].subscriptionRenewalDate ?? "1개월").first
         }
     }
     
@@ -296,7 +305,7 @@ class SubscriptionStatusViewController: UIViewController {
         sortButton.setTitle("정렬방법 ▼", for: .normal)
         
         // 데이터 정렬 방법을 생성날짜(default)로 변경합니다.
-        CoreDataManager.shared.list.sort { $0.createdDate ?? Date() < $1.createdDate ?? Date() }
+        coreDataManager.list.sort { $0.createdDate ?? Date() < $1.createdDate ?? Date() }
         
         self.subscriptionStatusTableView.reloadData()
     }
@@ -311,20 +320,14 @@ extension SubscriptionStatusViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CoreDataManager.shared.list.count
+        return coreDataManager.list.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SubscriptionStatusTableViewCell.identifier, for: indexPath) as? SubscriptionStatusTableViewCell else {
-            #if DEBUG
-            fatalError()
-            #else
-            return UITableViewCell()
-            #endif
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: SubscriptionStatusTableViewCell.identifier, for: indexPath) as! SubscriptionStatusTableViewCell 
         
-        let coreManager = CoreDataManager.shared.list[indexPath.row]
+        let coreManager = coreDataManager.list[indexPath.row]
         cell.serviceNameLabel.text = coreManager.koreanName
         cell.paymentLabel.text = coreManager.amountOfPayment
         
@@ -353,15 +356,15 @@ extension SubscriptionStatusViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        if let serviceName = CoreDataManager.shared.list[indexPath.row].koreanName {
+        if let serviceName = coreDataManager.list[indexPath.row].koreanName {
             
             let indexPathRow = indexPath.row
             let action = UIContextualAction(style: .normal, title: nil) { (action, view, completion) in
                 self.showDeleteCaution(serviceName: serviceName) { _ in
                     UNUserNotificationCenter.current().removeLocalNotification(with: serviceName)
-                    CoreDataManager.shared.delete(at: indexPathRow)
+                    self.coreDataManager.delete(at: indexPathRow)
                     tableView.deleteRows(at: [indexPath], with: .automatic)
-                    self.total = CoreDataManager.shared.total
+                    self.total = self.coreDataManager.total
                     
                     self.presentDefaultLabel()
                 }
