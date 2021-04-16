@@ -208,7 +208,8 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
      
      이 method를 호출하고 변화가 없다면 *layoutIfNeeded()* method를 호출하세요.
      */
-    func changeTintColorWhenReachedEnd() {
+    @discardableResult
+    func changeTintColorWhenReachedEnd() -> Bool {
         let selectedIndex = UserDefaults.standard.integer(forKey: "selectedIndex")
         let theme = CustomColor.shared.themes[selectedIndex]
         let colors = [UIColor(hex: theme.main), UIColor(hex: theme.sub1),
@@ -242,6 +243,8 @@ class FavoriteCategoryTableViewCell: UITableViewCell {
             
             graphIndex += 1
         }
+        
+        return true
     }
     
 }
