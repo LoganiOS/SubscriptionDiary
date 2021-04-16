@@ -35,16 +35,24 @@ class PaymentDateStatusViewController: UIViewController {
     
     
     /**
+     CoreDataManager의 인스턴스에 접근할 때 사용합니다.
+     
+     테스트를 할 때 이 속성을 MockCoreDataManager로 저장하세요.
+     */
+    var coreDataManager = CoreDataManager.shared
+    
+    
+    /**
      이 속성은 ServiceNextPaymentDate 타입의 배열입니다.
      
      사용자가 추가한 서비스가 없다면 (CoreDataManager.shared.list.isEmpty) 빈 배열을 리턴하고,
      사용자가 추가한 서비스가 있다면 서비스 명과 바로 다음 결제일만 문자열로 리턴합니다.
      */
-    var serviceNextPaymentDate: [ServiceNextPaymentDate] {
+    var serviceNextPaymentDates: [ServiceNextPaymentDate] {
         var nextPaymentDate = [ServiceNextPaymentDate]()
         
-        if !(CoreDataManager.shared.list.isEmpty) {
-            CoreDataManager.shared.list.forEach { (service) in
+        if !(coreDataManager.list.isEmpty) {
+            coreDataManager.list.forEach { (service) in
                 nextPaymentDate.append(ServiceNextPaymentDate(serviceName: service.koreanName ?? "",
                                                               nextPaymentDate: service.nextPaymentDate?.formattedString() ?? "" ))
             }
@@ -79,7 +87,7 @@ class PaymentDateStatusViewController: UIViewController {
      사용자가 추가한 서비스들을 다가오는 결제일 순서로 정렬한 배열입니다.
      */
     var savedServicesSortedByDate: [SavedServiceEntity] {
-        return CoreDataManager.shared.list.sorted { $0.nextPaymentDate ?? Date() < $1.nextPaymentDate ?? Date() }
+        return coreDataManager.list.sorted { $0.nextPaymentDate ?? Date() < $1.nextPaymentDate ?? Date() }
     }
     
     
@@ -87,7 +95,7 @@ class PaymentDateStatusViewController: UIViewController {
      사용자가 추가한 서비스들 중 결제 예상일이 이번달에 포함된 서비스들만 필터링 한 다음, 예상 결제 금액을 합산한 값입니다.
      */
     var thisMonthServiceCategoriesTotalPayment: Int {
-        return CoreDataManager.shared.thisMonthServiceCategories.values.reduce(0, +)
+        return coreDataManager.thisMonthServiceCategories.values.reduce(0, +)
     }
     
     
@@ -96,8 +104,13 @@ class PaymentDateStatusViewController: UIViewController {
      
      반드시 *scrollViewDidScroll(_ :)*, *viewDidDisappear(_:)* method에서만 이 속성값을 변경하세요.
      */
-    private var didEndScroll = false
+    var didEndScroll = false
     
+    
+    /**
+     *changeTintColorWhenReachedEnd()* method가 호출되는 경우 리턴하는 값을 이 속성에 저장하세요.
+     */
+    var didChangeTintColor = false
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if self.favoriteCategoryTableView.contentOffset.y > 40 && didEndScroll == false {
@@ -109,7 +122,7 @@ class PaymentDateStatusViewController: UIViewController {
                     if let tableView = scrollView as? UITableView {
                         if let cell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? FavoriteCategoryTableViewCell {
                             // graphStackView의 색상을 변경함과 동시에 constant값을 변경합니다.
-                            cell.changeTintColorWhenReachedEnd()
+                            self.didChangeTintColor = cell.changeTintColorWhenReachedEnd()
                             
                             self.view.layoutIfNeeded()
                         }
@@ -155,7 +168,7 @@ class PaymentDateStatusViewController: UIViewController {
         defer { favoriteCategoryTableView.reloadData() }
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
-        let savedservices = CoreDataManager.shared.list
+        let savedservices = coreDataManager.list
         
         guard !(savedservices.isEmpty) else { return }
         
@@ -185,6 +198,7 @@ class PaymentDateStatusViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         savedServicesSortedBySelectedDate = [SavedServiceEntity]()
+        
         selectedDate = nil
         
         didEndScroll = false
@@ -223,7 +237,7 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
             }
             
         case 1:
-            if CoreDataManager.shared.list.isEmpty {
+            if coreDataManager.list.isEmpty {
                 return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
             } else {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: DDayTableViewCell.identifer, for: indexPath) as? DDayTableViewCell {
@@ -264,13 +278,12 @@ extension PaymentDateStatusViewController: UICollectionViewDataSource, UICollect
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return savedServicesSortedBySelectedDate.isEmpty ? CoreDataManager.shared.list.count : savedServicesSortedBySelectedDate.count
+        return savedServicesSortedBySelectedDate.isEmpty ? coreDataManager.list.count : savedServicesSortedBySelectedDate.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DDayCollectionViewCell.identifier,
-                                                      for: indexPath) as! DDayCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DDayCollectionViewCell.identifier, for: indexPath) as! DDayCollectionViewCell
         
         let selectedDates = savedServicesSortedBySelectedDate.isEmpty ? savedServicesSortedByDate : savedServicesSortedBySelectedDate
         
@@ -418,9 +431,12 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         
         let dates = calendar.selectedDates
         let finalDate = dates.filter { $0 != date }
-        if calendar.selectedDates.count == 2 { calendar.deselect(dates: finalDate) }
         
-        savedServicesSortedBySelectedDate = CoreDataManager.shared.list.filter {
+        if calendar.selectedDates.count == 2 {
+            calendar.deselect(dates: finalDate)
+        }
+        
+        savedServicesSortedBySelectedDate = coreDataManager.list.filter {
             $0.nextPaymentDate?.formattedString() == date.formattedString()
         }
         
@@ -453,7 +469,7 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
         calendar.locale = Locale(identifier: "ko_kr")
         
         cell.todayCircleView.isHidden = (calendar.isDateInToday(date) && cellState.dateBelongsTo == .thisMonth) ? false : true
-        cell.paymentDotView.isHidden = serviceNextPaymentDate.contains(where: { $0.nextPaymentDate == date.formattedString() }) ? false : true
+        cell.paymentDotView.isHidden = serviceNextPaymentDates.contains(where: { $0.nextPaymentDate == date.formattedString() }) ? false : true
     }
     
     
