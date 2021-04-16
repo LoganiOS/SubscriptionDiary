@@ -37,6 +37,7 @@
 		02A0089A256FFE1F0067E81A /* BorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A00899256FFE1F0067E81A /* BorderView.swift */; };
 		02A094CD260E3F4300302C11 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A094CC260E3F4300302C11 /* ServiceCategory.swift */; };
 		02A094D6260E3F7200302C11 /* ServiceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A094CC260E3F4300302C11 /* ServiceCategory.swift */; };
+		02A4D48B26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4D48A26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift */; };
 		02A860D025715E34002F8613 /* CornerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860CF25715E34002F8613 /* CornerRadiusView.swift */; };
 		02A860D625715EC4002F8613 /* CornerRadiusImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860D525715EC4002F8613 /* CornerRadiusImageView.swift */; };
 		02A860DE25715EF8002F8613 /* BorderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A860DD25715EF8002F8613 /* BorderImageView.swift */; };
@@ -66,7 +67,6 @@
 		02CB6DA0255567F300D01B79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6D9E255567F300D01B79 /* Main.storyboard */; };
 		02CB6DA2255567F600D01B79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA1255567F600D01B79 /* Assets.xcassets */; };
 		02CB6DA5255567F600D01B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CB6DA3255567F600D01B79 /* LaunchScreen.storyboard */; };
-		02CB6DB0255567F600D01B79 /* SubscriptionManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */; };
 		02D1E688258140BD008FF809 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D1E687258140BD008FF809 /* UIViewController+alert.swift */; };
 		02D3C16F25EC140900F8F13A /* ServiceApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */; };
 		02D3C17025EC140900F8F13A /* ServiceApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D3C16E25EC140900F8F13A /* ServiceApiManager.swift */; };
@@ -161,6 +161,7 @@
 		029F014D25E5820E00C61313 /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
 		02A00899256FFE1F0067E81A /* BorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderView.swift; sourceTree = "<group>"; };
 		02A094CC260E3F4300302C11 /* ServiceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory.swift; sourceTree = "<group>"; };
+		02A4D48A26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDateStatusViewControllerTests.swift; sourceTree = "<group>"; };
 		02A860CF25715E34002F8613 /* CornerRadiusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusView.swift; sourceTree = "<group>"; };
 		02A860D525715EC4002F8613 /* CornerRadiusImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusImageView.swift; sourceTree = "<group>"; };
 		02A860DD25715EF8002F8613 /* BorderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImageView.swift; sourceTree = "<group>"; };
@@ -187,7 +188,6 @@
 		02CB6DA4255567F600D01B79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02CB6DA6255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CB6DAB255567F600D01B79 /* SubscriptionManagementTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionManagementTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManagementTests.swift; sourceTree = "<group>"; };
 		02CB6DB1255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CB6DB6255567F600D01B79 /* SubscriptionManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubscriptionManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02CB6DBC255567F600D01B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -497,11 +497,11 @@
 		02CB6DAE255567F600D01B79 /* SubscriptionManagementTests */ = {
 			isa = PBXGroup;
 			children = (
-				02CB6DAF255567F600D01B79 /* SubscriptionManagementTests.swift */,
 				02CB6DB1255567F600D01B79 /* Info.plist */,
 				02426949261F6AAB0028E206 /* CoreDataManagerTests.swift */,
 				0242695D261F6B270028E206 /* MockCoreDataManager.swift */,
 				02242B8C262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift */,
+				02A4D48A26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift */,
 			);
 			path = SubscriptionManagementTests;
 			sourceTree = "<group>";
@@ -964,7 +964,7 @@
 				0242694A261F6AAB0028E206 /* CoreDataManagerTests.swift in Sources */,
 				02242B8D262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift in Sources */,
 				0242695E261F6B270028E206 /* MockCoreDataManager.swift in Sources */,
-				02CB6DB0255567F600D01B79 /* SubscriptionManagementTests.swift in Sources */,
+				02A4D48B26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
