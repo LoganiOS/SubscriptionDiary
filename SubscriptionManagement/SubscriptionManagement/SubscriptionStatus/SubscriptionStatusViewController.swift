@@ -249,6 +249,8 @@ class SubscriptionStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setAccessibilityIdentifier()
+        
         coreDataManager.fetch()
         
         for service in coreDataManager.list {
@@ -387,6 +389,24 @@ extension SubscriptionStatusViewController: UITableViewDelegate {
         }
         
         return nil
+    }
+    
+    
+}
+
+
+
+// MARK: - Accessiblility Identifier
+extension SubscriptionStatusViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    func setAccessibilityIdentifier() {
+        sortButton.accessibilityIdentifier = identifier(.sortButton)
+        servicePlusButton.accessibilityIdentifier = identifier(.plusButton)
     }
     
     
