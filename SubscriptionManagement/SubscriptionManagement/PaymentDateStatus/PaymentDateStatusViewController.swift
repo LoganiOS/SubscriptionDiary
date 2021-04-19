@@ -112,6 +112,7 @@ class PaymentDateStatusViewController: UIViewController {
      */
     var didChangeTintColor = false
     
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if self.favoriteCategoryTableView.contentOffset.y > 40 && didEndScroll == false {
             
@@ -240,14 +241,15 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
             if coreDataManager.list.isEmpty {
                 return tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
             } else {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: DDayTableViewCell.identifer, for: indexPath) as? DDayTableViewCell {
-                    return cell
-                }
+                let cell = tableView.dequeueReusableCell(withIdentifier: DDayTableViewCell.identifer, for: indexPath) as! DDayTableViewCell
+                return cell
             }
             
         case 2:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCategoryTableViewCell.identifier, for: indexPath) as? FavoriteCategoryTableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCategoryTableViewCell.identifier, for: indexPath) as! FavoriteCategoryTableViewCell
+            
                 cell.changeTintColor()
+            
                 if self.favoriteCategoryTableView.contentOffset.y > 180 {
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 2) {
@@ -257,9 +259,9 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
                         }
                     }
                 }
-                return cell
-            }
             
+                return cell
+
         default:
             break
         }
@@ -269,6 +271,7 @@ extension PaymentDateStatusViewController: UITableViewDataSource, UITableViewDel
         return UITableViewCell()
         #endif
     }
+    
     
 }
 
