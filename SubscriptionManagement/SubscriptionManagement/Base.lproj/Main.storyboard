@@ -15,7 +15,7 @@
         <!--Subscription Status View Controller-->
         <scene sceneID="Y73-FJ-w9T">
             <objects>
-                <viewController id="PIy-Ey-xbJ" customClass="SubscriptionStatusViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubscriptionStatusViewController" id="PIy-Ey-xbJ" customClass="SubscriptionStatusViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gp7-JP-bex">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1509,7 +1509,7 @@
         <!--Payment Date Status View Controller-->
         <scene sceneID="Uh0-s9-tt5">
             <objects>
-                <viewController id="iOq-F7-QMl" customClass="PaymentDateStatusViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentDateStatusViewController" id="iOq-F7-QMl" customClass="PaymentDateStatusViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vuh-Za-Dma">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
