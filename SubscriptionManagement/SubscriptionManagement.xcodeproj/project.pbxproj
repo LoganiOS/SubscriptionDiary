@@ -22,6 +22,8 @@
 		02628BD825FA614300D122EA /* Service+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02628BD225FA613B00D122EA /* Service+getImage.swift */; };
 		026A3D932588FEDA0008FEBE /* PaymentDateStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026A3D922588FEDA0008FEBE /* PaymentDateStatusViewController.swift */; };
 		026A3D9C2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026A3D9B2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift */; };
+		026C1B91262DCECD00DC8426 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE11A6262DCB1500BDAB95 /* AccessibilityIdentifier.swift */; };
+		026C1B96262DCECE00DC8426 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE11A6262DCB1500BDAB95 /* AccessibilityIdentifier.swift */; };
 		0273C25B2577A453008CBAA2 /* SavedService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */; };
 		0273C2602577A555008CBAA2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0273C25F2577A555008CBAA2 /* CoreDataManager.swift */; };
 		02744F1F25F955C50018B64C /* String+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC98E625F951BF004C1327 /* String+getImage.swift */; };
@@ -90,6 +92,7 @@
 		02EA0A3725FBD77000089499 /* URL+excludeFromBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */; };
 		02EDB2D525716B060008ED4B /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDB2D425716B060008ED4B /* ShadowView.swift */; };
 		02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDB2EB25716E130008ED4B /* SubscriptionStatusTableViewCell.swift */; };
+		02EE11A7262DCB1500BDAB95 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EE11A6262DCB1500BDAB95 /* AccessibilityIdentifier.swift */; };
 		02FA087F258BB1B000C24F96 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FA087E258BB1B000C24F96 /* DateCell.swift */; };
 		02FAC5EF25FA9492001634E4 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAC5EE25FA9492001634E4 /* ServiceProvider.swift */; };
 		02FAC5F425FA949D001634E4 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAC5EE25FA9492001634E4 /* ServiceProvider.swift */; };
@@ -209,6 +212,7 @@
 		02EA0A2D25FBD70100089499 /* URL+excludeFromBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+excludeFromBackup.swift"; sourceTree = "<group>"; };
 		02EDB2D425716B060008ED4B /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		02EDB2EB25716E130008ED4B /* SubscriptionStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusTableViewCell.swift; sourceTree = "<group>"; };
+		02EE11A6262DCB1500BDAB95 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		02FA087E258BB1B000C24F96 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		02FAC5EE25FA9492001634E4 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		2B31ACD6FB9D1BBAAB7891A7 /* Pods_SubscriptionManagementUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubscriptionManagementUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -367,6 +371,7 @@
 				02A094CC260E3F4300302C11 /* ServiceCategory.swift */,
 				02DE79E225C9778700FFC303 /* CustomColor.swift */,
 				0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */,
+				02EE11A6262DCB1500BDAB95 /* AccessibilityIdentifier.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -915,6 +920,7 @@
 				02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */,
 				0291AF1E256ABDD5005080CF /* ServiceListTableViewController.swift in Sources */,
 				02FAC5EF25FA9492001634E4 /* ServiceProvider.swift in Sources */,
+				02EE11A7262DCB1500BDAB95 /* AccessibilityIdentifier.swift in Sources */,
 				02D1E688258140BD008FF809 /* UIViewController+alert.swift in Sources */,
 				0273C2602577A555008CBAA2 /* CoreDataManager.swift in Sources */,
 				026A3D9C2588FFA80008FEBE /* FavoriteCategoryTableViewCell.swift in Sources */,
@@ -963,6 +969,7 @@
 			files = (
 				0242694A261F6AAB0028E206 /* CoreDataManagerTests.swift in Sources */,
 				02242B8D262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift in Sources */,
+				026C1B91262DCECD00DC8426 /* AccessibilityIdentifier.swift in Sources */,
 				0242695E261F6B270028E206 /* MockCoreDataManager.swift in Sources */,
 				02A4D48B26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift in Sources */,
 			);
@@ -973,6 +980,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E16ED12627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift in Sources */,
+				026C1B96262DCECE00DC8426 /* AccessibilityIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
