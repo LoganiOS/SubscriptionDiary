@@ -51,33 +51,33 @@ class CoreDataManagerTests: XCTestCase {
     
     
     // MARK: - init
-    func testCoreDataManager_whenInit_listsAreEmpty() {
+    func testList_whenInit_listsAreEmpty() {
         XCTAssertTrue(sut.list.isEmpty)
     }
     
-    func testCoreDataManager_whenInit_totalValueIsZero() {
+    func testTotal_whenInit_totalValueIsZero() {
         XCTAssertEqual(sut.total, 0)
     }
     
-    func testCoreDataManager_whenInit_mainContextIsNotNil() {
+    func testMainContext_whenInit_mainContextIsNotNil() {
         XCTAssertNotNil(sut.mainContext)
     }
     
-    func testCoreDataManager_whenInit_thisMonthServicesIsEmpty() {
+    func testThisMonthServices_whenInit_thisMonthServicesIsEmpty() {
         XCTAssertTrue(sut.thisMonthServices.isEmpty)
     }
     
-    func testCoreDataManager_whenInit_thisMonthServiceCategoriesIsEmpty() {
+    func testThisMonthServiceCategories_whenInit_thisMonthServiceCategoriesIsEmpty() {
         XCTAssertTrue(sut.thisMonthServiceCategories.isEmpty)
     }
     
-    func testCoreDataManager_whenInit_categoryExpensesIsEmpty() {
+    func testCategoryExpenses_whenInit_categoryExpensesIsEmpty() {
         XCTAssertTrue(sut.categoryExpenses.isEmpty)
     }
     
     
     // MARK: - CoreDataManager when called add method
-    func testCoreDataManager_whenAdd_appendedToList() {
+    func testList_whenAdd_appendedToList() {
         // given
         let beforeCount = sut.list.count
         
@@ -89,7 +89,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertEqual(beforeCount + 1, afterCount)
     }
     
-    func testCoreDataManager_whenAdd_appendedToLast() {
+    func testList_whenAdd_appendedToLast() {
         // given + when
         let n = 3
         givenTestServices(repeating: n)
@@ -98,7 +98,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertEqual(sut.list.last, sut.list[n-1])
     }
     
-    func testCoreDataManager_whenAdd_totalValueIsReduced() {
+    func testTotal_whenAdd_totalValueIsReduced() {
         // given + when
         givenTestServices(repeating: 5)
         
@@ -111,7 +111,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertEqual(sut.total, expectedValue)
     }
     
-    func testCoreDataManager_whenAdd_thisMonthServicesAreFiltered() {
+    func testThisMonthServices_whenAdd_thisMonthServicesAreFiltered() {
         // given + when
         givenTestServices(repeating: 5)
         
@@ -124,7 +124,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertEqual(sut.thisMonthServices.count, expectedValue)
     }
     
-    func testCoreDataManager_whenAdd_thisMonthServiceCategoriesAreMapped() {
+    func testThisMonthServiceCategories_whenAdd_thisMonthServiceCategoriesAreMapped() {
         // given + when
         let key = categories[Int.random(in: 0..<categories.count)]
         
@@ -153,7 +153,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertEqual(expectedTotalAssociatedWithCategory[key], sut.thisMonthServiceCategories[key])
     }
     
-    func testCoreDataManager_whenAdd_categoryExpensesAreSorted() {
+    func testCategoryExpenses_whenAdd_categoryExpensesAreSorted() {
         // given
         givenTestServices(repeating: 10)
         
@@ -172,7 +172,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertEqual(expectedTotalValue, sut.categoryExpenses.map { $0.value })
     }
     
-    func testCoreDataManager_whenAdd_favoriteCategoriesAreEqual() {
+    func testFavoriteCategories_whenAdd_favoriteCategoriesAreEqual() {
         // given
         givenTestServices(repeating: 10)
         let expectedCategories = sut.thisMonthServiceCategories
@@ -185,7 +185,7 @@ class CoreDataManagerTests: XCTestCase {
     
     
     // MARK: - CoreDataManager when called update method
-    func testCoreDataManager_whenUpdate_serviceisUpdated() {
+    func testServiceis_whenUpdate_serviceisUpdated() {
         // given
         let service = SavedServiceEntity(context: sut.mainContext)
         service.koreanName = "넷플릭스"
@@ -208,11 +208,11 @@ class CoreDataManagerTests: XCTestCase {
     }
     
     // MARK: - CoreDataManager when called delete method
-    func testCoreDataManager_whenDeleteTargetIsNil_returnsFalse() {
+    func testDelete_whenDeleteTargetIsNil_returnsFalse() {
         XCTAssertFalse(sut.delete(nil))
     }
     
-    func testCoreDataManager_whenDeleteTargetIsNotNil_returnsTrue() {
+    func testDelete_whenDeleteTargetIsNotNil_returnsTrue() {
         // given
         givenTestServices(repeating: 5)
         
@@ -235,7 +235,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertNil(sut.delete(at: 1))
     }
     
-    func testDataManager_whenDeleteIndexIsValid_returnsNotNil() {
+    func testDelete_whenDeleteIndexIsValid_returnsNotNil() {
         // given
         let count = 10
         let index = count - 1
@@ -245,7 +245,7 @@ class CoreDataManagerTests: XCTestCase {
         XCTAssertNotNil(sut.delete(at: index))
     }
     
-    func testDataManager_whenDeleteIndexIsValid_deletedServiceIsEqual() {
+    func testDelete_whenDeleteIndexIsValid_deletedServiceIsEqual() {
         // given
         let count  = 10
         let index = count - 1

@@ -133,4 +133,5 @@ class SubscriptionStatusViewControllerTests: XCTestCase {
         XCTAssertEqual(sortedList, sut.coreDataManager.list)
     }
     
+    
 }
