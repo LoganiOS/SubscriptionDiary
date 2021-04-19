@@ -98,6 +98,15 @@ class PaymentDateStatusViewControllerTests: XCTestCase {
         XCTAssertEqual(nextPayDate, calculatedNextPayDate)
     }
     
+    // MARK: - viewDidAppear(_:)
+    func testCalendarView_whenViewDidAppear_calendarViewExists() {
+        sut.viewDidLoad()
+        sut.viewWillAppear(true)
+        sut.viewDidAppear(true)
+        
+        XCTAssertTrue(sut.favoriteCategoryTableView.cellForRow(at: IndexPath(row: 0, section: 0)) is CalendarTableViewCell)
+    }
+    
     // MARK: - viewDidDisappear(_:)
     func testSavedServicesSortedBySelectedDate_whenViewDidDisappear_savedServicesSortedBySelectedDateIsEmpty() {
         sut.viewDidDisappear(true)
@@ -126,11 +135,70 @@ class PaymentDateStatusViewControllerTests: XCTestCase {
     }
     
     func testScrollViewDidScroll_whenFavoriteCategoryTableViewContentOffsetIsGreaterThen40_didEndScrollIsTrue() {
+        sut.viewDidLoad()
+        sut.viewWillAppear(true)
+        
         sut.favoriteCategoryTableView.contentOffset.y = 41
         sut.scrollViewDidScroll(sut.favoriteCategoryTableView)
         
         XCTAssertTrue(sut.didEndScroll)
     }
     
+    // MARK:- tableView
+    private func given_tableViewCellForRow(at row: Int) -> UITableViewCell {
+        return sut.favoriteCategoryTableView.cellForRow(at: IndexPath(row: row, section: 0))!
+    }
+    
+    
+    func testTableView_whenDequeueAndIndexPathRowIsZero_CellTypeIsMatched() {
+        sut.viewDidLoad()
+        sut.viewWillAppear(true)
+        
+        let cell = given_tableViewCellForRow(at: 0)
+        
+        XCTAssertTrue(cell is CalendarTableViewCell)
+    }
+    
+    func testTableView_whenDequeueAndIndexPathRowIsOneAndCoreDataManagerIsNotEmpty_CellTypeIsMatched() {
+        sut.viewDidLoad()
+        sut.viewWillAppear(true)
+        
+        givenTestServices(repeating: 5)
+        
+        let cell = given_tableViewCellForRow(at: 1)
+        XCTAssertTrue(cell is DDayTableViewCell)
+    }
+    
+    func testTableView_whenDequeueAndIndexPathRowIsTwo_CellTypeIsMatched() {
+        sut.viewDidLoad()
+        sut.viewWillAppear(true)
+        
+        let cell = given_tableViewCellForRow(at: 2)
+        XCTAssertTrue(cell is FavoriteCategoryTableViewCell)
+    }
+    
+    // MARK:- collectionView
+    func testCollectionView_whenSavedServicesSortedBySelectedDateIsEmpty_numberOfItemsIsEqualCoreDataManagerListCount() {
+        sut.viewDidLoad()
+        sut.viewWillAppear(true)
+        
+        givenTestServices(repeating: 5)
+        let cell = given_tableViewCellForRow(at: 1) as! DDayTableViewCell
+        
+        XCTAssertEqual(cell.dDayCollectionView.numberOfItems(inSection: 0), sut.coreDataManager.list.count)
+    }
+    
+    func testCollectionView_whenSavedServicesSortedBySelectedDateIsNotEmpty_numberOfItemsIsEqualSavedServicesSortedBySelectedDateCount() {
+        sut.viewDidLoad()
+        sut.viewWillAppear(true)
+        
+        givenTestServices(repeating: 5)
+        sut.savedServicesSortedBySelectedDate = sut.coreDataManager.list.dropLast()
+        
+        let cell = given_tableViewCellForRow(at: 1) as! DDayTableViewCell
+        
+        XCTAssertEqual(cell.dDayCollectionView.numberOfItems(inSection: 0), sut.savedServicesSortedBySelectedDate.count)
+    }
 
+    
 }
