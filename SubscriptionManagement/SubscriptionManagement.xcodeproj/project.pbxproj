@@ -50,6 +50,7 @@
 		02C793F1262E9A3500AA986F /* ServiceListTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793F0262E9A3500AA986F /* ServiceListTableViewControllerTests.swift */; };
 		02C793F7262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */; };
 		02C793FD262EC8C700AA986F /* AddServiceTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */; };
+		02C79403262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79402262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift */; };
 		02C799C225D443E400967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
 		02C799CE25D4452B00967972 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799CD25D4452B00967972 /* WidgetKit.framework */; };
 		02C799CF25D4452B00967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
@@ -178,6 +179,7 @@
 		02C793F0262E9A3500AA986F /* ServiceListTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewControllerTests.swift; sourceTree = "<group>"; };
 		02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewControllerUITests.swift; sourceTree = "<group>"; };
 		02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewControllerTests.swift; sourceTree = "<group>"; };
+		02C79402262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewControllerUITests.swift; sourceTree = "<group>"; };
 		02C799C125D443E400967972 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		02C799C325D4440E00967972 /* SubscriptionManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriptionManagement.entitlements; sourceTree = "<group>"; };
 		02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriptionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -525,6 +527,7 @@
 				02CB6DBC255567F600D01B79 /* Info.plist */,
 				02E16ED02627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift */,
 				02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */,
+				02C79402262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift */,
 			);
 			path = SubscriptionManagementUITests;
 			sourceTree = "<group>";
@@ -993,6 +996,7 @@
 				02E16ED12627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift in Sources */,
 				026C1B96262DCECE00DC8426 /* AccessibilityIdentifier.swift in Sources */,
 				02C793F7262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift in Sources */,
+				02C79403262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
