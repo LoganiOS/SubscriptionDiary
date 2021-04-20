@@ -122,12 +122,31 @@ class StartDateSettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAccessibilityIdentifier()
         
         startDateSettingDatePicker.datePickerMode = .date
         startDateSettingDatePicker.date = startDate ?? Date()
         startDateSettingDatePicker.maximumDate = Date()
         
         changeTintColor()
+    }
+    
+    
+}
+
+
+
+// MARK:- AccessibilityIdentifier
+extension StartDateSettingViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    
+    func setAccessibilityIdentifier() {
+        saveButton.accessibilityIdentifier = identifier(.selectStartDateButton)
     }
     
     

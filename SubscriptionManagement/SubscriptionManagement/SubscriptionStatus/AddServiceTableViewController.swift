@@ -280,7 +280,8 @@ class AddServiceTableViewController: UITableViewController {
             guard serviceNameTextFieldText != savedService.koreanName  ||
                   paymentTextFieldText != savedService.amountOfPayment ||
                   startDate != savedService.subscriptionStartDate      ||
-                  renewalDate != savedService.subscriptionRenewalDate  else { return }
+                  renewalDate != savedService.subscriptionRenewalDate  ||
+                  subscriptionNotificationStatusSwitch.isOn != savedService.notificationIsOn else { return }
             
             showUpdateCaution { _ in self.save(sender) }
         }
@@ -413,7 +414,8 @@ class AddServiceTableViewController: UITableViewController {
         super.viewDidLoad()
         
         fetchGestureRecognizer()
-
+        setAccessibilityIdentifier()
+        
         paymentTextField.delegate = self
         
         saveButtonContainerView.layer.opacity = 0.2
@@ -597,3 +599,32 @@ extension AddServiceTableViewController: DateSettingViewControllerDelegate {
     
 }
 
+
+
+// MARK:- AccessibilityIdentifier
+extension AddServiceTableViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    
+    func setAccessibilityIdentifier() {
+        navigationItem.leftBarButtonItem?.accessibilityIdentifier = identifier(.backButton)
+        tableView.accessibilityIdentifier = identifier(.addServiceTableView)
+        serviceNameTextField.accessibilityIdentifier = identifier(.nameField)
+        categorySegmentedControl.accessibilityIdentifier = identifier(.categorySeg)
+        paymentTextField.accessibilityIdentifier = identifier(.payField)
+        startDateSettingButton.accessibilityIdentifier = identifier(.startDateButton)
+        renewalDateSettingButton.accessibilityIdentifier = identifier(.renewalDateButton)
+        subscriptionNotificationStatusSwitch.accessibilityIdentifier = identifier(.pushSwith)
+        saveButton.accessibilityIdentifier = identifier(.saveButton)
+      
+        if let deleteButton = deleteButtonContainerView.subviews.first as? UIButton {
+            deleteButton.accessibilityIdentifier = identifier(.deleteServiceButton)
+        }
+    }
+    
+    
+}

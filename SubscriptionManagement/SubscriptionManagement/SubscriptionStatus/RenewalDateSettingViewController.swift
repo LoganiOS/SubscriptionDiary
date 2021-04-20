@@ -112,6 +112,7 @@ class RenewalDateSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setAccessibilityIdentifier()
         changeTintColor()
     }
     
@@ -135,6 +136,24 @@ extension RenewalDateSettingViewController: UIPickerViewDataSource, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return dateUnit[component][row]
+    }
+    
+    
+}
+
+
+
+// MARK:- AccessibilityIdentifier
+extension RenewalDateSettingViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    
+    func setAccessibilityIdentifier() {
+        saveButton.accessibilityIdentifier = identifier(.selectRenewalDateButton)
     }
     
     
