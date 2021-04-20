@@ -245,7 +245,7 @@
         <!--Service List Table View Controller-->
         <scene sceneID="Ydp-8N-Rz3">
             <objects>
-                <tableViewController id="jIx-kv-u44" customClass="ServiceListTableViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ServiceListTableViewController" id="jIx-kv-u44" customClass="ServiceListTableViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="T3O-47-XoE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -700,7 +700,7 @@
         <!--Add Service Table View Controller-->
         <scene sceneID="Jfw-Ct-wkV">
             <objects>
-                <tableViewController id="0jk-JF-BNK" customClass="AddServiceTableViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddServiceTableViewController" id="0jk-JF-BNK" customClass="AddServiceTableViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="wzj-lL-QZH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2287,7 +2287,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="M9i-6V-Jcn"/>
+        <segue reference="ruD-4G-9ll"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Checked" width="85.333335876464844" height="85.333335876464844"/>

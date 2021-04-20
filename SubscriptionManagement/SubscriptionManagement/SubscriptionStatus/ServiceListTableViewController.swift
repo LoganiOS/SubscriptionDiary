@@ -94,6 +94,8 @@ class ServiceListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setAccessibilityIdentifier()
+        
         if services.isEmpty {
             tableView.backgroundView = spinner
             spinner.startAnimating()
@@ -232,6 +234,24 @@ extension ServiceListTableViewController: UISearchResultsUpdating {
         
         // search bar에 입력된 텍스트를 filterContentForSearchText(_:) 파라미터로 전달합니다.
         filterContentForSearchText(searchedKeyword.components(separatedBy: " ").joined())
+    }
+    
+    
+}
+
+
+
+// MARK: - Accessiblility Identifier
+extension ServiceListTableViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    func setAccessibilityIdentifier() {
+        self.navigationController?.navigationBar.accessibilityIdentifier = identifier(.serviceListTableViewNavigationBar)
+        navigationItem.leftBarButtonItem?.accessibilityIdentifier = identifier(.leftBarButton)
     }
     
     
