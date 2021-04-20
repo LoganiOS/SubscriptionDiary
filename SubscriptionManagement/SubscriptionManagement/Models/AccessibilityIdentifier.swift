@@ -10,4 +10,6 @@ import Foundation
 enum AccessibilityIdentifier: String {
     case sortButton
     case plusButton
+    case leftBarButton
+    case serviceListTableViewNavigationBar
 }
