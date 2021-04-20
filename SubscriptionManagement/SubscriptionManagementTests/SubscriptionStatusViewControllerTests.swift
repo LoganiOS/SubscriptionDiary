@@ -50,6 +50,7 @@ class SubscriptionStatusViewControllerTests: XCTestCase {
     override func tearDownWithError() throws {
         nav = nil
         sut = nil
+        tab = nil
     }
     
     func testSortedServices_whenInit_sortServicesEqualsCOreDataManagerList() {
