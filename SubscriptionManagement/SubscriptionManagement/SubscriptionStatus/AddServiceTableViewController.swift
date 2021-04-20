@@ -22,6 +22,8 @@ import UserNotifications
 class AddServiceTableViewController: UITableViewController {
     
     
+    var coreDataManager = CoreDataManager.shared
+    
     /**
      사용자가 추가 또는 수정 할 서비스와 연관된 이미지를 지정할 수 있습니다.
      
@@ -334,11 +336,19 @@ class AddServiceTableViewController: UITableViewController {
         guard var inputServiceName = serviceNameTextField.text,
               var inputPayment = paymentTextField.text else { return }
         
+        if inputServiceName.isEmpty {
+            inputServiceName = "이름없는 서비스"
+        }
+        
+        if inputPayment.isEmpty {
+            inputPayment = "0".numberFormattedString(.currency)
+        }
+        
         let segIndex = categorySegmentedControl.selectedSegmentIndex
         let selectedCategory = categorySegmentedControl.titleForSegment(at: segIndex) ?? "기타"
         
         if let savedService = savedService {
-            CoreDataManager.shared.update(savedService,
+            coreDataManager.update(savedService,
                                           category: selectedCategory,
                                           name: inputServiceName,
                                           englishName: serviceEnglishNameText,
@@ -352,15 +362,7 @@ class AddServiceTableViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
             
         } else {
-            if inputServiceName.isEmpty {
-                inputServiceName = "이름없는 서비스"
-            }
-            
-            if inputPayment.isEmpty {
-                inputPayment = "0".numberFormattedString(.currency)
-            }
-            
-            CoreDataManager.shared.add(category: selectedCategory,
+            coreDataManager.add(category: selectedCategory,
                                        name: inputServiceName,
                                        englishName: serviceEnglishNameText,
                                        imageURLString: selectedImageURLString ?? "",
@@ -387,7 +389,7 @@ class AddServiceTableViewController: UITableViewController {
         guard let savedServiceName = savedService?.koreanName else { return }
         
         showDeleteCaution(serviceName: savedServiceName) { _ in
-            CoreDataManager.shared.delete(self.savedService)
+            self.coreDataManager.delete(self.savedService)
             NotificationCenter.default.post(name: .serviceDidDelete, object: nil)
             
             self.navigationController?.popViewController(animated: true)
@@ -410,13 +412,12 @@ class AddServiceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
-        self.view.addGestureRecognizer(tapGesture)
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        fetchGestureRecognizer()
 
         paymentTextField.delegate = self
         
         saveButtonContainerView.layer.opacity = 0.2
+        
         deleteButtonContainerView.isHidden = (savedService == nil)
         
         DispatchQueue.main.async {
@@ -454,13 +455,7 @@ class AddServiceTableViewController: UITableViewController {
             categorySegmentedControl.selectedSegmentIndex = 3
         }
         
-        guard let savedStartDate = savedService?.subscriptionStartDate else { return }
-        startDate = savedStartDate
-        startDateSettingButton.setTitle(savedStartDate.formattedString(), for: .normal)
-
-        guard let savedRenewalDate = savedService?.subscriptionRenewalDate else { return }
-        renewalDate = savedRenewalDate
-        renewalDateSettingButton.setTitle(savedRenewalDate, for: .normal)
+        setSavedDate()
     }
     
     
@@ -498,6 +493,14 @@ class AddServiceTableViewController: UITableViewController {
 // MARK:- UIGestureRecognizerDelegate
 extension AddServiceTableViewController: UIGestureRecognizerDelegate {
     
+    
+    func fetchGestureRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    
     /**
      입력 컨트롤(키보드 등)이 활성화 되어있을 때 화면을 탭하면 키보드 활성을 해제하는 method입니다.
       
@@ -521,13 +524,16 @@ extension AddServiceTableViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard textField == paymentTextField else { return true }
+       
         guard let nsString = textField.text as NSString? else { return true }
         
         let finalString = nsString.replacingCharacters(in: range, with: string)
         
         if finalString.count >= 12 {
             textField.textColor = .systemRed
+            
             return false
+            
         } else {
             textField.textColor = UIColor(hex: theme.sub1)
         }
@@ -573,6 +579,19 @@ extension AddServiceTableViewController: DateSettingViewControllerDelegate {
         UIView.animate(withDuration: 0.1) {
             self.navigationController?.view.alpha = alpha
         }
+    }
+    
+    
+    func setSavedDate() {
+        guard let savedStartDate = savedService?.subscriptionStartDate else { return }
+       
+        startDate = savedStartDate
+        startDateSettingButton.setTitle(savedStartDate.formattedString(), for: .normal)
+
+        guard let savedRenewalDate = savedService?.subscriptionRenewalDate else { return }
+        
+        renewalDate = savedRenewalDate
+        renewalDateSettingButton.setTitle(savedRenewalDate, for: .normal)
     }
     
     
