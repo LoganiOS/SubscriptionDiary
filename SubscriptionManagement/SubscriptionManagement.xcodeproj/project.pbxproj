@@ -47,6 +47,9 @@
 		02C063FC25603508007E2EDA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C063FB25603508007E2EDA /* TabBarViewController.swift */; };
 		02C064072560395A007E2EDA /* SubscriptionStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C064062560395A007E2EDA /* SubscriptionStatusViewController.swift */; };
 		02C253EA2581E0E100CF5755 /* StartDateSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C253E92581E0E100CF5755 /* StartDateSettingViewController.swift */; };
+		02C793F1262E9A3500AA986F /* ServiceListTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793F0262E9A3500AA986F /* ServiceListTableViewControllerTests.swift */; };
+		02C793F7262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */; };
+		02C793FD262EC8C700AA986F /* AddServiceTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */; };
 		02C799C225D443E400967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
 		02C799CE25D4452B00967972 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799CD25D4452B00967972 /* WidgetKit.framework */; };
 		02C799CF25D4452B00967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
@@ -172,6 +175,9 @@
 		02C063FB25603508007E2EDA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		02C064062560395A007E2EDA /* SubscriptionStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionStatusViewController.swift; sourceTree = "<group>"; };
 		02C253E92581E0E100CF5755 /* StartDateSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartDateSettingViewController.swift; sourceTree = "<group>"; };
+		02C793F0262E9A3500AA986F /* ServiceListTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewControllerTests.swift; sourceTree = "<group>"; };
+		02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewControllerUITests.swift; sourceTree = "<group>"; };
+		02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewControllerTests.swift; sourceTree = "<group>"; };
 		02C799C125D443E400967972 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		02C799C325D4440E00967972 /* SubscriptionManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriptionManagement.entitlements; sourceTree = "<group>"; };
 		02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriptionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -507,6 +513,8 @@
 				0242695D261F6B270028E206 /* MockCoreDataManager.swift */,
 				02242B8C262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift */,
 				02A4D48A26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift */,
+				02C793F0262E9A3500AA986F /* ServiceListTableViewControllerTests.swift */,
+				02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */,
 			);
 			path = SubscriptionManagementTests;
 			sourceTree = "<group>";
@@ -516,6 +524,7 @@
 			children = (
 				02CB6DBC255567F600D01B79 /* Info.plist */,
 				02E16ED02627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift */,
+				02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */,
 			);
 			path = SubscriptionManagementUITests;
 			sourceTree = "<group>";
@@ -967,9 +976,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C793FD262EC8C700AA986F /* AddServiceTableViewControllerTests.swift in Sources */,
 				0242694A261F6AAB0028E206 /* CoreDataManagerTests.swift in Sources */,
 				02242B8D262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift in Sources */,
 				026C1B91262DCECD00DC8426 /* AccessibilityIdentifier.swift in Sources */,
+				02C793F1262E9A3500AA986F /* ServiceListTableViewControllerTests.swift in Sources */,
 				0242695E261F6B270028E206 /* MockCoreDataManager.swift in Sources */,
 				02A4D48B26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift in Sources */,
 			);
@@ -981,6 +992,7 @@
 			files = (
 				02E16ED12627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift in Sources */,
 				026C1B96262DCECE00DC8426 /* AccessibilityIdentifier.swift in Sources */,
+				02C793F7262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
