@@ -52,22 +52,6 @@ extension UIViewController {
     /**
      사용자에게 알람을 표시하는 method입니다.
      
-     일반적인 경고 알람을 표시할 때 이 method를 호출합니다. 1개의 action을 가지고 있습니다.
-     - 확인: -
-     
-     - parameter message: 화면에 표시하고 싶은 문자열을 전달합니다.
-     */
-    func showCaution(with message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
-    /**
-     사용자에게 알람을 표시하는 method입니다.
-     
      사용자가 저장한 서비스를 정렬해야할때만 이 method를 호출합니다. 3개의 alert action을 가지고 있습니다.
      - 이름순: 이 action의 handler에서 저장한 서비스를 이름 순서대로 정렬하는 코드를 구현합니다.
      - 결제금액순: 이 action의 handler에서 저장한 서비스를 결제금액 순서대로 정렬하는 코드를 구현합니다.
