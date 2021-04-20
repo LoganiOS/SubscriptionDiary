@@ -63,7 +63,5 @@ class SubscriptionStatusViewControllerUITests: XCTestCase {
         
         XCTAssertFalse(app.sheets.firstMatch.exists)
     }
-    
 
-    
 }
