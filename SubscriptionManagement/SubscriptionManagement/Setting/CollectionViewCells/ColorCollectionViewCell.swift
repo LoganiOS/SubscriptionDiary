@@ -44,8 +44,18 @@ class ColorCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setAccessibilityIdentifier()
         // checkImageView의 isHidden 속성을 true로 초기화합니다.
         checkImageView.isHidden = true
+    }
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    
+    func setAccessibilityIdentifier() {
+        checkImageView.accessibilityIdentifier = identifier(.checkImageView)
     }
     
     
