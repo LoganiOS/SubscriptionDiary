@@ -19,7 +19,8 @@ struct SubscriptionWidgetEntryView : View {
         ZStack {
             GeometryReader {
                 reader in
-                Color(.systemBackground)
+//                Color(.systemBackground)
+                Color(.black) // -> for tests
             }
             
             switch family {
@@ -32,6 +33,7 @@ struct SubscriptionWidgetEntryView : View {
             default :
                 Spacer()
             }
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(.black))

@@ -60,7 +60,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="iGb-Uc-q81">
                                                                     <rect key="frame" x="73" y="6.3333333333333357" width="211" height="44.666666666666664"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYc-yU-UQ1">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYc-yU-UQ1">
                                                                             <rect key="frame" x="0.0" y="0.0" width="211" height="20.333333333333332"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                             <nil key="textColor"/>
@@ -357,7 +357,7 @@
         <!--Setting View Controller-->
         <scene sceneID="fqV-E0-KGc">
             <objects>
-                <viewController id="85a-i9-DxA" customClass="SettingViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" id="85a-i9-DxA" customClass="SettingViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PWw-Mo-Gb9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -493,6 +493,7 @@
                     <navigationItem key="navigationItem" id="maL-VT-c1J"/>
                     <connections>
                         <outlet property="listTableView" destination="ktI-Qh-wPh" id="LNP-7B-aoq"/>
+                        <outlet property="underLineView" destination="agO-JE-qfY" id="Qy9-ce-iWY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLD-Cg-NOA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -589,6 +590,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OmC-sk-KAl"/>
+                    <connections>
+                        <outlet property="colorSettingCollectionView" destination="gXH-9Z-JnH" id="nv4-Yy-4F8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="97y-ca-IQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1183,6 +1187,7 @@
                     <connections>
                         <outlet property="categorySegmentedControl" destination="b3K-0z-Fej" id="r4v-7l-IWK"/>
                         <outlet property="deleteButtonContainerView" destination="5Ik-tj-OMd" id="fLq-rA-aIX"/>
+                        <outlet property="iconChangeButton" destination="MmN-xw-fC7" id="zNL-PP-D8z"/>
                         <outlet property="paymentTextField" destination="PFm-e5-qxo" id="47J-zC-zzm"/>
                         <outlet property="renewalDateSettingButton" destination="eaE-tG-Ble" id="0qn-st-e5n"/>
                         <outlet property="saveButton" destination="ffA-Iv-ga6" id="0cR-y9-Nbg"/>
@@ -1200,7 +1205,7 @@
         <!--아이콘 변경-->
         <scene sceneID="kPw-tS-WSw">
             <objects>
-                <viewController id="99e-Qq-Fb2" customClass="IconChangeViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IconChangeViewController" id="99e-Qq-Fb2" customClass="IconChangeViewController" customModule="SubscriptionManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ti-mm-IpT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1738,7 +1743,7 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Service Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH4-hD-OIa">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Service Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH4-hD-OIa">
                                                                                 <rect key="frame" x="0.0" y="52" width="109" height="13.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                                 <nil key="textColor"/>
@@ -2287,7 +2292,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="ruD-4G-9ll"/>
+        <segue reference="M9i-6V-Jcn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Checked" width="85.333335876464844" height="85.333335876464844"/>
