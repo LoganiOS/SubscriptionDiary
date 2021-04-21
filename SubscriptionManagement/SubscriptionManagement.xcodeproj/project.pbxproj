@@ -51,6 +51,12 @@
 		02C793F7262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */; };
 		02C793FD262EC8C700AA986F /* AddServiceTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */; };
 		02C79403262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79402262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift */; };
+		02C79413262F518300AA986F /* PaymentDateStatusViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79412262F518300AA986F /* PaymentDateStatusViewControllerUITests.swift */; };
+		02C79427262F649000AA986F /* IconChangeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79426262F649000AA986F /* IconChangeViewControllerTests.swift */; };
+		02C79449262F685E00AA986F /* IconChangeViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79448262F685E00AA986F /* IconChangeViewControllerUITests.swift */; };
+		02C7944F262FC18100AA986F /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7944E262FC18100AA986F /* SettingViewControllerTests.swift */; };
+		02C79455262FC3F700AA986F /* SettingViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79454262FC3F700AA986F /* SettingViewControllerUITests.swift */; };
+		02C7945B262FC57400AA986F /* ColorSettingViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7945A262FC57400AA986F /* ColorSettingViewControllerUITests.swift */; };
 		02C799C225D443E400967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
 		02C799CE25D4452B00967972 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799CD25D4452B00967972 /* WidgetKit.framework */; };
 		02C799CF25D4452B00967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
@@ -180,6 +186,12 @@
 		02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListTableViewControllerUITests.swift; sourceTree = "<group>"; };
 		02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewControllerTests.swift; sourceTree = "<group>"; };
 		02C79402262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceTableViewControllerUITests.swift; sourceTree = "<group>"; };
+		02C79412262F518300AA986F /* PaymentDateStatusViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDateStatusViewControllerUITests.swift; sourceTree = "<group>"; };
+		02C79426262F649000AA986F /* IconChangeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangeViewControllerTests.swift; sourceTree = "<group>"; };
+		02C79448262F685E00AA986F /* IconChangeViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconChangeViewControllerUITests.swift; sourceTree = "<group>"; };
+		02C7944E262FC18100AA986F /* SettingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewControllerTests.swift; sourceTree = "<group>"; };
+		02C79454262FC3F700AA986F /* SettingViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewControllerUITests.swift; sourceTree = "<group>"; };
+		02C7945A262FC57400AA986F /* ColorSettingViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingViewControllerUITests.swift; sourceTree = "<group>"; };
 		02C799C125D443E400967972 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		02C799C325D4440E00967972 /* SubscriptionManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriptionManagement.entitlements; sourceTree = "<group>"; };
 		02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriptionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -517,6 +529,8 @@
 				02A4D48A26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift */,
 				02C793F0262E9A3500AA986F /* ServiceListTableViewControllerTests.swift */,
 				02C793FC262EC8C700AA986F /* AddServiceTableViewControllerTests.swift */,
+				02C79426262F649000AA986F /* IconChangeViewControllerTests.swift */,
+				02C7944E262FC18100AA986F /* SettingViewControllerTests.swift */,
 			);
 			path = SubscriptionManagementTests;
 			sourceTree = "<group>";
@@ -528,6 +542,10 @@
 				02E16ED02627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift */,
 				02C793F6262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift */,
 				02C79402262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift */,
+				02C79412262F518300AA986F /* PaymentDateStatusViewControllerUITests.swift */,
+				02C79448262F685E00AA986F /* IconChangeViewControllerUITests.swift */,
+				02C79454262FC3F700AA986F /* SettingViewControllerUITests.swift */,
+				02C7945A262FC57400AA986F /* ColorSettingViewControllerUITests.swift */,
 			);
 			path = SubscriptionManagementUITests;
 			sourceTree = "<group>";
@@ -981,11 +999,13 @@
 			files = (
 				02C793FD262EC8C700AA986F /* AddServiceTableViewControllerTests.swift in Sources */,
 				0242694A261F6AAB0028E206 /* CoreDataManagerTests.swift in Sources */,
+				02C7944F262FC18100AA986F /* SettingViewControllerTests.swift in Sources */,
 				02242B8D262215B6003D8BA9 /* SubscriptionStatusViewControllerTests.swift in Sources */,
 				026C1B91262DCECD00DC8426 /* AccessibilityIdentifier.swift in Sources */,
 				02C793F1262E9A3500AA986F /* ServiceListTableViewControllerTests.swift in Sources */,
 				0242695E261F6B270028E206 /* MockCoreDataManager.swift in Sources */,
 				02A4D48B26298FE1002CB360 /* PaymentDateStatusViewControllerTests.swift in Sources */,
+				02C79427262F649000AA986F /* IconChangeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,10 +1013,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C79455262FC3F700AA986F /* SettingViewControllerUITests.swift in Sources */,
 				02E16ED12627556E005572F3 /* SubscriptionStatusViewControllerUITests.swift in Sources */,
 				026C1B96262DCECE00DC8426 /* AccessibilityIdentifier.swift in Sources */,
 				02C793F7262EBEA100AA986F /* ServiceListTableViewControllerUITests.swift in Sources */,
+				02C79449262F685E00AA986F /* IconChangeViewControllerUITests.swift in Sources */,
 				02C79403262F2D1600AA986F /* AddServiceTableViewControllerUITests.swift in Sources */,
+				02C79413262F518300AA986F /* PaymentDateStatusViewControllerUITests.swift in Sources */,
+				02C7945B262FC57400AA986F /* ColorSettingViewControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
