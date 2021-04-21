@@ -43,7 +43,7 @@ extension UNUserNotificationCenter {
             
             content.categoryIdentifier = "\(name)\(unit)"
             
-            let matchedDate = DateComponents(year: date.year, month: date.month, day: date.day, hour: 14)
+            let matchedDate = DateComponents(year: date.year, month: date.month, day: date.day - 1, hour: 14)
             let trigger = UNCalendarNotificationTrigger(dateMatching: matchedDate, repeats: false)
             let request = UNNotificationRequest(identifier: content.categoryIdentifier, content: content, trigger: trigger)
             
