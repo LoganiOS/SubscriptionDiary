@@ -159,6 +159,7 @@ class PaymentDateStatusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setAccessibilityIdentifier()
         favoriteCategoryTableView.contentInset.top = 60
     }
     
@@ -508,6 +509,24 @@ extension PaymentDateStatusViewController: JTACMonthViewDataSource, JTACMonthVie
                 cell.dateLabel.textColor = UIColor.lightGray
             }
         }
+    }
+    
+    
+}
+
+
+
+// MARK: - Accessiblility Identifier
+extension PaymentDateStatusViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    
+    func setAccessibilityIdentifier() {
+        favoriteCategoryTableView.accessibilityIdentifier = identifier(.favoriteTableView)
     }
     
     
