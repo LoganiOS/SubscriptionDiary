@@ -23,10 +23,22 @@ extension CoreDataManager {
             SavedService(name: "-", icon: Data(), payment: "-", paymentDate: Date())
         }
         
-        let didmapList = list.map { SavedService(name: $0.koreanName ?? "-",
-                                                 icon: $0.imageURLString?.getImageData() ?? Data(),
-                                                 payment: $0.amountOfPayment ?? "-",
-                                                 paymentDate: $0.nextPaymentDate ?? Date()) }
+        let defaultImage = UIImage(named: "DefaultImage")!
+        let defaultImageData = defaultImage.pngData() ?? Data()
+        
+        let didmapList = list.map { service -> SavedService in
+            
+            let name = service.koreanName ?? "-"
+            let pay = service.amountOfPayment ?? "₩ -,---"
+            let payDay = service.nextPaymentDate ?? Date()
+            
+            if let url = service.imageURLString, url.count < 1 {
+                return SavedService(name: name, icon: defaultImageData, payment: pay, paymentDate: payDay)
+            }
+            
+            return SavedService(name: name, icon: service.imageURLString?.getImageData() ?? defaultImageData, payment: pay, paymentDate: payDay)
+            
+        }
         
         let values = services.count > didmapList.count ? didmapList.count : services.count
         
