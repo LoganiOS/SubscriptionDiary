@@ -20,10 +20,20 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var listTableView: UITableView!
     
     
+    /**
+     설정 Label 아래 밑줄을 표시하는 UIView입니다.
+     */
+    @IBOutlet weak var underLineView: UIView!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        let index = UserDefaults.standard.integer(forKey: "selectedIndex")
+        underLineView.backgroundColor = UIColor(hex: CustomColor.shared.themes[index].sub2)
+        
         listTableView.reloadData()
     }
     

@@ -33,6 +33,12 @@ class AddServiceTableViewController: UITableViewController {
     
     
     /**
+     이 버튼을 탭하면 IconChangeViewController 로 이동합니다.
+     */
+    @IBOutlet weak var iconChangeButton: UIButton!
+    
+    
+    /**
      사용자가 추가 또는 수정 할 서비스 명의 이름을 입력하는 TextField입니다.
      
      returnKeyType 속성값을 .done으로 저장합니다.
@@ -371,7 +377,7 @@ class AddServiceTableViewController: UITableViewController {
                                        startDate: startDate ?? Date(),
                                        renewalDate: renewalDate ?? "1개월",
                                        pushOn: subscriptionNotificationStatusSwitch.isOn)
-            
+            print(selectedImageURLString)
             NotificationCenter.default.post(name: .serviceDidAdd, object: nil)
             dismiss(animated: true, completion: nil)
         }
@@ -620,6 +626,7 @@ extension AddServiceTableViewController {
         renewalDateSettingButton.accessibilityIdentifier = identifier(.renewalDateButton)
         subscriptionNotificationStatusSwitch.accessibilityIdentifier = identifier(.pushSwith)
         saveButton.accessibilityIdentifier = identifier(.saveButton)
+        iconChangeButton.accessibilityIdentifier = identifier(.changeButton)
       
         if let deleteButton = deleteButtonContainerView.subviews.first as? UIButton {
             deleteButton.accessibilityIdentifier = identifier(.deleteServiceButton)

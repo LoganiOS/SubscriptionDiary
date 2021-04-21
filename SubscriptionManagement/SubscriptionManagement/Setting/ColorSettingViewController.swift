@@ -23,6 +23,15 @@ class ColorSettingViewController: UIViewController {
     var index = UserDefaults.standard.integer(forKey: "selectedIndex")
     
     
+    @IBOutlet weak var colorSettingCollectionView: UICollectionView!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setAccessibilityIdentifier()
+    }
+    
 }
 
 
@@ -80,6 +89,23 @@ extension ColorSettingViewController: UICollectionViewDelegateFlowLayout {
         let height = 300 - flowLayout.sectionInset.top
         
         return CGSize(width: width, height: height)
+    }
+    
+    
+}
+
+
+
+// MARK: - Accessiblility Identifier
+extension ColorSettingViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    func setAccessibilityIdentifier() {
+        colorSettingCollectionView.accessibilityIdentifier = identifier(.colorCollectionView)
     }
     
     

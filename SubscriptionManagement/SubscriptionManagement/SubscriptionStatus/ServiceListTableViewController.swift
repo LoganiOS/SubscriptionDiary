@@ -250,8 +250,9 @@ extension ServiceListTableViewController {
     }
     
     func setAccessibilityIdentifier() {
-        self.navigationController?.navigationBar.accessibilityIdentifier = identifier(.serviceListTableViewNavigationBar)
+        navigationController?.navigationBar.accessibilityIdentifier = identifier(.serviceListTableViewNavigationBar)
         navigationItem.leftBarButtonItem?.accessibilityIdentifier = identifier(.leftBarButton)
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = identifier(.rightBarButton)
     }
     
     

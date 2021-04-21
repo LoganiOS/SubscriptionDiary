@@ -35,6 +35,8 @@ class IconChangeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setAccessibilityIdentifier()
+        
         if services.isEmpty {
             spinner.center = self.iconChangeCollectionView.center
             spinner.startAnimating()
@@ -118,6 +120,24 @@ extension IconChangeViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.size.width - (flowLayout.minimumInteritemSpacing * (numberOfCells-1))
         
         return CGSize(width: width/(numberOfCells), height: width/(numberOfCells))
+    }
+    
+    
+}
+
+
+
+// MARK: - Accessiblility Identifier
+extension IconChangeViewController {
+    
+    
+    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
+        return matchedID.rawValue
+    }
+    
+    
+    func setAccessibilityIdentifier() {
+        iconChangeCollectionView.accessibilityIdentifier = identifier(.iconCollectionView)
     }
     
     
