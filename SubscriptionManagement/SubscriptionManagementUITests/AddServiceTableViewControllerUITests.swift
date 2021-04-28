@@ -40,7 +40,7 @@ class AddServiceTableViewControllerUITests: XCTestCase {
         
         app.buttons[identifier(.startDateButton)].tap()
         app.buttons[identifier(.selectStartDateButton)].tap()
-        
+        app.segmentedControls[identifier(.categorySeg)].buttons.element(boundBy: 1).tap()
         app.buttons[identifier(.renewalDateButton)].tap()
         app.buttons[identifier(.selectRenewalDateButton)].tap()
         

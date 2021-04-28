@@ -28,15 +28,16 @@ class PaymentDateStatusViewControllerUITests: XCTestCase {
     }
     
     func testViewController_whenTappedSecondTabBarButton_displayPaymentDateStatusViewController() {
-        app.buttons["Most Recent"].tap()
+        app.buttons["모아보기"].tap()
         
         XCTAssertTrue(app.tables[identifier(.favoriteTableView)].exists)
     }
     
-//    func testCalendarView_whenSwipe_didChangeMonthLabel() {
-//        app.buttons["Most Recent"].tap()
-//        
-//        app.tables.firstMatch.cells.firstMatch.collectionViews.firstMatch.cells.firstMatch.swipeDown()
-//    }
+    func testCalendarView_whenSwipe_didChangeMonthLabel() {
+        app.buttons["모아보기"].tap()
+        
+        let targetCell = app.tables.firstMatch.cells.firstMatch
+        targetCell.swipeUp()
+    }
 
 }

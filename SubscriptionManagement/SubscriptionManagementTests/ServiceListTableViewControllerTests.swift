@@ -53,16 +53,7 @@ class ServiceListTableViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.searchBarIsEmpty)
     }
     
-    func testSearchBarIsEmpty_whenSearchBarTextIsNotEmpty_returnsFalse() {
-        sut.viewDidLoad()
-        
-        sut.searchController.searchBar.text = "test"
-        sut.searchController.isActive = true
-        XCTAssertFalse(sut.searchBarIsEmpty)
-//        XCTAssertTrue(sut.searchController.isActive)
-    }
-    
-    func testFetchSearchController_setSearchController() {
+    func testSetSearchController_setSearchController() {
         sut.viewDidLoad()
         
         XCTAssertNotNil(sut.searchController)

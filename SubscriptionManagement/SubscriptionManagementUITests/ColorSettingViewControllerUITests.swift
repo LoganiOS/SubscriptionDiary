@@ -28,7 +28,7 @@ class ColorSettingViewControllerUITests: XCTestCase {
     }
 
     func testTableView_whenTappedCell_goToColorSettingViewController() {
-        app.buttons["More"].tap() // Tabbar's Button
+        app.buttons["설정"].tap() // Tabbar's Button
         app.tables.firstMatch.cells.firstMatch.tap()
         
         app.collectionViews[identifier(.colorCollectionView)].cells.firstMatch.tap()
