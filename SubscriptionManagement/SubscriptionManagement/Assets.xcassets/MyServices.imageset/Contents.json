@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Insight.png",
+      "filename" : "MyServices.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Insight@2x.png",
+      "filename" : "MyServices@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Insight@3x.png",
+      "filename" : "MyServices@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
