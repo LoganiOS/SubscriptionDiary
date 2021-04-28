@@ -12,7 +12,7 @@ struct SavedServiceView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(0..<4) { index in
+            ForEach(0..<entry.list.count) { index in
                 HStack() {
                     if let image = UIImage(data: entry.list[index].icon) {
                         Image(uiImage: image)
@@ -32,12 +32,13 @@ struct SavedServiceView: View {
                         Text(entry.list[index].name)
                             .font(.system(size: 10))
                             .fontWeight(.light)
-                            .foregroundColor(.white)
+                            .lineLimit(1)
+                            .foregroundColor(.primary)
 
                         Text(entry.list[index].payment)
                             .font(.system(size: 10))
                             .fontWeight(.medium)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                     }
 
                     Spacer()
@@ -50,12 +51,12 @@ struct SavedServiceView: View {
                         Text("D-\(day)")
                             .font(.system(size: 13))
                             .fontWeight(.bold)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
 
                         Text(entry.list[index].paymentDate.formattedString())
                             .font(.system(size: 7))
                             .fontWeight(.regular)
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                     }
                 }
             }

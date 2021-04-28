@@ -19,7 +19,7 @@ struct SubscriptionWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             SubscriptionWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("구독기입장")
+        .configurationDisplayName("결제 예상일 모아보기")
         .description("구독서비스 정리")
         .supportedFamilies([.systemSmall, .systemMedium])
     }

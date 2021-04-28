@@ -19,8 +19,7 @@ struct SubscriptionWidgetEntryView : View {
         ZStack {
             GeometryReader {
                 reader in
-//                Color(.systemBackground)
-                Color(.black) // -> for tests
+                Color(.systemBackground)
             }
             
             switch family {
