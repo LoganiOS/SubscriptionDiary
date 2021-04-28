@@ -11,7 +11,7 @@ import UIKit
 /**
  '구독 시작일/결제일'을 지정할 수 있는 뷰 컨트롤러입니다.
  */
-class StartDateSettingViewController: UIViewController {
+class StartDateSettingViewController: CommonViewController {
     
     
     /**
@@ -57,6 +57,11 @@ class StartDateSettingViewController: UIViewController {
      */
     @IBOutlet weak var saveButton: UIButton!
 
+    
+    func setAccessibilityIdentifier() {
+        saveButton.accessibilityIdentifier = identifier(.selectStartDateButton)
+    }
+    
     
     /**
      사용자가 선택한 색상으로 뷰의 틴트컬러를 변경합니다.
@@ -129,24 +134,6 @@ class StartDateSettingViewController: UIViewController {
         startDateSettingDatePicker.maximumDate = Date()
         
         changeTintColor()
-    }
-    
-    
-}
-
-
-
-// MARK:- AccessibilityIdentifier
-extension StartDateSettingViewController {
-    
-    
-    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
-        return matchedID.rawValue
-    }
-    
-    
-    func setAccessibilityIdentifier() {
-        saveButton.accessibilityIdentifier = identifier(.selectStartDateButton)
     }
     
     

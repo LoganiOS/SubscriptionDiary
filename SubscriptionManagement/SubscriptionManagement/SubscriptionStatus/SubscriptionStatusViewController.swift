@@ -14,7 +14,7 @@ import WidgetKit
  
  사용자가 추가한 서비스를 관리하거나 서비스를 추가하기 위한 뷰 컨트롤러입니다.
  */
-class SubscriptionStatusViewController: UIViewController {
+class SubscriptionStatusViewController: CommonViewController {
     
     /**
      CoreDataManager의 인스턴스에 접근할 때 사용합니다.
@@ -125,6 +125,12 @@ class SubscriptionStatusViewController: UIViewController {
         
         return defaultLabel
     }()
+    
+    
+    func setAccessibilityIdentifier() {
+        sortButton.accessibilityIdentifier = identifier(.sortButton)
+        servicePlusButton.accessibilityIdentifier = identifier(.plusButton)
+    }
     
     
     /**
@@ -389,24 +395,6 @@ extension SubscriptionStatusViewController: UITableViewDelegate {
         }
         
         return nil
-    }
-    
-    
-}
-
-
-
-// MARK: - Accessiblility Identifier
-extension SubscriptionStatusViewController {
-    
-    
-    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
-        return matchedID.rawValue
-    }
-    
-    func setAccessibilityIdentifier() {
-        sortButton.accessibilityIdentifier = identifier(.sortButton)
-        servicePlusButton.accessibilityIdentifier = identifier(.plusButton)
     }
     
     

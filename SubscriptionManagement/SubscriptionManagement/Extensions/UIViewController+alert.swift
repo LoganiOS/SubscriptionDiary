@@ -70,22 +70,7 @@ extension UIViewController {
         
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         
-        
-        // iPad에서 이 method가 호출되는 경우 이 알람을 method를 호출한 버튼 오른쪽을 sourceView로 지정합니다.
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            if let popoverController = alert.popoverPresentationController {
-                let bounds = sender.bounds
-                let rect = CGRect(x: bounds.maxX - 20, y: bounds.maxY,
-                                  width: bounds.width, height: bounds.height)
-                
-                popoverController.sourceView = self.view
-                popoverController.sourceRect = rect
-                
-                self.present(alert, animated: true, completion: nil)
-            }
-        } else {
-            self.present(alert, animated: true, completion: nil)
-        }
+        self.present(alert, animated: true, completion: nil)
         
         alert.view.subviews
             .flatMap { $0.constraints }

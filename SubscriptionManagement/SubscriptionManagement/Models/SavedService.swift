@@ -39,14 +39,14 @@ public struct SavedService: Codable {
      사용자가 추가한 서비스의 결제 예상일들 중 가장 빠른 결제일입니다.
      */
     let paymentDate: Date
-   
+
     
     /**
      사용자가 추가한 서비스가 없는 경우 배열에 4개의 default 요소를 저장합니다.
      */
     static var dummy: [SavedService] {
         return (0...3).map { _ in
-            SavedService(name: "-", icon: Data(), payment: "-", paymentDate: Date())
+            return SavedService(name: "서비스 이름", icon: Data(), payment: "결제금액", paymentDate: Date())
         }
     }
     

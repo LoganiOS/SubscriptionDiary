@@ -38,13 +38,15 @@ extension CoreDataManager {
             
             return SavedService(name: name, icon: service.imageURLString?.getImageData() ?? defaultImageData, payment: pay, paymentDate: payDay)
             
-        }
+        }.sorted(by: { $0.paymentDate < $1.paymentDate })
         
         let values = services.count > didmapList.count ? didmapList.count : services.count
         
         for index in 0..<values {
             services[index] = didmapList[index]
         }
+        
+        services = services.filter { $0.name != "-" }
         
         do {
             try JSONEncoder().encode(services).write(to: url)

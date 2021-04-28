@@ -15,7 +15,7 @@ import Moya
  서버로부터 데이터를 가져오며, 데이터를 가져오는 동안 UIActivityIndicatorView 애니메이션이 실행됩니다.
  데이터를 불러오면 UIActivityIndicatorView의 애니메이션이 중지되고  모든 서비스 목록을 테이블뷰에 표시합니다.
  */
-class ServiceListTableViewController: UITableViewController {
+class ServiceListTableViewController: CommonTableViewController {
     
     
     /**
@@ -59,6 +59,12 @@ class ServiceListTableViewController: UITableViewController {
     }
     
     
+    func setAccessibilityIdentifier() {
+        navigationController?.navigationBar.accessibilityIdentifier = identifier(.serviceListTableViewNavigationBar)
+        navigationItem.leftBarButtonItem?.accessibilityIdentifier = identifier(.leftBarButton)
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = identifier(.rightBarButton)
+    }
+    
     
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -70,7 +76,9 @@ class ServiceListTableViewController: UITableViewController {
         
         // 사용자가 cell(UITableViewCell)을 탭해 화면을 이동하는 경우
         if let cell = sender as? UITableViewCell {
-            guard let cell = cell as? ServiceListTableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
+            guard let cell = cell as? ServiceListTableViewCell,
+                  let indexPath = tableView.indexPath(for: cell) else { return }
+            
             guard let addServiceTableViewController = segue.destination as? AddServiceTableViewController else { return }
             
             let service: Service = searchBarIsFiltering ? filteredServices[indexPath.row] : ServiceApiManager.shared.services[indexPath.section][indexPath.row]
@@ -105,7 +113,7 @@ class ServiceListTableViewController: UITableViewController {
             }
         }
         
-        fetchSearchController()
+        setSearchController()
         changeTintColor()
     }
     
@@ -219,12 +227,14 @@ extension ServiceListTableViewController: UISearchResultsUpdating {
      - searchBar.placeholder를 "구독중인 서비스를 검색해보세요."로 저장합니다.
      - navigationItem.searchController에 searchController를 저장합니다.
      */
-    func fetchSearchController() {
+    func setSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "구독중인 서비스를 검색해보세요."
         
         navigationItem.searchController = searchController
+        
+        // delegate 사용하기
     }
     
 
@@ -239,21 +249,3 @@ extension ServiceListTableViewController: UISearchResultsUpdating {
     
 }
 
-
-
-// MARK: - Accessiblility Identifier
-extension ServiceListTableViewController {
-    
-    
-    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
-        return matchedID.rawValue
-    }
-    
-    func setAccessibilityIdentifier() {
-        navigationController?.navigationBar.accessibilityIdentifier = identifier(.serviceListTableViewNavigationBar)
-        navigationItem.leftBarButtonItem?.accessibilityIdentifier = identifier(.leftBarButton)
-        navigationItem.rightBarButtonItem?.accessibilityIdentifier = identifier(.rightBarButton)
-    }
-    
-    
-}

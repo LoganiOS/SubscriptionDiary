@@ -57,7 +57,8 @@
 		02C7944F262FC18100AA986F /* SettingViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7944E262FC18100AA986F /* SettingViewControllerTests.swift */; };
 		02C79455262FC3F700AA986F /* SettingViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79454262FC3F700AA986F /* SettingViewControllerUITests.swift */; };
 		02C7945B262FC57400AA986F /* ColorSettingViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7945A262FC57400AA986F /* ColorSettingViewControllerUITests.swift */; };
-		02C799C225D443E400967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
+		02C79465263075F900AA986F /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C79464263075F900AA986F /* CommonViewController.swift */; };
+		02C7946B2630775C00AA986F /* CommonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C7946A2630775C00AA986F /* CommonTableViewController.swift */; };
 		02C799CE25D4452B00967972 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799CD25D4452B00967972 /* WidgetKit.framework */; };
 		02C799CF25D4452B00967972 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C799C125D443E400967972 /* SwiftUI.framework */; };
 		02C799D225D4452B00967972 /* SubscriptionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C799D125D4452B00967972 /* SubscriptionWidget.swift */; };
@@ -192,6 +193,8 @@
 		02C7944E262FC18100AA986F /* SettingViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewControllerTests.swift; sourceTree = "<group>"; };
 		02C79454262FC3F700AA986F /* SettingViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewControllerUITests.swift; sourceTree = "<group>"; };
 		02C7945A262FC57400AA986F /* ColorSettingViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSettingViewControllerUITests.swift; sourceTree = "<group>"; };
+		02C79464263075F900AA986F /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
+		02C7946A2630775C00AA986F /* CommonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableViewController.swift; sourceTree = "<group>"; };
 		02C799C125D443E400967972 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		02C799C325D4440E00967972 /* SubscriptionManagement.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubscriptionManagement.entitlements; sourceTree = "<group>"; };
 		02C799CC25D4452B00967972 /* SubscriptionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SubscriptionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,7 +267,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02C799C225D443E400967972 /* SwiftUI.framework in Frameworks */,
 				59F19CF7419715AE61679CD5 /* Pods_SubscriptionManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +325,8 @@
 				02766A9025DD4EDB00AC947D /* IconChangeViewController.swift */,
 				02C253E92581E0E100CF5755 /* StartDateSettingViewController.swift */,
 				029214C72587E5430039B170 /* RenewalDateSettingViewController.swift */,
+				02C79464263075F900AA986F /* CommonViewController.swift */,
+				02C7946A2630775C00AA986F /* CommonTableViewController.swift */,
 			);
 			path = SubscriptionStatus;
 			sourceTree = "<group>";
@@ -390,8 +394,8 @@
 				0291AF23256AC44B005080CF /* SavedService.swift */,
 				02A094CC260E3F4300302C11 /* ServiceCategory.swift */,
 				02DE79E225C9778700FFC303 /* CustomColor.swift */,
-				0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */,
 				02EE11A6262DCB1500BDAB95 /* AccessibilityIdentifier.swift */,
+				0273C2592577A453008CBAA2 /* SavedService.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -948,6 +952,7 @@
 				02EDB2D525716B060008ED4B /* ShadowView.swift in Sources */,
 				024DF8FC258A541700EBEAF4 /* UIColor+init.swift in Sources */,
 				02EDB2EC25716E130008ED4B /* SubscriptionStatusTableViewCell.swift in Sources */,
+				02C79465263075F900AA986F /* CommonViewController.swift in Sources */,
 				0291AF1E256ABDD5005080CF /* ServiceListTableViewController.swift in Sources */,
 				02FAC5EF25FA9492001634E4 /* ServiceProvider.swift in Sources */,
 				02EE11A7262DCB1500BDAB95 /* AccessibilityIdentifier.swift in Sources */,
@@ -977,6 +982,7 @@
 				02628BD325FA613B00D122EA /* Service+getImage.swift in Sources */,
 				0291AF24256AC44B005080CF /* SavedService.swift in Sources */,
 				02E19E1C25A4814C003492CF /* SettingViewController.swift in Sources */,
+				02C7946B2630775C00AA986F /* CommonTableViewController.swift in Sources */,
 				02A860DE25715EF8002F8613 /* BorderImageView.swift in Sources */,
 				02FA087F258BB1B000C24F96 /* DateCell.swift in Sources */,
 				026A3D932588FEDA0008FEBE /* PaymentDateStatusViewController.swift in Sources */,
@@ -1250,7 +1256,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1274,7 +1280,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gookjo.SubscriptionManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

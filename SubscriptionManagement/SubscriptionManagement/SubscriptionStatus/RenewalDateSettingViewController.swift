@@ -11,7 +11,7 @@ import UIKit
 /**
  '구독 갱신일'을 지정할 수 있는 뷰 컨트롤러입니다.
  */
-class RenewalDateSettingViewController: UIViewController {
+class RenewalDateSettingViewController: CommonViewController {
     
     
     /**
@@ -48,6 +48,11 @@ class RenewalDateSettingViewController: UIViewController {
     var delegate: DateSettingViewControllerDelegate?
     
 
+    func setAccessibilityIdentifier() {
+        saveButton.accessibilityIdentifier = identifier(.selectRenewalDateButton)
+    }
+    
+    
     /**
      사용자가 선택한 색상으로 뷰의 틴트컬러를 변경합니다.
      
@@ -136,24 +141,6 @@ extension RenewalDateSettingViewController: UIPickerViewDataSource, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return dateUnit[component][row]
-    }
-    
-    
-}
-
-
-
-// MARK:- AccessibilityIdentifier
-extension RenewalDateSettingViewController {
-    
-    
-    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
-        return matchedID.rawValue
-    }
-    
-    
-    func setAccessibilityIdentifier() {
-        saveButton.accessibilityIdentifier = identifier(.selectRenewalDateButton)
     }
     
     

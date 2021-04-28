@@ -19,7 +19,7 @@ import UserNotifications
  이전 화면이 SubscriptionStatusViewController인 경우
  - 사용자가 입력한 정보를 기준으로 모든 속성을 초기화합니다.
  */
-class AddServiceTableViewController: UITableViewController {
+class AddServiceTableViewController: CommonTableViewController {
     
     
     var coreDataManager = CoreDataManager.shared
@@ -196,6 +196,27 @@ class AddServiceTableViewController: UITableViewController {
     
     
     /**
+     속성에 accessibilityIdentifier를 부여합니다.
+     */
+    func setAccessibilityIdentifier() {
+        navigationItem.leftBarButtonItem?.accessibilityIdentifier = identifier(.backButton)
+        tableView.accessibilityIdentifier = identifier(.addServiceTableView)
+        serviceNameTextField.accessibilityIdentifier = identifier(.nameField)
+        categorySegmentedControl.accessibilityIdentifier = identifier(.categorySeg)
+        paymentTextField.accessibilityIdentifier = identifier(.payField)
+        startDateSettingButton.accessibilityIdentifier = identifier(.startDateButton)
+        renewalDateSettingButton.accessibilityIdentifier = identifier(.renewalDateButton)
+        subscriptionNotificationStatusSwitch.accessibilityIdentifier = identifier(.pushSwith)
+        saveButton.accessibilityIdentifier = identifier(.saveButton)
+        iconChangeButton.accessibilityIdentifier = identifier(.changeButton)
+      
+        if let deleteButton = deleteButtonContainerView.subviews.first as? UIButton {
+            deleteButton.accessibilityIdentifier = identifier(.deleteServiceButton)
+        }
+    }
+    
+    
+    /**
      사용자가 선택한 색상으로 뷰의 틴트컬러를 변경합니다.
      */
     func changeTintColor() {
@@ -207,6 +228,7 @@ class AddServiceTableViewController: UITableViewController {
         categorySegmentedControl.hideBackground()
         categorySegmentedControl.setTitleTextAttributes([.foregroundColor: UIColor(hex: theme.sub1)], for: .selected)
         categorySegmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.lightGray], for: .normal)
+        categorySegmentedControl.tintColor = UIColor(hex: theme.sub2)
         
         paymentTextField.textColor = UIColor(hex: theme.sub1)
         
@@ -215,6 +237,7 @@ class AddServiceTableViewController: UITableViewController {
         renewalDateSettingButton.tintColor = UIColor(hex: theme.sub1)
         
         subscriptionNotificationStatusSwitch.onTintColor = UIColor(hex: theme.sub1)
+        subscriptionNotificationStatusSwitch.tintColor = UIColor(hex: theme.sub2)
         
         guard savedService != nil else { return }
         
@@ -377,7 +400,7 @@ class AddServiceTableViewController: UITableViewController {
                                        startDate: startDate ?? Date(),
                                        renewalDate: renewalDate ?? "1개월",
                                        pushOn: subscriptionNotificationStatusSwitch.isOn)
-            print(selectedImageURLString)
+            
             NotificationCenter.default.post(name: .serviceDidAdd, object: nil)
             dismiss(animated: true, completion: nil)
         }
@@ -419,10 +442,8 @@ class AddServiceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchGestureRecognizer()
+        setGestureRecognizer()
         setAccessibilityIdentifier()
-        
-        paymentTextField.delegate = self
         
         saveButtonContainerView.layer.opacity = 0.2
         
@@ -502,7 +523,7 @@ class AddServiceTableViewController: UITableViewController {
 extension AddServiceTableViewController: UIGestureRecognizerDelegate {
     
     
-    func fetchGestureRecognizer() {
+    func setGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
@@ -605,33 +626,3 @@ extension AddServiceTableViewController: DateSettingViewControllerDelegate {
     
 }
 
-
-
-// MARK:- AccessibilityIdentifier
-extension AddServiceTableViewController {
-    
-    
-    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
-        return matchedID.rawValue
-    }
-    
-    
-    func setAccessibilityIdentifier() {
-        navigationItem.leftBarButtonItem?.accessibilityIdentifier = identifier(.backButton)
-        tableView.accessibilityIdentifier = identifier(.addServiceTableView)
-        serviceNameTextField.accessibilityIdentifier = identifier(.nameField)
-        categorySegmentedControl.accessibilityIdentifier = identifier(.categorySeg)
-        paymentTextField.accessibilityIdentifier = identifier(.payField)
-        startDateSettingButton.accessibilityIdentifier = identifier(.startDateButton)
-        renewalDateSettingButton.accessibilityIdentifier = identifier(.renewalDateButton)
-        subscriptionNotificationStatusSwitch.accessibilityIdentifier = identifier(.pushSwith)
-        saveButton.accessibilityIdentifier = identifier(.saveButton)
-        iconChangeButton.accessibilityIdentifier = identifier(.changeButton)
-      
-        if let deleteButton = deleteButtonContainerView.subviews.first as? UIButton {
-            deleteButton.accessibilityIdentifier = identifier(.deleteServiceButton)
-        }
-    }
-    
-    
-}

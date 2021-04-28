@@ -11,7 +11,7 @@ import UIKit
 /**
  AddServiceTableViewController의 serviceImageView 이미지 변경을 돕는 뷰 컨트롤러입니다.
  */
-class IconChangeViewController: UIViewController {
+class IconChangeViewController: CommonViewController {
     
     
     /**
@@ -30,6 +30,11 @@ class IconChangeViewController: UIViewController {
      Gray Style의 UIActivityIndicatiorView입니다.
      */
     var spinner = UIActivityIndicatorView(style: .gray)
+    
+    
+    func setAccessibilityIdentifier() {
+        iconChangeCollectionView.accessibilityIdentifier = identifier(.iconCollectionView)
+    }
     
     
     override func viewDidLoad() {
@@ -120,24 +125,6 @@ extension IconChangeViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.size.width - (flowLayout.minimumInteritemSpacing * (numberOfCells-1))
         
         return CGSize(width: width/(numberOfCells), height: width/(numberOfCells))
-    }
-    
-    
-}
-
-
-
-// MARK: - Accessiblility Identifier
-extension IconChangeViewController {
-    
-    
-    private func identifier(_ matchedID: AccessibilityIdentifier) -> String {
-        return matchedID.rawValue
-    }
-    
-    
-    func setAccessibilityIdentifier() {
-        iconChangeCollectionView.accessibilityIdentifier = identifier(.iconCollectionView)
     }
     
     
