@@ -12,5 +12,57 @@
 결제 금액과 결제일을 쉽고 편하게
 용돈 기입장처럼 적어 나가면서 관리할 수 있습니다.
 
+## 구독 기입장
 
-앱 스토어 [링크](https://apps.apple.com/kr/app/구독-기입장/id1564284442)
+**2021.01 - 2021.04 / 개인 프로젝트 / 앱 출시 후 유지보수**
+
+**설명**
+
+- 정기적으로 구독 서비스를 자주 이용하는 요즘 다양한 결제 수단으로 본인도 모르는 사이 결제가 자동으로 이루어 지거나 무료 사용 기간이 끝나도 해지 시점을 놓쳐서 원치 않은 결제가 이루어지는 등의 불편했던 경험을 바탕으로 개발하게 되었습니다.
+- 카드정보를 입력하지 않고 수기로 사용자가 이용중인 서비스를 직접 추가하면서 결제 금액과 결제일을 쉽고 편하게 용돈 기입장처럼 적어 나가면서 관리할 수 있습니다.
+
+**화면**
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1a008184-fe75-43e1-a0e4-cda6ca570444/simulator_screenshot_2E4E9883-0581-4997-BA4E-F9FA0B2B66FE.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1a008184-fe75-43e1-a0e4-cda6ca570444/simulator_screenshot_2E4E9883-0581-4997-BA4E-F9FA0B2B66FE.png)
+
+홈화면
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d45c720e-6d50-4a1a-bf50-ac6962676a95/simulator_screenshot_ACF1AB34-A0A3-4F4D-9EB7-258CF346572F.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d45c720e-6d50-4a1a-bf50-ac6962676a95/simulator_screenshot_ACF1AB34-A0A3-4F4D-9EB7-258CF346572F.png)
+
+아이콘 변경 화면
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ce18412f-eba1-47b2-8ca5-c8441826a456/simulator_screenshot_2AC8500A-47E9-401C-A3F4-AAD893EB7FF6.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ce18412f-eba1-47b2-8ca5-c8441826a456/simulator_screenshot_2AC8500A-47E9-401C-A3F4-AAD893EB7FF6.png)
+
+다크모드 / 라이트모드
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8150ff65-1ef0-42ae-ace7-7aa2ce2e44ed/simulator_screenshot_59AD8DDB-03F7-4191-8366-EB043BA61E80.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8150ff65-1ef0-42ae-ace7-7aa2ce2e44ed/simulator_screenshot_59AD8DDB-03F7-4191-8366-EB043BA61E80.png)
+
+모아보기 화면 - 1
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/852cf30f-52b0-4d0f-b543-b3f7a45e25a8/simulator_screenshot_65AF4A48-DEE4-42BE-9279-028DCF68E81D.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/852cf30f-52b0-4d0f-b543-b3f7a45e25a8/simulator_screenshot_65AF4A48-DEE4-42BE-9279-028DCF68E81D.png)
+
+목록 추가 화면
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9cbf62a7-540d-4462-b80c-6784454b2654/simulator_screenshot_8666B8BD-976E-4550-A6A9-E40666EA299F.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9cbf62a7-540d-4462-b80c-6784454b2654/simulator_screenshot_8666B8BD-976E-4550-A6A9-E40666EA299F.png)
+
+모아보기 화면 - 2
+
+**맡은 부분**
+
+- 기획 / 디자인 / 개발
+
+**주요 기능**
+
+- 사용자 데이터 저장 (CoreData / UserDefaultKey)
+- C#으로 구현한 데이터베이스에 서비스 목록 API 요청 (Azure / Moya / Alamofire)
+- 카테고리 이용 현황을 그래프로 보여주기 (StackView)
+- 달력에 다가오는 결제일 표시 및 선택한 날짜에 따라 TableView 변경 (JTAppleCalendar)
+- 사용자가 알림을 허용할 경우 결제일 하루 전 알람 기능 (UserNotifications)
+- 다이나믹 폰트 및 다크모드 지원
+- 위젯 지원 (SwiftUI)
+
+**사용 기술 & 라이브러리**
+
+- `Swift` `SwiftUI` `RxSwift` `WidgetKit` `C#` `CoreData` `UserNotifications` `AudioToolbox`  `XCTest` `Alamofire` `JTAppleCalendar` `Moya` `Azure` `GitHub`
+
+ - 앱스토어 링크는 [**여기**](https://apps.apple.com/kr/app/구독-기입장/id1564284442)를 클릭해주세요!
