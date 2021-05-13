@@ -29,11 +29,4 @@
 .
 .
 .
-<br>
 앱스토어 링크는 [**여기**](https://apps.apple.com/kr/app/구독-기입장/id1564284442)를 클릭해주세요!
-<br>
-.
-.
-.
-<br>
-© LoganiOS. All rights reserved.
